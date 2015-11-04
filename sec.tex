@@ -1,0 +1,259 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% Monografia 
+%%% Curso de Especialização em Sistemas Eletrônicos para Controle
+%%% Faculdade SENAI Anchieta - São Paulo - SP
+%%% José William Rodrigues Pereira 
+%%% Outubro / 2015
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Declaração da Classe
+%\documentclass[pdftex,12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
+%\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage[brazilian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{setspace}
+%\usepackage{natbib}
+%\usepackage[backkend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage{biblatex}
+%\addbibresource{sample.bib}
+%\addbibresource{bibliografia.bib}
+
+\input{macros}
+
+%%%----------------------------------- Declarações
+\autor{JOSÉ WILLIAM RODRIGUES PEREIRA}
+\nome{José William Rodrigues }
+\ultimonome{Pereira}
+\titulo
+{
+  Estudo comparativo entre técnicas de controle: 
+  PID Digital, Lógica Paraconsistente e PID-Paraconsistente
+  (Híbrido), implementadas em microcontrolador com núcleo ARM e
+  operando em sistema térmico de prótotipo de chocadeira. 
+}
+\subtitulo{ }
+\curso{Sistemas Eletrônicos para Controle }
+\instituicao{Faculdade de Tecnologia SENAI Anchieta }
+\sigla{FTSA }
+\unidadeacademica{Pós-Graduação Lato Sensu }
+\grau{Especialista }
+\tipodotrabalho{Monografia } 
+\orientador{Vander Celio Nunes }
+\torientador{Me Profº }
+\cidade{São Paulo}
+\ano{2016}
+\npaginas{nnn}
+\CDU{xxx.yy}
+\areas{1.Técnicas de Controle 
+		    2.Lógica Paraconsistente
+	            3.Controle PID Digital
+	            4.PID-Paraconsistente.} %???
+\examinadorum{Marcos Antônio Felizola}
+\texaminadorum{Prof Msc}
+\examinadordois{José Gil de Oliveira}
+\texaminadordois{Prof Msc}
+\data{dd/mm/aaaa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Inicio do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\configuramargens
+
+\begin{document}
+\capa
+\folhaderosto
+\fichacatalografica
+\folhadeaprovacao
+\dedicatoria
+{
+      Dedico este trabalho à minha família, 
+      pela paciência;
+      aos amigos de curso e professores, 
+      pelo companheirismo e dedicação;
+      a todos que em algum momento compartilharam 
+      ideias, palavras de incentivo e carinho;
+      À todos os amantes do saber.
+}
+\epigrafe{"... Reze e trabalhe, fazendo de conta que esta vida é um dia de capina com sol quente, que às vezes custa muito a passar, mas sempre passa. E você ainda pode ter muito pedaço bom de alegria... Cada um tem a sua hora e a sua vez: você há de ter a sua."(Sagarana)}
+{ João Guimarães Rosa }
+\resumo
+{
+Resumo.....
+}
+\resumolinguaestrangeira
+{
+Abstract
+}
+
+\agradecimentos
+{
+Agradeço...
+}
+
+\sumario
+
+\listadefiguras
+
+\listadetabelas
+
+%\singlespacing 	% espaçamento simples
+\onehalfspacing		% espaçamento de 1,5
+%doublespacing		% espaçamento duplo
+
+\chapter{Introdução}
+Comparar sistemas mediante uma mesma planta é uma forma de avaliar as limitações e possibilidades de ambos os elementos de estudo, possibilitando uma melhor escolha no momento de planejar e executar um projeto, obtendo assim um ganho de tempo, que reflete diretamente no custo de implementação e manutenção além de conferir ao projeto maior possibilidade de atingir um melhor desempenho e uma maior confiabilidade. 
+
+Sistemas de controle são largamente utilizados pela indústria como um todo a muitos anos, tendo algumas técnicas amplamente difundidas e com alto grau de maturação, como é o caso do controlador PID (Proporcional-Integral-Derivativo), mas que apesar de tudo não é o mais adequado para algumas aplicações que possuem não-linearidades, atrasos de transporte e/ou parâmetros variantes no tempo.\cite{Ferreira2012}
+
+%%%% Estudo Comparativo entre as Técnicas de Controle Fuzzy, PI e Adaptativo Aplicado ao Processo de Fabricação de Papel Reciclado Utilizando a Ferramenta Delta Tune
+%%% Cesar Ferreira pag16
+
+
+Tendo em vista que estudos de novas formas de controle não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para implementação de tomada de descisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, entre outras.\cite{JoaoInacio}
+ 
+%Objetivo ou Finalidade: preocupação em distinguir a característica comum ou as leis gerais que regem determinados eventos.
+O presente trabalho tem como objetivo a caracterização de duas teorias utilizadas em sistemas controle, PID e Lógica Paraconsistente, sua implementação e posterior comparação utilizando uma plataforma que contemple recursos que possibilite uma análise de desempenho e complexidade de implementação.
+
+
+\section{Formulação do Problema}
+O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits e hardware dedicado para processamento digital de sinais e cáculos avançados integrado.
+
+A integração de hardware dedicado junto ao núcleo dos microcontroladores, possibilita a implementação de rotinas complexas de cálculo para controle do tipo PID, de forma a dirimir o custo de processamento intrinseco ao controle clássico. 
+
+Em contrapartida, novas técnicas utilizando lógicas modernas, como a Lógica Paraconsistente, possuem baixo custo de processamento em relação aos cálculos matemáticos, por serem inerentemente simples, não necessitando de um hardware dedicado para sua implementação, e podendo ser realizada a execução em dispositivos de menor capacidade de processamento, reduzindo assim o custo do projeto, mas mantendo a qualidade do sinal processado.
+
+Existe a possibilidade de substituir um controlador PID digital por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade do sinal, complexidade de implementação e carga de processamento reduzida? Será que um controlador híbrido pode ser uma alternativa viável, dentro dos critérios já citados? 
+
+Para responder essas questões é implementado um sistema típico de controle por ação térmica, no caso um protótipo de chocadeira de ovos de galinha, que apresenta relativamente baixa temperatura de operação, mas que deve haver um extrito controle e variação praticamente nula da temperatura.
+ A comparação, em plataforma de 32-bits com hardware dedicado, para sistema de controle PID e lógica paraconsistente 
+
+
+
+\section{Hipótese e Relevância do Trabalho}
+
+\section{Objetivo Geral}
+%Objeto, subdividido em:
+%Material: aquilo que pretende estudar, analisar, interpretar ou verificar de modo geral.
+O estudo comparativo a ser realizado utiliza uma plataforma de desenvolvimento da Texas Instruments Inc. TM4C123G como elemento controlador, interfaceando com um driver para acionamento de elementos de aquecimento em sistema térmico.
+
+\section{Objetivos Específicos}
+%Formal: enfoque especial, em face de diversas ciências que possuem o mesmo objetivo material.
+Um enfoque especial é dado à complexidade da implementação no controlador e sua carga de processamento, afim de concluir se é possível um implementação de baixa capacidade de processamento realizar um controle com precisão comparável ao modo clássico, assim como uma forma híbrida, mesclando essa relação capacidade de processamento com precisão do controle. 
+
+
+\section{Justificativa}
+%Função: aperfeiçoamento, através de crescente acervo de conhecimento, da relação do homem com o seu mundo.
+A função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo à potencial teoria emergente.
+
+\section{Limitações da pesquisa}
+
+\section{Estrutura do Trabalho}
+
+
+%Método
+
+
+
+
+
+%%-------------------------------------- Seção
+%%\section{Logica Paraconsistente}
+%%-------------------------------------- Citação
+
+
+
+
+\citacao{
+ typesetting systems: \LaTeX{}
+}
+
+
+
+
+%%-------------------------------------- SubSeção
+%%\subsection{Reticulado de Hasse}
+
+
+%%-------------------------------------- Seção
+%%\section{Controle PID}
+
+%%-------------------------------------- SubSeção
+%%\subsection{Ziegler-Nichols}
+
+
+%%-------------------------------------- Bibliografia
+
+\begin{thebibliography}{9}
+
+
+\bibitem{Dorf-Bishop}
+	DORF, Richard C.; BISHOP, Robert H.
+	\textbf{Modern Control Systems},
+	12th ed.
+	New Jersey, 
+	Prentice Hall,
+	2011
+
+
+\bibitem{NormanNise}
+	NISE, Norman S.
+	\textbf{Engenharia de Sistemas de Controle},
+	3ª ed. ,
+	LTC Editora,
+	2002
+
+\bibitem{JoaoInacio}
+	Da SILVA FILHO, João Inácio.
+	\textbf{Métodos de Aplicações da Lógica Paraconsistente Anotada de anotação com dois valores-LPA2v},
+	Revista Seleção Documental,
+	n.1 Ano 1,
+	Ed. Paralogike,
+	Santos-SP,
+	2006
+
+
+\bibitem{Ferreira2012}
+	Cesar Ferreira,
+	\textbf{Estudo Comparativo entre as Técnicas de 		Controle Fuzzy, PI e Adaptativo Aplicado ao 			Processo de Fabricação de Papel Reciclado 			Utilizando a Ferramenta Delta Tune},
+	2012,
+	pag16,
+	São Paulo
+
+
+
+\end{thebibliography}
+
+%%-------------------------------------- Apendice
+%%\appendix
+%%\chapter{Titulo do Apendice}
+
+%%-------------------------------------- Anexo
+%%\annex
+%%\chapter{Titulo do Anexo}
+
+
+
+
+\end{document}
+
+%%%% Estrutura base do arquivo
+%%[] http://www.demat.ufma.br/monografia.php <acesso em 12/10/2015>
+%%%% Inclusão de pacote de acentuação Francês/Portugues
+%%[] https://www.overleaf.com/help/61-how-do-i-do-to-use-letters-with-accents-e-dot-g-in-french-or-portuguese#.Vhwirc8Tr18 <acesso em 12/10/2015 
+
+
+%http://link.periodicos.capes.gov.br/sfxlcl41?frbrVersion=2&ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2015-10-27T23%3A55%3A45IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-doaj&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Implementation+of+PID+and+Fuzzy+PID+controllers+for+Temperature+control+in+CSTR&rft.jtitle=International+Journal+of+Advanced+Research+in+Computer+Science&rft.btitle=&rft.aulast=&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=S.+Srinivasulu+Raju&rft.aucorp=&rft.date=20130501&rft.volume=04&rft.issue=05&rft.part=&rft.quarter=&rft.ssn=&rft.spage=12&rft.epage=&rft.pages=&rft.artnum=&rft.issn=0976-5697&rft.eissn=&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&rft.eisbn=&rft_dat=%3Cdoaj%3E01c00f89709d40549e219bbc941a6a0a%3C/doaj%3E%3Cgrp_id%3E7778711627802309381%3C/grp_id%3E%3Coa%3E%3C/oa%3E&rft_id=info:oai/&svc.fulltext=yes&req.language=por
+
+% http://link.periodicos.capes.gov.br/sfxlcl41?frbrVersion=3&ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2015-10-27T23%3A55%3A45IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-springer_jour&rft_val_fmt=info:ofi/fmt:kev:mtx:&rft.genre=&rft.atitle=Adaptive+fuzzy+tuning+of+PID+controllers&rft.jtitle=Neural+Computing+and+Applications&rft.btitle=&rft.aulast=Esfandyari&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Esfandyari%2C+Morteza&rft.aucorp=&rft.date=201312&rft.volume=23&rft.issue=1&rft.part=&rft.quarter=&rft.ssn=&rft.spage=19&rft.epage=28&rft.pages=&rft.artnum=&rft.issn=0941-0643&rft.eissn=1433-3058&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1007%2Fs00521-012-1215-8&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&rft.eisbn=&rft_dat=%3Cspringer_jour%3E10.1007%2Fs00521-012-1215-8%3C/springer_jour%3E%3Cgrp_id%3E6653138538760267648%3C/grp_id%3E%3Coa%3E%3C/oa%3E&rft_id=info:oai/&svc.fulltext=yes&req.language=por
+
+%http://link.periodicos.capes.gov.br/sfxlcl41?frbrVersion=2&ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2015-10-27T23%3A55%3A45IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&rft_val_fmt=info:ofi/fmt:kev:mtx:&rft.genre=article&rft.atitle=A+multivariable+predictive+fuzzy+PID+control+system&rft.jtitle=Applied+Soft+Computing+Journal&rft.btitle=&rft.aulast=Savran&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Savran%2C+Aydogan&rft.aucorp=&rft.date=2012&rft.volume=&rft.issue=&rft.part=&rft.quarter=&rft.ssn=&rft.spage=&rft.epage=&rft.pages=&rft.artnum=&rft.issn=1568-4946&rft.eissn=&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1016%2Fj.asoc.2012.11.021&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&rft.eisbn=&rft_dat=%3Csciversesciencedirect_elsevier%3ES1568-4946%2812%2900505-4%3C/sciversesciencedirect_elsevier%3E%3Cgrp_id%3E824269217450252803%3C/grp_id%3E%3Coa%3E%3C/oa%3E&rft_id=info:oai/&svc.fulltext=yes&req.language=por
+
+%http://link.periodicos.capes.gov.br/sfxlcl41?frbrVersion=3&ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2015-10-27T23%3A55%3A45IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-gale_ofa&rft_val_fmt=info:ofi/fmt:kev:mtx:&rft.genre=article&rft.atitle=A+multivariable+predictive+fuzzy+PID+control+system.&rft.jtitle=Applied+Soft+Computing+Journal&rft.btitle=&rft.aulast=&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Savran%2C+Aydogan&rft.aucorp=&rft.date=20130501&rft.volume=13&rft.issue=5&rft.part=&rft.quarter=&rft.ssn=&rft.spage=2658&rft.epage=&rft.pages=&rft.artnum=&rft.issn=1568-4946&rft.eissn=&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&rft.eisbn=&rft_dat=%3Cgale_ofa%3E339267889%3C/gale_ofa%3E%3Cgrp_id%3E8626435848081561867%3C/grp_id%3E%3Coa%3E%3C/oa%3E&rft_id=info:oai/&svc.fulltext=yes&req.language=por
+
+%http://link.periodicos.capes.gov.br/sfxlcl41?frbrVersion=4&ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2015-10-27T23%3A57%3A23IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-springer_jour&rft_val_fmt=info:ofi/fmt:kev:mtx:&rft.genre=article&rft.atitle=Neuro+PID+control+of+power+generation+using+a+low+temperature+gap&rft.jtitle=Artificial+Life+and+Robotics&rft.btitle=&rft.aulast=Han&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Han%2C+Kun-Young&rft.aucorp=&rft.date=201109&rft.volume=16&rft.issue=2&rft.part=&rft.quarter=&rft.ssn=&rft.spage=178&rft.epage=184&rft.pages=&rft.artnum=&rft.issn=1433-5298&rft.eissn=1614-7456&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1007%2Fs10015-011-0913-0&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&rft.eisbn=&rft_dat=%3Cspringer_jour%3E10.1007%2Fs10015-011-0913-0%3C/springer_jour%3E%3Cgrp_id%3E5844933895106062701%3C/grp_id%3E%3Coa%3E%3C/oa%3E&rft_id=info:oai/&svc.fulltext=yes&req.language=por
+
+
+

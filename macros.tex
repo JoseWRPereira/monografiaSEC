@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% Macros 
+%%% Curso de Especialização em Sistemas Eletrônicos para Controle
+%%% Faculdade SENAI Anchieta - São Paulo - SP
+%%% José William Rodrigues Pereira 
+%%% Outubro / 2015
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%------------------------------------ Dados
+\def\autor#1{\gdef\aautor{#1}}
+\def\nome#1{\gdef\nnome{#1}}
+\def\ultimonome#1{\gdef\uultimonome{#1}}
+\def\titulo#1{\gdef\ttitulo{#1}}
+\def\subtitulo#1{\gdef\ssubtitulo{#1}}
+\def\curso#1{\gdef\ccurso{#1}}
+\def\instituicao#1{\gdef\iinstituicao{#1}}
+\def\sigla#1{\gdef\ssigla{#1}}
+\def\unidadeacademica#1{\gdef\uunidadeacademica{#1}}
+\def\grau#1{\gdef\ggrau{#1}}
+\def\tipodotrabalho#1{\gdef\ttipodotrabalho{#1}}
+\def\orientador#1{\gdef\oorientador{#1}}
+\def\torientador#1{\gdef\ttorientador{#1}}
+\def\cidade#1{\gdef\ccidade{#1}}
+\def\ano#1{\gdef\aano{#1}}
+\def\npaginas#1{\gdef\nnpaginas{#1}}
+\def\CDU#1{\gdef\CCDU{#1}}
+\def\areas#1{\gdef\aareas{#1}}
+\def\examinadorum#1{\gdef\eexaminadorum{#1}}
+\def\texaminadorum#1{\gdef\ttexaminadorum{#1}}
+\def\examinadordois#1{\gdef\eexaminadordois{#1}}
+\def\texaminadordois#1{\gdef\ttexaminadordois{#1}}
+\def\data#1{\gdef\ddata{#1}}
+
+
+%%%%------------------------------------ Configuração das Páginas
+\newcommand{\configuramargens}
+{%%% Define margens: Esq=Sup=3cm; Dir=Inf=2cm
+  \oddsidemargin=+0.46cm
+  \setlength{\textwidth}{16cm}
+  \addtolength{\voffset}{-1.58cm}
+  \setlength{\textheight}{24.7cm}
+%%%  \setlength{\baselineskip}{1.5\baselineskip} %???
+}
+%%%------------------------------------ Capa
+\newcommand{\capa}
+{
+  \begin{titlepage}
+    \begin{center}
+      \textsc{\iinstituicao} 		\\[0.0cm]
+      \textsc{\uunidadeacademica}	\\[0.0cm]
+      \textsc{Curso de \ccurso}		\\[4.0cm]
+      \textsc{\aautor}			\\[4.0cm]
+      \textsc{\ttitulo}			\\[0.4cm]
+      \vfill
+      \textsc{\ccidade}			\\[0.2cm]
+      \textsc{\aano}			\\[0.2cm]
+    \end{center}
+  \end{titlepage}
+}
+%%%------------------------------------ Natureza
+\newcommand{\natureza}
+{
+  \begin{flushright}
+    \begin{minipage}{0.6\textwidth}
+    {
+      \ttipodotrabalho apresentada à \iinstituicao 
+      como requisito para   obtenção do grau de \ggrau em \ccurso.
+    } 				\\[0.4cm]
+    Orientador: \ttorientador \oorientador
+    \end{minipage}
+  \end{flushright}
+}
+%%%------------------------------------ Folha de Rosto
+\newcommand{\folhaderosto}
+{
+  \begin{titlepage}
+    \begin{center}
+      \textsc{ }		\\[4.0cm]
+      \textsc{\aautor}		\\[4.0cm]
+      \textsc{\ttitulo}		\\[2.0cm]
+      \natureza
+      \vfill
+      \textsc{\ccidade}		\\[0.2cm]
+      \textsc{\aano}		\\[0.2cm]
+    \end{center}
+  \end{titlepage}
+}
+%%%------------------------------------ Ficha Catalográfica
+\newcommand{\fichacatalografica}
+{
+  \begin{titlepage}
+    \vfil\null
+    \lineskip .0em
+    \vfill
+    \fbox
+    {
+      \begin{tabular}{p{13.0cm}}
+        \uultimonome, \nnome                      \\
+        \ttitulo\ / \nnome\ \uultimonome\ -  \aano \\
+        \nnpaginas .p                \\
+        \aareas . I.Título. \\
+        \hfill CDU \CCDU
+      \end{tabular} 
+    }  
+ \end{titlepage}
+}
+%%%------------------------------------ Folha de Aprovação
+\newcommand{\folhadeaprovacao}
+{
+  \begin{titlepage}
+    \lineskip .0em
+    \begin{center}
+      \textsc{\aautor}
+      \vfill
+      \textsc{ \ttitulo } \\
+      \textsc{ \ssubtitulo }
+      \vfill
+    \end{center}
+    \natureza
+    \vfill
+    \rmfamily Aprovado em \ddata \\
+    \vfill
+    \begin{center}
+      {\large\bfseries BANCA EXAMINADORA }\\
+      \vfill
+      \rule{9.0cm}{0.1mm} \\
+      {\ttorientador \oorientador  }\\
+      \vfill
+      \rule{9.0cm}{0.1mm} \\
+      {\ttexaminadorum \eexaminadorum }\\
+      \vfill
+      \rule{9.0cm}{0.1mm} \\
+      {\ttexaminadordois \eexaminadordois}
+    \end{center}
+  \end{titlepage}
+}
+%%%------------------------------------ Dedicatória
+\newcommand{\dedicatoria}[1]
+{
+  \begin{titlepage}
+  \hspace{1cm}
+  \vfill
+  \begin{flushright}
+    \begin{minipage}{0.6\textwidth}
+    \textit
+    {
+	#1
+    }    
+    \end{minipage}
+  \end{flushright}
+  \end{titlepage}
+}
+%%%------------------------------------ Epígrafe
+\newcommand{\epigrafe}[2]
+{
+  \begin{titlepage}
+    \hspace{1cm}
+    \vfill
+    \begin{flushright}
+      \begin{minipage}{0.6\textwidth}
+      \textit
+      {
+	#1
+	\textbf{ \hfill #2 }
+      }    
+      \end{minipage}
+    \end{flushright}
+  \end{titlepage}
+}
+%%%------------------------------------ Resumo
+\newcommand{\resumo}[1]
+{
+  \begin{titlepage} 
+    \titlepage
+    \begin{center}%
+        \huge \textbf{Resumo}
+    \end{center}%
+    \null
+    #1
+    \endtitlepage
+  \end{titlepage}
+}
+%-------------------------------------- Abstract
+\newcommand{\resumolinguaestrangeira}[1]
+{
+  \begin{titlepage} 
+    \titlepage
+    \begin{center}%
+        \huge \textbf{Abstract}
+    \end{center}%
+    \null
+    #1
+    \endtitlepage
+  \end{titlepage}
+}
+%%%------------------------------------ Agradecimentos
+\newcommand{\agradecimentos}[1]
+{
+  \begin{titlepage} 
+    \titlepage
+    \begin{center}%
+        \huge \textbf{Agradecimentos}
+    \end{center}%
+    \null
+    #1
+    \endtitlepage
+  \end{titlepage}
+}
+%-------------------------------------- Sumário
+\newcommand{\sumario}
+{
+  \tableofcontents
+  \thispagestyle{empty}% página sem numeraçao
+}
+%-------------------------------------- Lista de figuras
+\newcommand{\listadefiguras}
+{
+  \listoffigures
+  \thispagestyle{empty}
+}
+%-------------------------------------- Lista de tabelas
+\newcommand{\listadetabelas}
+{
+  \listoftables
+  \thispagestyle{empty}
+}
+%%%------------------------------------ Citação
+\newcommand{\citacao}[1]
+{
+  \begin{flushright}
+    \begin{minipage}[]{13cm}
+      \footnotesize {#1}
+    \end{minipage}
+  \end{flushright}
+}
+%--------------------------------------
+%--------------------------------------
+
