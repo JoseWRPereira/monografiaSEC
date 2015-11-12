@@ -16,6 +16,7 @@
 \usepackage[brazilian]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{setspace}
+\usepackage{hyperref}
 %\usepackage{natbib}
 %\usepackage[backkend=biber,style=alphabetic,sorting=ynt]{biblatex}
 %\usepackage{biblatex}
@@ -33,7 +34,7 @@
   Estudo comparativo entre técnicas de controle: 
   PID Digital, Lógica Paraconsistente e PID-Paraconsistente
   (Híbrido), implementadas em microcontrolador com núcleo ARM e
-  operando em sistema térmico de prótotipo de chocadeira. 
+  aplicaddas em protótipo de sistema térmico de aquecimento. 
 }
 \subtitulo{ }
 \curso{Sistemas Eletrônicos para Controle }
@@ -104,54 +105,85 @@ Agradeço...
 %doublespacing		% espaçamento duplo
 
 \chapter{Introdução}
-Comparar sistemas mediante uma mesma planta é uma forma de avaliar as limitações e possibilidades de ambos os elementos de estudo, possibilitando uma melhor escolha no momento de planejar e executar um projeto, obtendo assim um ganho de tempo, que reflete diretamente no custo de implementação e manutenção além de conferir ao projeto maior possibilidade de atingir um melhor desempenho e uma maior confiabilidade. 
+Comparar sistemas de controle mediante uma mesma planta é uma forma de avaliar possibilidades e as limitações de ambos os elementos de estudo, possibilitando uma melhor escolha no momento de planejar e executar um projeto, obtendo assim um ganho de tempo, que reflete diretamente no custo de implementação e manutenção além de conferir ao projeto maior possibilidade de atingir um melhor desempenho e uma maior confiabilidade. 
 
-Sistemas de controle são largamente utilizados pela indústria como um todo a muitos anos, tendo algumas técnicas amplamente difundidas e com alto grau de maturação, como é o caso do controlador PID (Proporcional-Integral-Derivativo), mas que apesar de tudo não é o mais adequado para algumas aplicações que possuem não-linearidades, atrasos de transporte e/ou parâmetros variantes no tempo.\cite{Ferreira2012}
+Sistemas de controle são largamente utilizados pela indústria como um todo a muitos anos, tendo algumas técnicas amplamente difundidas e com alto grau de maturação, como é o caso do controle Proporcional-Integral-Derivativo (PID),  mas que apesar de tudo não é o mais adequado para algumas aplicações que possuem não-linearidades, atrasos de transporte e/ou parâmetros variantes no tempo.\cite{Ferreira2012}
 
 %%%% Estudo Comparativo entre as Técnicas de Controle Fuzzy, PI e Adaptativo Aplicado ao Processo de Fabricação de Papel Reciclado Utilizando a Ferramenta Delta Tune
 %%% Cesar Ferreira pag16
 
 
-Tendo em vista que estudos de novas formas de controle não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para implementação de tomada de descisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, entre outras.\cite{JoaoInacio}
+Tendo em vista que estudos de novas formas de controle não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para implementação de tomada de descisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, controle, entre outras.\cite{JoaoInacio}
  
+O presente trabalho tem como objetivo a caracterização de duas teorias utilizadas em sistemas controle, PID e Lógica Paraconsistente Anotada de anotação com dois valores (LPA2v), que é uma das formas de aplicação da Lógica Paraconsistente, sua implementação e posterior comparação utilizando uma plataforma que contemple recursos que possibilite uma análise de desempenho e complexidade de implementação.
 %Objetivo ou Finalidade: preocupação em distinguir a característica comum ou as leis gerais que regem determinados eventos.
-O presente trabalho tem como objetivo a caracterização de duas teorias utilizadas em sistemas controle, PID e Lógica Paraconsistente, sua implementação e posterior comparação utilizando uma plataforma que contemple recursos que possibilite uma análise de desempenho e complexidade de implementação.
 
 
 \section{Formulação do Problema}
-O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits e hardware dedicado para processamento digital de sinais e cáculos avançados integrado.
+O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits integrados com hardware dedicado à processamento digital de sinais e cáculos avançados.
 
-A integração de hardware dedicado junto ao núcleo dos microcontroladores, possibilita a implementação de rotinas complexas de cálculo para controle do tipo PID, de forma a dirimir o custo de processamento intrinseco ao controle clássico. 
+A integração de hardware dedicado junto ao núcleo dos microcontroladores, possibilita a implementação de rotinas complexas de cálculo para controle do tipo PID, de forma a dirimir o custo de processamento, intrínseco ao controle clássico, ou seja, a qantidade de ciclos de máquina necessários para a realização dos cálculos e por consequência o tempo de resposta do sistema. 
 
-Em contrapartida, novas técnicas utilizando lógicas modernas, como a Lógica Paraconsistente, possuem baixo custo de processamento em relação aos cálculos matemáticos, por serem inerentemente simples, não necessitando de um hardware dedicado para sua implementação, e podendo ser realizada a execução em dispositivos de menor capacidade de processamento, reduzindo assim o custo do projeto, mas mantendo a qualidade do sinal processado.
+Em contrapartida, novas técnicas utilizando lógicas modernas, como a LPA2v, possuem baixo custo de processamento em relação aos cálculos matemáticos, por serem inerentemente simples, não necessitando de um hardware dedicado para sua implementação, e podendo ser realizada a execução em dispositivos de menor capacidade de processamento, reduzindo assim o custo do projeto, mas mantendo a qualidade do sinal processado.
 
-Existe a possibilidade de substituir um controlador PID digital por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade do sinal, complexidade de implementação e carga de processamento reduzida? Será que um controlador híbrido pode ser uma alternativa viável, dentro dos critérios já citados? 
+Existe a possibilidade de substituir um controlador PID digital por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade da resposta do sistema, menor complexidade na codificação de cálculos e carga de processamento reduzida? Será que um controlador híbrido pode ser uma alternativa viável, dentro dos critérios já citados? 
 
-Para responder essas questões é implementado um sistema típico de controle por ação térmica, no caso um protótipo de chocadeira de ovos de galinha, que apresenta relativamente baixa temperatura de operação, mas que deve haver um extrito controle e variação praticamente nula da temperatura.
- A comparação, em plataforma de 32-bits com hardware dedicado, para sistema de controle PID e lógica paraconsistente 
+Para responder essas questões é implementado um sistema típico de controle por ação térmica, no caso um protótipo de chocadeira de ovos de galinha, que apresenta relativamente baixa temperatura de operação, mas que deve haver um extrito controle e variação da temperatura praticamente nula, com um controlador de 32-bits que possui hardware dedicado, para a comparação entre sistema de controle PID digital, controle baseado em LPA2v e um sistema híbrido, PID Paraconsistente.
 
 
 
 \section{Hipótese e Relevância do Trabalho}
+A lógica paraconsistente vem ganhando relevância e adeptos principalmente à partir do final da década de 90 do século XX, quando houve o Primeiro Congresso Mundial sobre Paraconsistência em Gent na Bélgica em 1997, no ano 2000 o segundo congresso realizado em São Sebastião, São Paulo e o terceiro em Toulouse, França em julho de 2003, atraindo cada vez mais pesquisadores interessados de diversos centros de pesquisa do mundo.  \cite{DecioKrause}
+
+Atualmente as pesquisas estão focadas no estudo da aplicação da lógica paraconsistente, e ganhar espaço no universo técnico e científico, contribuindo com uma nova e eficiente forma de trabalho.
+
+Em função da sua simplicidade de implementação, há uma forte espectatíva de que possa ser implantada em sistemas embarcados com baixo poder de processamento, como microcontroladores de 8 bits, de forma eficiente, em oposição ao clássico PID de difícil implementação e alto custo de processamento. Assim é de fundamental importância que se faça um estudo comparativo entre as duas técnicas, para que se possa concluir a hipótese de que ambas são equivalentes do ponto de vista da eficiência do controle na planta, mas que do ponto de vista de carga processamento, a lógica paraconsistente é sensivelmente melhor.
+
 
 \section{Objetivo Geral}
 %Objeto, subdividido em:
 %Material: aquilo que pretende estudar, analisar, interpretar ou verificar de modo geral.
-O estudo comparativo a ser realizado utiliza uma plataforma de desenvolvimento da Texas Instruments Inc. TM4C123G como elemento controlador, interfaceando com um driver para acionamento de elementos de aquecimento em sistema térmico.
+O estudo comparativo entre as técnicas de controle PID-digital, LPA2v e PID Paraconsistente, de forma a poder avaliar os sistemas em termos de eficiência do controle, carga de processamento e tempo de resposta.
+
 
 \section{Objetivos Específicos}
 %Formal: enfoque especial, em face de diversas ciências que possuem o mesmo objetivo material.
-Um enfoque especial é dado à complexidade da implementação no controlador e sua carga de processamento, afim de concluir se é possível um implementação de baixa capacidade de processamento realizar um controle com precisão comparável ao modo clássico, assim como uma forma híbrida, mesclando essa relação capacidade de processamento com precisão do controle. 
+Enfoque especial na comparação e avaliação do comportamento do sistema de controle, nas dificuldades de implementação matemática e decodificação em linguagem C, medição dos tempos de resposta em relação aos estímulos de entrada, na quantidade de memória necessária, precisão e robustez de cada implementação.
+
+Implementar o controle PID-digital utilizando um hardware de alto poder de processamento, e com periféricos dedicados, ou seja, módulo de cálculo para PID nativo. 
+
+Implementar o controle utilizando LPA2v, gerar as funções de controle necessárias utilizando os preceitos da lógica, sendo que não há funções dedicadas à LPA2v nativas ao controlador.
+
+Um enfoque especial é dado à complexidade da implementação no controlador e sua carga de processamento, afim de concluir se é possível uma implementação de baixa capacidade de processamento realizar um controle com precisão comparável ao modo clássico, assim como uma forma híbrida, mesclando a relação capacidade de processamento com precisão do controle. 
 
 
 \section{Justificativa}
 %Função: aperfeiçoamento, através de crescente acervo de conhecimento, da relação do homem com o seu mundo.
-A função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo à potencial teoria emergente.
+Sendo o presente trabalho uma análise comparativa entre um sistema de controle clássico e uma lógica moderna para implementar o sistema de controle, sua função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo à potencial teoria emergente, contribuindo dentro de uma aspecto ainda pouco explorado, mesmo contando com algumas implementações, há escassez de comparações diretas entre as técnicas de controle aqui presentes.
 
 \section{Limitações da pesquisa}
+%%% Não colocar o elemento TEMPO! 
+%%% Colocar até onde vai a pesquisa e o que ela não abordará.
+
+Este trabalho apresenta três modos de controle, sendo o primeiro um modelo clássico utilizando PID com implementação digital e sintonia de parâmetros pela técnica de Ziegler-Nichols, um segundo modelo utilizando LPA2v, como controle moderno, e por fim um modo híbrido tendo PID digital sintonizado por uma função paraconsistente. Não é objetivo do trabalho se aprofundar em questões históricas e nem explorar as diversas técnicas de controle, sintonia ou implementação.
+
+O controlador utilizado possui suporte para implementação de PID, mas não é objetivo mostrar como se configura, ou mesmo abordar lógica de programação e seus fundamentos.
+
+A planta de testes se limita a um sistema de aquecimento de ar, como uma resistência e uma ventilador para dissipação de calor dentro de um ambiente fechado, dois elementos sensores e um driver para alimentar a resistência através de um comando PWM. Não são exploradas formas de acionamentos diferentes do PWM, e nem mesmo diversos elementos de aquecimento ou sensores.
+
+
+
+
 
 \section{Estrutura do Trabalho}
 
+\chapter{Revisão Bibliográfica}
+
+\chapter{Desenvolvimento}
+
+\chapter{Apresentação e discussão dos resultados}
+
+\chapter{Considerações Finais - Conclusão}
 
 %Método
 
@@ -223,6 +255,14 @@ A função primordial é contribuir para a ampliação do conhecimento em uma no
 	São Paulo
 
 
+\bibitem{DecioKrause}
+	\textbf{Lógica Paraconsistente},
+	Décio Krause,
+	Universidade Federal de Santa Catarina, 
+	Disponível em: \url{http://criticanarede.com/log_paraconsistente.html} \\
+	Acesso em: 05 Novembro 2015.
+	
+%http://criticanarede.com/
 
 \end{thebibliography}
 
