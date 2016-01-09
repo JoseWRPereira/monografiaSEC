@@ -1,0 +1,20 @@
+.PS
+BASE: box ht 2 wid 3 invisible
+line from BASE.sw to BASE.nw -> "Resposta " rjust
+line from BASE.sw to BASE.se -> "Tempo" below
+move to BASE.w
+ENTRADA: box ht 1.4 wid 3 invisible
+line from ENTRADA.nw to ENTRADA.ne dashed 0.1 "Resposta Desejada" above
+
+move to BASE.sw
+
+line right 0.5 then up 1.6 right 0.6 then right 2 invisible "Resposta transiente"
+CURVA: spline from start of last line \
+	right 0.5 then up 1.6 right 0.6 then right 1.9
+
+line -> from BASE.ne to ENTRADA.ne
+ERRO: line <- from CURVA.end to CURVA.end down 0.3 
+"Erro de regime estacionario" at ERRO.s below
+
+
+.PE

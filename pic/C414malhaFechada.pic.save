@@ -1,0 +1,22 @@
+.PS
+# Sistema de Controle em Malha Fechada
+# Entrada -> Controlador -> Atuador -> Processo -> Saída
+#      |-----------------<- Sensor  <---------------|
+
+IN:	arrow 1.6 "Entrada" "Resposta desejada"
+CTRL:	box "Controlador" 
+arrow
+ATDR:	box "Atuador"
+arrow
+PRCS:	box "Processo"
+OUT: 	arrow 1.6 "Saida" "Resposta Real"
+
+	move to ATDR.s 
+	line down 0.4 invisible
+SENS: 	box "Sensor"
+
+#	line -> from PRCS.e right 0.2 then down 0.9 to SENS.e
+	line -> from PRCS.e right 0.2 then down (0,#	line -> from PRCS.e right 0.2 then down 0.9 to SENS.e
+SENS.e) to SENS.e
+
+.PE

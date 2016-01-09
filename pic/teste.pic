@@ -1,0 +1,15 @@
+.PS
+copy "macros.pic"
+scale=25.4 # scala em milimetros
+
+BASE:	box wid 30 ht 30 dashed #invisible
+
+P1:	BASE.se
+P2: 	BASE.nw
+
+#P: N(P1, P2, 0.5, , -> )
+#LH(BASE.se, BASE.nw, ->, -> )
+move to BASE.c
+SUM("+", "-", " ")
+
+.PE

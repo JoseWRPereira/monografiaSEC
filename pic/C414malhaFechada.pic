@@ -1,0 +1,24 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Sistema de Controle em Malha Fechada
+# Entrada -> Controlador -> Atuador -> Processo -> Saída
+#      |-----------------<- Sensor  <---------------|
+
+IN:	arrow 30 "Entrada" "Resposta desejada"
+BS:	SUM("+","-"," ")
+	arrow
+CTRL:	box "Controlador" 
+arrow
+ATDR:	box "Atuador"
+arrow
+PRCS:	box "Processo"
+OUT: 	arrow 40 "Saida" "Resposta Real"
+	move to ATDR.w-(0,25)
+SENS: 	box "Sensor"
+
+        S(OUT.end, SENS.e, 0.5, , -> )
+	LH(SENS.w, BS.s, , ->)
+
+.PE
