@@ -1,0 +1,21 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Reticulado de Hasse
+
+
+BASE: box ht 50 wid 50 invisible
+
+line from BASE.e to BASE.n 
+line from BASE.n to BASE.w
+line from BASE.w to BASE.s
+line from BASE.s to BASE.e
+
+move to BASE.w VerticeReticulado("<")
+move to BASE.e VerticeReticulado(">")
+move to BASE.n VerticeReticulado("^")
+move to BASE.s VerticeReticulado("v")
+
+
+.PE
