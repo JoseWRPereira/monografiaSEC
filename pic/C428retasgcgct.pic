@@ -1,0 +1,38 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Grau de certeza e Grau de contradicao
+vc = 0.5; # Valor de Controle
+lado = 80;
+
+BASE: 	box ht lado wid lado invisible
+
+ORG: 	BASE.c
+GCTpos: 0.9<BASE.s,BASE.n>
+GCTneg: 0.1<BASE.s,BASE.n>
+GCpos:  0.9<BASE.w,BASE.e>
+GCneg:  0.1<BASE.w,BASE.e>
+	
+	line -> from BASE.s to BASE.n #dotted
+	line 	from BASE.s to GCTneg
+	line -> from GCTpos to BASE.n
+	up;  	"       Gct" 
+	line -> from BASE.w to BASE.e #dotted
+	line 	from BASE.w to GCneg
+	line -> from GCpos to BASE.e
+	move to Here+(1.0,-3.0) "Gc"
+
+	line from GCpos  to GCTpos 	dashed
+	line from GCTpos to GCneg  	dashed
+	line from GCneg  to GCTneg	dashed
+	line from GCTneg to GCpos	dashed
+
+	move to GCpos 	NOH(0.5) "  +1" above;
+	move to GCneg 	NOH(0.5) "-1  " above;
+	move to GCTpos 	NOH(0.5) "+1  " rjust;
+	move to GCTneg 	NOH(0.5) "-1  " rjust;
+
+
+
+.PE

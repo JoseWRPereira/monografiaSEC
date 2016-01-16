@@ -1,0 +1,59 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Grau de certeza e Grau de contradicao
+vc = 0.5; # Valor de Controle
+lado = 80;
+
+# Grau de certeza e de contradição
+gc = 0.54;
+gct = 0.46;
+
+
+BASE: 	box ht lado wid lado invisible
+
+ORG: 	BASE.c
+GCTpos: 0.9<BASE.s,BASE.n>
+GCTneg: 0.1<BASE.s,BASE.n>
+GCpos:  0.9<BASE.w,BASE.e>
+GCneg:  0.1<BASE.w,BASE.e>
+	
+	line -> from BASE.s to BASE.n dotted
+	line 	from BASE.s to GCTneg
+	line -> from GCTpos to BASE.n
+	up;  	"       Gct" 
+	line -> from BASE.w to BASE.e dotted
+	line 	from BASE.w to GCneg
+	line -> from GCpos to BASE.e
+	move to Here+(1.0,-3.0) "Gc"
+
+	line from GCpos  to GCTpos 
+	line from GCTpos to GCneg
+	line from GCneg  to GCTneg
+	line from GCTneg to GCpos
+
+	move to GCpos 	NOH(0.5) "  +1" above;
+	move to GCneg 	NOH(0.5) "-1  " above;
+	move to GCTpos 	NOH(0.5) "+1  " rjust;
+	move to GCTneg 	NOH(0.5) "-1  " rjust;
+
+C1: 	vc<BASE.c,GCpos>
+C2:	vc<BASE.c,GCneg>
+C3: 	(1-vc)<BASE.c,GCTpos>
+C4:	(1-vc)<BASE.c,GCTneg>
+
+	move to (C2,C2)
+CX:	box wid (C1.x-C2.x) ht (C3.y-C4.y)  fill 0.1 dotted
+
+	line from CX.ne to CX.sw 	dotted
+	line from CX.se to CX.nw	dotted
+	line from CX.n  to CX.s		dotted
+	line from CX.e  to CX.w		dotted
+
+	move to (( gc*0.5+0.5)<GCneg ,GCpos >, \
+		 (gct*0.5+0.5)<GCTneg,GCTpos>)
+	NOH(1.0);
+
+
+.PE

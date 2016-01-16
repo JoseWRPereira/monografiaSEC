@@ -1,0 +1,164 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Grau de certeza e Grau de contradicao
+vc = 0.5; # Valor de Controle
+lado = 80;
+
+BASE: 	box ht lado wid lado invisible
+
+ORG: 	BASE.c
+GCTpos: 0.9<BASE.s,BASE.n>
+GCTneg: 0.1<BASE.s,BASE.n>
+GCpos:  0.9<BASE.w,BASE.e>
+GCneg:  0.1<BASE.w,BASE.e>
+	
+	line -> from BASE.s to BASE.n dotted
+	line 	from BASE.s to GCTneg
+	line -> from GCTpos to BASE.n
+	up;  	"       Gct" 
+	line -> from BASE.w to BASE.e dotted
+	line 	from BASE.w to GCneg
+	line -> from GCpos to BASE.e
+	move to Here+(1.0,-3.0) "Gc"
+
+	line from GCpos  to GCTpos 
+	line from GCTpos to GCneg
+	line from GCneg  to GCTneg
+	line from GCTneg to GCpos
+
+	move to GCpos 	NOH(0.5) "  +1" above;
+	move to GCneg 	NOH(0.5) "-1  " above;
+	move to GCTpos 	NOH(0.5) "+1  " rjust;
+	move to GCTneg 	NOH(0.5) "-1  " rjust;
+
+C1: 	vc<BASE.c,GCpos>
+C2:	vc<BASE.c,GCneg>
+C3: 	(1-vc)<BASE.c,GCTpos>
+C4:	(1-vc)<BASE.c,GCTneg>
+
+	move to (C2,C2)
+CX:	box wid (C1.x-C2.x) ht (C3.y-C4.y)  fill 0.3
+
+	line from CX.ne to CX.sw
+	line from CX.se to CX.nw
+	line from CX.n  to CX.s
+	line from CX.e  to CX.w
+
+boxwid = 2.0;
+boxht  = 2.0;
+arrowht = 0.6;
+arrowwid = 0.8;
+textwid = 0.01; 
+textht = 0.01;
+
+######## T -> F
+	move to (0.25<CX.w,CX.e>,0.1<CX.n,CX.s>)
+B1:	box invisible; 	
+		line from B1.nw to B1.ne; 
+		line from B1.n to B1.s
+		move to B1.e
+B2:	box invisible; 
+		line -> from B2.w to B2.e
+	box invisible; 
+		"f" rjust
+######## T -> V
+	move to (0.57<CX.w,CX.e>,0.1<CX.n,CX.s>)
+B4:	box invisible; 	
+		line from B4.nw to B4.ne; 
+		line from B4.n to B4.s
+		move to B4.e
+B5:	box invisible; 
+		line -> from B5.w to B5.e
+	box invisible; 
+		"v" rjust
+
+######## _|_ -> F
+	move to (0.25<CX.w,CX.e>,0.9<CX.n,CX.s>)
+B7:	box invisible; 	
+		line from B7.sw to B7.se; 
+		line from B7.n to B7.s
+		move to B7.e
+B8:	box invisible; 
+		line -> from B8.w to B8.e
+	box invisible; 
+		"f" rjust
+######## _|_ -> V
+	move to (0.57<CX.w,CX.e>,0.9<CX.n,CX.s>)
+B10:	box invisible; 	
+		line from B10.sw to B10.se; 
+		line from B10.n to B10.s
+		move to B10.e
+B11:	box invisible; 
+		line -> from B11.w to B11.e
+	box invisible; 
+		"v" rjust
+
+######## QF -> T
+	move to (0.1<CX.w,CX.e>,0.4<CX.n,CX.s>)
+	box invisible; 
+		"Qf" rjust
+B13:	box invisible; 
+		line -> from B13.w to B13.e
+B14:	box invisible; 	
+		line from B14.nw to B14.ne; 
+		line from B14.n to B14.s
+		move to B14.e
+
+######## QV -> T
+	move to (0.74<CX.w,CX.e>,0.4<CX.n,CX.s>)
+	box invisible; 
+		"Qv" rjust
+B16:	box invisible; 
+		line -> from B16.w to B16.e
+B17:	box invisible; 	
+		line from B17.nw to B17.ne; 
+		line from B17.n to B17.s
+		move to B17.e
+
+######## QF -> _|_
+	move to (0.1<CX.w,CX.e>,0.6<CX.n,CX.s>)
+	box invisible; 
+		"Qf" rjust
+B19:	box invisible; 
+		line -> from B19.w to B19.e
+B20:	box invisible; 	
+		line from B20.sw to B20.se; 
+		line from B20.n to B20.s
+		move to B20.e
+
+######## QV -> _|_
+	move to (0.74<CX.w,CX.e>,0.6<CX.n,CX.s>)
+	box invisible; 
+		"Qv" rjust
+B22:	box invisible; 
+		line -> from B22.w to B22.e
+B23:	box invisible; 	
+		line from B23.sw to B23.se; 
+		line from B23.n to B23.s
+		move to B23.e
+
+######## V
+	move to 0.18<GCpos,GCneg>
+	box wid 5 fill 0.0 invisible; "V  " rjust
+######## F
+	move to 0.9<GCpos,GCneg> 
+	box wid 5 fill 0.0 invisible; "F  " rjust
+######## T
+	up
+	move to 0.18<GCTpos,GCTneg> 
+	box wid 4 ht 6 fill 0.0 invisible 
+BT:	box wid 3 ht 3 invisible at last box
+	line from BT.nw to BT.ne
+	line from BT.n to BT.s
+
+######## _|_
+	up
+	move to 0.92<GCTpos,GCTneg> 
+	box wid 4 ht 6 fill 0.0 invisible 
+BL:	box wid 3 ht 3 invisible at last box
+	line from BL.sw to BL.se
+	line from BL.n to BL.s
+
+.PE

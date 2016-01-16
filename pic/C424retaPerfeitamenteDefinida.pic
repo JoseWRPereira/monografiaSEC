@@ -1,0 +1,29 @@
+.PS
+copy "macros.pic"
+scale=25.4 # escala em milimetros
+
+# Quadrado Unitario no Plano Cartesiano
+# Reta perfeitamente definida
+
+
+        qupc();
+
+	line from 0.05<QUPC_QD.se,QUPC_QD.ne> to  			  0.05<QUPC_QD.nw,QUPC_QD.ne> dotted
+	line from 0.15<QUPC_QD.se,QUPC_QD.ne> to  			  0.15<QUPC_QD.nw,QUPC_QD.ne> dotted
+	line from 0.30<QUPC_QD.se,QUPC_QD.ne> to  			  0.30<QUPC_QD.nw,QUPC_QD.ne> dotted
+	line from 0.50<QUPC_QD.se,QUPC_QD.ne> to  			  0.50<QUPC_QD.nw,QUPC_QD.ne> dotted
+	line from 0.75<QUPC_QD.se,QUPC_QD.ne> to  			  0.75<QUPC_QD.nw,QUPC_QD.ne> dotted
+
+
+	line from QUPC_QD.nw to QUPC_QD.se
+
+	line from 0.05<QUPC_QD.se,QUPC_QD.sw> to 			  0.05<QUPC_QD.nw,QUPC_QD.sw> dotted
+	line from 0.15<QUPC_QD.se,QUPC_QD.sw> to 			  0.15<QUPC_QD.nw,QUPC_QD.sw> dotted
+	line from 0.30<QUPC_QD.se,QUPC_QD.sw> to 			  0.30<QUPC_QD.nw,QUPC_QD.sw> dotted
+	line from 0.50<QUPC_QD.se,QUPC_QD.sw> to 			  0.50<QUPC_QD.nw,QUPC_QD.sw> dotted
+	line from 0.75<QUPC_QD.se,QUPC_QD.sw> to 			  0.75<QUPC_QD.nw,QUPC_QD.sw> dotted
+
+
+  	
+
+.PE
