@@ -35,18 +35,17 @@
 
 
 %%%%------------------------------------ Configuração das Páginas
-\newcommand{\configuramargens}
-{%%% Define margens: Esq=Sup=3cm; Dir=Inf=2cm
-  \oddsidemargin=+0.46cm
-  \setlength{\textwidth}{16cm}
-  \addtolength{\voffset}{-1.58cm}
-  \setlength{\textheight}{24.7cm}
-%%%  \setlength{\baselineskip}{1.5\baselineskip} %???
+\newcommand{\configuramargens} %%% Define margens
+{
+  \usepackage[width=210.00mm, height=297.00mm, 
+			  left=3.00cm,    right=2.00cm, 
+			  top=3.00cm,     bottom=2.00cm] {geometry}
 }
 %%%------------------------------------ Capa
 \newcommand{\capa}
 {
   \begin{titlepage}
+    \thispagestyle{empty}
     \begin{center}
       \textsc{\iinstituicao} 		\\[0.0cm]
       \textsc{\uunidadeacademica}	\\[0.0cm]
@@ -63,6 +62,7 @@
 \newcommand{\natureza}
 {
   \begin{flushright}
+    \thispagestyle{empty}
     \begin{minipage}{0.6\textwidth}
     {
       \ttipodotrabalho apresentada à \iinstituicao 
@@ -77,7 +77,7 @@
 {
   \begin{titlepage}
     \begin{center}
-      \textsc{ }		\\[4.0cm]
+      \textsc{ }		    \\[4.0cm]
       \textsc{\aautor}		\\[4.0cm]
       \textsc{\ttitulo}		\\[2.0cm]
       \natureza
@@ -110,6 +110,7 @@
 \newcommand{\folhadeaprovacao}
 {
   \begin{titlepage}
+    \thispagestyle{empty}
     \lineskip .0em
     \begin{center}
       \textsc{\aautor}
@@ -140,6 +141,7 @@
 \newcommand{\dedicatoria}[1]
 {
   \begin{titlepage}
+  \thispagestyle{empty}
   \hspace{1cm}
   \vfill
   \begin{flushright}
@@ -156,14 +158,15 @@
 \newcommand{\epigrafe}[2]
 {
   \begin{titlepage}
+    \thispagestyle{empty}
     \hspace{1cm}
     \vfill
     \begin{flushright}
       \begin{minipage}{0.6\textwidth}
       \textit
       {
-	#1
-	\textbf{ \hfill #2 }
+	    #1 
+	    \\ \textbf{ \hfill #2 }
       }    
       \end{minipage}
     \end{flushright}
@@ -173,7 +176,8 @@
 \newcommand{\resumo}[1]
 {
   \begin{titlepage} 
-    \titlepage
+    \titlepage  
+    \thispagestyle{empty}
     \begin{center}%
         \huge \textbf{Resumo}
     \end{center}%
@@ -187,6 +191,7 @@
 {
   \begin{titlepage} 
     \titlepage
+    \thispagestyle{empty}  
     \begin{center}%
         \huge \textbf{Abstract}
     \end{center}%
@@ -199,6 +204,7 @@
 \newcommand{\agradecimentos}[1]
 {
   \begin{titlepage} 
+    \thispagestyle{empty}
     \titlepage
     \begin{center}%
         \huge \textbf{Agradecimentos}
@@ -226,6 +232,19 @@
   \listoftables
   \thispagestyle{empty}
 }
+
+%-------------------------------------- Lista de abreviaturas e siglas
+\newcommand{\abreviatura}[2]
+{
+  \nomenclature{#1}{#2}
+  #1
+}
+\newcommand{\listadeabreviaturasesiglas}
+{
+  \renewcommand{\nomname}{Lista de abreviaturas e siglas}
+  \printnomenclature[5em]
+  \thispagestyle{empty}	
+}
 %%%------------------------------------ Citação
 \newcommand{\citacao}[1]
 {
@@ -237,4 +256,3 @@
 }
 %--------------------------------------
 %--------------------------------------
-
