@@ -1,0 +1,7 @@
+latex sec
+
+makeindex sec.nlo -s nomencl.ist -o sec.nls
+
+latex sec
+
+pdflatex sec
