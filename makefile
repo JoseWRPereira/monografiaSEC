@@ -1,26 +1,27 @@
 PDF: PDFLATEX
 	evince sec.pdf&
 
-PDFLATEX: LATEX2
+PDFLATEX: LATEX2 
+	pdflatex -synctex=1 -interaction=nonstopmode sec
+
+
+LATEX2: NOMENCLATURA BIB
 	pdflatex sec
 
-
-LATEX2: NOMENCLATURA
-	latex sec
-
+BIB: LATEX1
+	bibtex sec.aux
 
 NOMENCLATURA: LATEX1 sec.nlo
 	makeindex sec.nlo -s nomencl.ist -o sec.nls
 
 LATEX1: sec.tex macros.tex
-	latex sec
+	pdflatex sec	
 
 
-clear: *.aux *.bbl *.dvi *.pdf
+clear:  *.pdf
 	rm *.aux
 	rm *.bbl
 	rm *.blg
-	rm *.dvi
 	rm *.ilg
 	rm *.lof
 	rm *.log
@@ -30,3 +31,4 @@ clear: *.aux *.bbl *.dvi *.pdf
 	rm *.out
 	rm *.pdf
 	rm *.toc
+	rm *.synctex.gz
