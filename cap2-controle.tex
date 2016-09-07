@@ -1,46 +1,348 @@
+
 A palavra \emph{Sistema} tem origem no grego \emph{synístanai} e de acordo com \citet{gramaticaNET} significa "fazer funcionar junto" e uma aplicação precursora do controle é apresentada por Ctesibius de Alexandria ( \citet{encyclopediaBritannica} ) onde um conjunto de reservatórios de água com furo na parte inferior geravam por gotejamento uma marcação do tempo, porém a água do reservatório precisa estar em um nível constante, pois o intervalo de gotejamento é afetado diretamente pela quantidade de água, assim foi criado por Ctesibius um sistema semelhante as boias dos reservatórios atuais para manter o nível de água no reservatório sempre constante.
 
 A modificação do comportamento de um sistema, de forma controlada garantindo uma maior eficiência é o objetivo do controle de sistemas. 
 
-A principal tarefa de um engenheiro, segundo \citet{dorf2011modern} "é o processo de concepção ou invenção de formas, partes e detalhes de um sistema para alcançar um propósito específico", processo este que soma a grande capacidade de análise e a criatividade para atender as demandas da função, como é o caso de projeto em engenharia no segmento de Sistemas de controle, cujo objetivo é obter configuração, especificações e identificação de processos para atender uma necessidade real.
-Norman S. Nise traz uma concepção semelhante onde "Um sistema de controle consiste em subsistemas e processos(ou plantas) construídos com o objetivo de se obter uma saída desejada com desempenho desejado para uma entrada específica fornecida". 
+A principal tarefa de um engenheiro, segundo \citet{dorf2011modern} "é o processo de concepção ou invenção de formas, partes e detalhes de um sistema para alcançar um propósito específico", processo este que soma a grande capacidade de análise e a criatividade para atender as demandas da função, como é o caso de projeto em engenharia no segmento de Sistemas de controle, cujo objetivo é obter configuração, especificações e identificação de processos para atender uma necessidade real. Norman S. Nise traz uma concepção semelhante onde "Um sistema de controle consiste em subsistemas e processos(ou plantas) construídos com o objetivo de se obter uma saída desejada com desempenho desejado para uma entrada específica fornecida".
 
-Os sistemas de controle atuam basicamente gerando respostas específicas para estímulos específicos de forma controlada e automática trazendo vantagens nas aplicações de diversas áreas como movimentação de grandes equipamentos com precisão, aplicação em locais remotos ou perigosos, compensação de perturbações, manipulação de dados convenientes etc. 
+Os sistemas de controle atuam basicamente gerando respostas específicas para estímulos específicos de forma controlada e automática trazendo vantagens nas aplicações de diversas áreas como movimentação de grandes equipamentos com precisão, aplicação em locais remotos ou perigosos, compensação de perturbações, manipulação de dados convenientes etc.
 
 
-Os sistemas de controle são geralmente representados através de diagramas de blocos ou fluxo de sinais, como na Figura \ref{fig:processo} convenientes ao seu desenvolvimento e análise. É composta por uma caixa representando o sistema a ser controlado, setas no sentido da caixa representando as entradas do processo e setas no sentido para fora da caixa para indicar a saída do sistema. 
+\section{Diagrama de Blocos}
+
+Os sistemas de controle são geralmente representados através de diagramas de blocos ou fluxo de sinais, como na Figura \ref{fig:processo} convenientes ao seu desenvolvimento e análise. É composta por uma caixa representando o sistema a ser controlado, setas no sentido da caixa representando as entradas do processo e setas no sentido para fora da caixa para indicar a saída do sistema.
 
 Em um sistema real, podem haver muitas variáveis de entrada e de saída, mas a abordagem clássica de controle isola apenas uma das variáveis de entrada e uma de saída, ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single Out} - Única Entrada e Única Saída).
 
-
-
 \begin{figure}[!htb]
-% [!htb] [!Here Top Botton {Picture}] LaTeX escolhe melhor posicao entre as tres opcoes. Tambem pode ser usada apenas uma opcao. {P:Picture} mantem todas as figuras e graficos em uma mesma pagina
-\center\includegraphics{./pic/C410processo.eps}
-\caption{Diagrama em bloco de sistema de controle}
+\centering
+\begin{tikzpicture}[scale=1]
+%\draw [lightgray](0,0) grid (9,2);
+\draw (0,1) -- (3,1);
+\draw [black, thick](3,0) rectangle (6, 2) ; 
+\draw (6,1) -- (9,1);
+
+\draw [fill](3,1) -- (2.8, 1.1) -- (2.8,0.9) -- (3,1);
+\draw [fill](9,1) -- (8.8, 1.1) -- (8.8,0.9) -- (9,1);
+
+\node at (4.5, 1){Sistema};
+\node [above] at (1.5,1){Valor de};
+\node [below] at (1.5,1){Referência};
+\node [above] at (7.5,1){Variável};
+\node [below] at (7.5,1){Controlada};
+\end{tikzpicture}
+\caption{ Diagrama em bloco de sistema de controle}
 \label{fig:processo}
 \end{figure}
 
+%\begin{figure}[!htb]
+%% [!htb] [!Here Top Botton {Picture}] LaTeX escolhe melhor posicao entre as tres opcoes. Tambem pode ser usada apenas uma opcao. {P:Picture} mantem todas as figuras e graficos em uma mesma pagina
+%\centering\includegraphics{./pic/C410processo.eps}
+%\caption{Diagrama em bloco de sistema de controle}
+%\label{fig:processo1}
+%\end{figure}
 
-O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificação ao máximo de um sistema de controle. 
-A Figura \ref{fig:malhaAberta} representa uma expansão do diagrama, subdividindo-o em blocos menores, mais específicos, e neste caso um sistema de controle em malha aberta, ou seja, não há uma reinserção do sinal de saída à entrada, chamada de realimentação ou retroalimentação. Assim a entrada possui o valor de resposta desejada, que alimenta o processo e a saída apresenta a resposta real, porém nada garante que a resposta real está coerente ao valor de entrada. 
+
+O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificação ao máximo de um sistema de controle, contém apenas o bloco representando o sistema, uma entrada, para o valor de referência, e uma saída com o valor da variável controlada. A Figura \ref{fig:malhaAberta}, divide os bloco do sistema em dois: controlador e planta. Neste caso um sistema de controle em malha aberta, ou seja, não há uma reinserção do sinal de saída à entrada, chamada de realimentação ou retroalimentação. Assim a entrada possui o valor de resposta desejada, que alimenta o processo e a saída apresenta a resposta real, porém nada garante que a resposta real está coerente ao valor de entrada.
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C412malhaAberta.eps}
-\caption{Diagrama em bloco de sistema de controle em malha aberta}
+\centering
+\begin{tikzpicture}[scale=1]
+%\draw [lightgray](0,0) grid (15,2);
+\draw (0,1) -- (3,1);
+\draw [black, thick](3,0) rectangle (6, 2) ; 
+\draw (6,1) -- (9,1);
+\draw [black, thick](9,0) rectangle (12, 2) ; 
+\draw (12,1) -- (15,1);
+
+\draw [fill]( 3,1) -- ( 2.8, 1.1) -- ( 2.8,0.9) -- ( 3,1);
+\draw [fill]( 9,1) -- ( 8.8, 1.1) -- ( 8.8,0.9) -- ( 9,1);
+\draw [fill](15,1) -- (14.8, 1.1) -- (14.8,0.9) -- (15,1);
+
+\node at ( 4.5, 1){Controlador};
+\node at (10.5, 1){Planta};
+\node [above] at ( 1.5,1){Valor de};
+\node [below] at ( 1.5,1){Referência};
+\node [above] at ( 7.5,1){Variável};
+\node [below] at ( 7.5,1){Manipulada};
+\node [above] at (13.5,1){Variável};
+\node [below] at (13.5,1){Controlada};
+\end{tikzpicture}
+\caption{ Diagrama em blocos de sistema de controle em malha aberta}
 \label{fig:malhaAberta}
 \end{figure}
 
-O diagrama da Figura \ref{fig:malhaFechada} apresenta realimentação, ou seja, uma amostra da resposta real é lida por um elemento sensor e é reinserida à entrada da malha, aonde é  realizada a comparação entre resposta real e desejada, a diferença entre ambos os valores é chamado de Erro do Sistema e é baseado nesse valor que o controlador tem condições de efetuar as devidas correções, geralmente, afim de manter o sistema estável no valor de resposta desejada. 
+%\begin{figure}[!htb]
+%\center\includegraphics{./pic/C412malhaAberta.eps}
+%\caption{Diagrama em bloco de sistema de controle em malha aberta}
+%\label{fig:malhaAberta}
+%\end{figure}
+
+O diagrama da Figura \ref{fig:malhaFechada} apresenta realimentação, ou seja, uma amostra da resposta real é lida por um elemento sensor e é reinserida à entrada da malha, aonde é realizada a comparação entre resposta real e desejada, a diferença entre ambos os valores é chamado de Erro do Sistema e é baseado nesse valor que o controlador tem condições de efetuar as devidas correções, geralmente, afim de manter o sistema estável no valor de resposta desejada.
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[scale=0.8]
+%\draw [lightgray](-3,0) grid (17, 2);
+%\draw [lightgray](-3,0) grid (17,-3);
+%\draw [semithick,red] (0,0) circle (0.1);
+
+\draw (-3,1) -- (0,1);
+\draw [fill]( 0,1) -- (-0.2, 1.1) -- ( -0.2,0.9) -- (0,1);
+\draw [semithick,black] (1,1) circle (1.0); % Somador
+\draw (2.0,1) -- (4,1);
+\draw [fill]( 4,1) -- ( 3.8, 1.1) -- ( 3.8,0.9) -- ( 4,1);
+\draw [black, thick](4,0) rectangle (7, 2) ; % Controlador 
+\draw (7,1) -- (11,1);
+\draw [fill]( 11,1) -- (10.8, 1.1) -- (10.8,0.9) -- (11,1);
+\draw [black, thick](11,0) rectangle (14, 2) ; % Planta
+\draw (14,1) -- (17,1);
+\draw [fill](17,1) -- (16.8, 1.1) -- (16.8,0.9) -- (17,1);
+
+\draw [black, thick](7.5,-1) rectangle (10.5, -3) ; % Sensor
+\draw (14.4, 1) -- (14.4, -2) -- (10.5,-2);
+\draw ( 7.5,-2) -- ( 1, -2) -- (1,0);
+\draw [fill](1,0) -- (1.2,-0.2) -- (0.8,-0.2) -- (1,0);
+
+\node [above] at (-1.5,1){Valor de};
+\node [below] at (-1.5,1){Referência};
+\node at (0.4,1){+};
+\node at (1,0.4){-};
+\node [above] at (3.0,1){Erro};
+\node at ( 5.5, 1){Controlador};
+\node [above] at (9.0,1){Variável};
+\node [below] at (9.0,1){Manipulada};
+\node at (12.5, 1){Planta};
+\node [above] at (16.0,1){Variável};
+\node [below] at (16.0,1){Controlada};
+\node at ( 9.0,-2){Sensor};
+
+\end{tikzpicture}
+\caption{ Diagrama em blocos de sistema de controle em malha fechada}
+\label{fig:malhaFechada}
+\end{figure}
+
+
+Como notação para os elementos do diagrama de blocos, são adotadas letras para representar matematicamente as relações entre as grandezas conforme Figura  \ref{fig:malhaFechadaLetras}
+
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[scale=0.8]
+%\draw [lightgray](-3,0) grid (17, 2);
+%\draw [lightgray](-3,0) grid (17,-3);
+%\draw [semithick,red] (0,0) circle (0.1);
+
+\draw (-3,1) -- (0,1);
+\draw [fill]( 0,1) -- (-0.2, 1.1) -- ( -0.2,0.9) -- (0,1);
+\draw [semithick,black] (1,1) circle (1.0); % Somador
+\draw (2.0,1) -- (4,1);
+\draw [fill]( 4,1) -- ( 3.8, 1.1) -- ( 3.8,0.9) -- ( 4,1);
+\draw [black, thick](4,0) rectangle (7, 2) ; % Controlador 
+\draw (7,1) -- (11,1);
+\draw [fill]( 11,1) -- (10.8, 1.1) -- (10.8,0.9) -- (11,1);
+\draw [black, thick](11,0) rectangle (14, 2) ; % Planta
+\draw (14,1) -- (17,1);
+\draw [fill](17,1) -- (16.8, 1.1) -- (16.8,0.9) -- (17,1);
+
+\draw [black, thick](7.5,-1) rectangle (10.5, -3) ; % Sensor
+\draw (14.4, 1) -- (14.4, -2) -- (10.5,-2);
+\draw ( 7.5,-2) -- ( 1, -2) -- (1,0);
+\draw [fill](1,0) -- (1.2,-0.2) -- (0.8,-0.2) -- (1,0);
+
+\node [above] at (-1.5,1){r(t)};
+\node at (0.4,1){+};
+\node at (1,0.4){-};
+\node [above] at (3.0,1){e(t)};
+\node at ( 5.5, 1){f(t)};
+\node [above] at (9.0,1){u(t)};
+\node at (12.5, 1){g(t)};
+\node [above] at (16.0,1){c(t)};
+\node at ( 9.0,-2){h(t)};
+
+\end{tikzpicture}
+\caption{ Diagrama em blocos de sistema de controle em malha fechada utilizando notação matemática}
+\label{fig:malhaFechadaLetras}
+\end{figure}
+
+
+
+\section{Sistema Linear}
+
+
+Quase que a totalidade dos processos naturais apresentam aspectos não lineares, porém a técnica de controle clássico trabalha apenas com sistemas lineares, assim exitem duas opções para trabalhar com sistemas não lineares: mudar o método de controle para uma ténica não convencional ou linearizar em torno de um ponto de operação. A linearização é o processo de encontrar um modelo linear que atenda bem a aproximação do modelo não linear em questão.
+
+Lyapunov ??? provou que em uma região próxima ao ponto de operação um sistema não linear pode ser estável.
+
+Dado um sistema \emph{S(t)} para uma entrada $u(t) = u_1(t)$ tem-se uma saída $y(t) = y_1(t)$ e para uma entrada $u(t) = u_2(t)$ tem-se uma saída $y(t) = y_2(t)$.
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[scale=0.8]
+%\draw [lightgray](0,0) grid (20, 2);
+
+\draw (0,1) -- (3,1);
+\draw [fill]( 3,1) -- ( 2.8, 1.1) -- ( 2.8,0.9) -- ( 3,1);
+\draw [black, thick](3,0) rectangle (6, 2) ; % S1 
+\draw (6,1) -- (9,1);
+\draw [fill]( 9,1) -- (8.8, 1.1) -- (8.8,0.9) -- (9,1);
+
+\draw (11,1) -- (14,1);
+\draw [fill]( 14,1) -- ( 13.8, 1.1) -- ( 13.8,0.9) -- ( 14,1);
+\draw [black, thick](14,0) rectangle (17, 2) ; % S2
+\draw (17,1) -- (20,1);
+\draw [fill]( 20,1) -- (19.8, 1.1) -- (19.8,0.9) -- (20,1);
+
+
+\node [above] at (1.5,1){$u_1(t)$};
+\node at ( 4.5, 1){S(t)};
+\node [above] at (7.5,1){$y_1(t)$};
+
+\node [above] at (12.5,1){$u_2(t)$};
+\node at ( 15.5, 1){S(t)};
+\node [above] at (18.5,1){$y_2(t)$};
+
+\end{tikzpicture}
+\caption{ Sistema simples}
+\label{fig:sistemaSimples}
+\end{figure}
+
+
+
+Assim para uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(t)$ tem-se $y(t) = \alpha y_1(t) + \beta y_2(t), \forall \alpha ,  \beta \in \Re $ .
 
 
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C414malhaFechada.eps}
-\caption{Diagrama em bloco de sistema de controle em malha fechada}
-\label{fig:malhaFechada}
+\centering
+\begin{tikzpicture}[scale=0.8]
+%\draw [lightgray](0,0) grid (11, 2);
+
+\draw (0,1) -- (4,1);
+\draw [fill]( 4,1) -- ( 3.8, 1.1) -- ( 3.8,0.9) -- ( 4,1);
+\draw [black, thick](4,0) rectangle (7, 2) ; % S1 
+\draw (7,1) -- (11,1);
+\draw [fill]( 11,1) -- (10.8, 1.1) -- (10.8,0.9) -- (11,1);
+
+\node [above] at (2,1){$\alpha u_1(t) + \beta u_2(t)$};
+\node at ( 5.5, 1){S(t)};
+\node [above] at (9,1){$\alpha y_1(t) + \beta y_2(t)$};
+
+\end{tikzpicture}
+\caption{ Princípio da Superposição}
+\label{fig:principioSuperposicao}
 \end{figure}
 
+
+\subsection{Linearização}
+
+Para o processo de linearização de um sinal, uma forma comumente utilizada é através da Série de Taylor, onde dado um plano cartesiano e uma função \emph{f} com um ponto qualquer com coordenadas \emph{x} e \emph{y} com pequenas variações $\overline{x}$ e $\overline{y}$, temos que:
+
+\begin{center}
+\begin{equation}
+y = \overline{y} + 
+\frac{df}{dx} \left| \frac{ }{ } _{\overline{x}} \right. \, (x - \overline{x}) + 
+\frac{1}{2!} \frac{d²f}{dx²} \left| \frac{ }{ } _{\overline{x}} \right. \, (x - \overline{x})² +
+\frac{1}{3!} \frac{d³f}{dx³} \left| \frac{ }{ } _{\overline{x}} \right. \, (x - \overline{x})³ + ...
+\label{eqn:SerieTaylor}
+\end{equation}
+\end{center}
+
+
+
+A série de Taylor é truncada após o segundo membro da somatória, pois $(x - \overline{x}^n )$ é cada vez menor na medida em que o expoente aumenta, fazendo com que tal parcela da somatória tenda a zero, assim despreza-se tais termos e tem-se:
+
+\begin{center}
+\begin{equation}
+y = \overline{y} + 
+\frac{df}{dx} \left| \frac{ }{ } _{\overline{x}} \right. \, (x - \overline{x})
+\label{eqn:SerieTaylorTruncada}
+\end{equation}
+\end{center}
+
+
+\section{Modelagem matemática}
+A maioria dos sitemas físicos pode ser modelado matematicamente através de sistemas diferenciais e é comum que os sistemas apresentem comportamento exponencial ...
+
+\# Em desenvolvimento \#
+
+
+\section{Transformada de Laplace}
+A transformada de Laplace é utilizada em controle como uma ferramenta matemática para facilitar a solução de equações diferenciais lineares, utilizando uma variável complexa \emph{s}, operações como derivação e integração podem ser substituidas por operações algébricas no plano complexo, domínio da frequência, e após a resolução realiza-se a transformada inversa para retornar a solução para o domínio do tempo.
+
+A definição e sua dedução de forma rigorosa podem ser encontradas em \cite{Ogata} e não será discutida neste trabalho, mas vale aqui apresentar apenas a sua definição e uma parte da tabela de conversão.
+
+A transformada de Laplace é definida como:
+
+\begin{equation}
+\mathscr{L}\{f(t)\} = F(s) = \int_{0}^{\infty} f(t) e^{-st} dt
+\label{eq:transfLaplace}
+\end{equation} 
+
+Onde:
+
+\setlength{\parindent}{2cm}
+$\mathscr{L}$ : Operador da transformada de Laplace 
+
+$f(t)$ : função da variável $t$ tal que $f(t) = 0$ para $t < 0$ 
+
+$F(s)$ : transformada de Laplace de $f(t)$
+
+$s$ : variável complexa
+\\
+
+\setlength{\parindent}{0cm}
+A transformada inversa de Laplace é definida como:
+
+\begin{equation}
+\mathscr{L}^{-1} \{F(s)\} =  \frac{1}{2 \pi j} \int_{c-j\infty}^{c+j\infty}F(s) e^{st} ds  \text{ , para } t > 0
+\label{eq:transfInvLaplace}
+\end{equation}
+
+Onde:
+
+\setlength{\parindent}{2cm}
+$\mathscr{L}^{-1}$ : Operador da transformada inversa de Laplace
+
+$c$ : Número real constante, abscissa da convergência.
+
+
+\setlength{\parindent}{0cm}
+
+Dificilmente a transformada inversa de Laplace é utilizada, podendo ser utilizado o método de frações parciais ou a tabela de conversão.
+
+A Tabela \ref{tab:Laplace} mostra alguns pares de transformadas de Laplace, e uma tabela mais completa pode ser envcontrada no Capítulo 2 de \citet{ogata}. 
+
+\begin{table}[h]
+\centering
+\caption{Pares de transformadas de Laplace}
+\label{tab:Laplace}
+\begin{tabular}{c|c}
+\hline
+$f(t)$ & $F(s)$ \\
+\hline
+\hline
+Impulso unitário $\delta(t)$ 		& $1$ 			\\ \hline
+Degrau unitário $1(t)$ 			& $\frac{1}{s}$		\\ \hline
+$t$ 					& $\frac{1}{s^2}$ 	\\ \hline
+$\frac{t^{n-1}}{(n-1)!} (n=1,2,3,...)$ 	& $\frac{1}{s^n}$ 	\\ \hline
+$t^n (n=1,2,3,...)$ 			& $\frac{n!}{s^{n+1}}$ 	\\ \hline
+$e^{-at}$ 				& $\frac{1}{s+a}$ 	\\ \hline
+$t^n e^{-at} (n=1,2,3,...)$ 		& $\frac{n!}{(s+a)^{n+1}}$ \\\hline
+$\frac{1}{a} (1-e^{-at})$ 		& $\frac{1}{s(s+a)}$ 	\\ \hline
+$\frac{1}{b-a}(e^{-at}-e^{-bt})$ 	& $\frac{1}{(s+a)(s+b)}$ \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{Sistemas de 1ª Ordem}
+
+
+\section{Sistemas de 2ª Ordem}
+
+
+
+\section{Requisitos de desempenho do sistema}
 Os sistemas de controle buscam atender os chamados requisitos de desempenho do sistema, que de um modo geral se efetuam através de modificações das características da relação entrada/saída para se obter os valores desejados dessa relação, ou ainda ajustar o comportamento da saída para uma dada entrada específica.
 
 Os principais e mais comuns requisitos de desempenho dos sistemas são associadas a velocidade de resposta, presença ou não de oscilações e a exatidão da resposta do sistema em relação ao valor desejado, chamada de erro de regime estacionário.
@@ -57,12 +359,12 @@ Para realizar o controle de um sistema é necessário que estejam bem definidos 
 
 Para a execução de um sistema de controle podem ser verificados requisitos do sistema de duas formas básicas, sendo a primeira através dos testes e levantamento empírico da sua curva de resposta ou através de seu modelo matemático, quando trabalha-se com elementos já bem estudados e com a equação que representa seu comportamento empírico bem estabelecida por diversos estudos anteriores.
 
+\newpage
+\section{Controle Clássico}
+
 Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
 
 Os sistemas de controle modernos possuem o índice de desempenho em termos de variáveis de estado, e possuem técnicas para tratar sistemas multivariáveis, não lineares e variantes no tempo.
-
-\newpage
-\section{Controle Clássico}
 
 A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas à partir das leis físicas que regem seus comportamento e desempenho.
 As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a série de Taylor. 
