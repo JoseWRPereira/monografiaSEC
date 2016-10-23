@@ -12,7 +12,11 @@ O presente trabalho tem como objetivo a caracterização de duas teorias utiliza
 %Objetivo ou Finalidade: preocupação em distinguir a característica comum ou as leis gerais que regem determinados eventos.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Formulação do Problema}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits integrados com hardware dedicado à processamento digital de sinais e cálculos avançados.
 
 A integração de hardware dedicado junto ao núcleo dos microcontroladores, possibilita a implementação de rotinas complexas de cálculo para controle do tipo PID, de forma a dirimir o custo de processamento, intrínseco ao controle clássico, ou seja, a qantidade de ciclos de máquina necessários para a realização dos cálculos e por consequência o tempo de resposta do sistema. 
@@ -21,11 +25,14 @@ Em contrapartida, novas técnicas utilizando lógicas modernas, como a LPA2v, po
 
 Existe a possibilidade de substituir um controlador PID digital por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade da resposta do sistema, menor complexidade na codificação de cálculos e carga de processamento reduzida? 
 
-Para responder a essa questão é implementado um sistema típico de controle por ação térmica, no caso um protótipo de chocadeira de ovos de galinha, que apresenta relativamente baixa temperatura de operação, mas que deve haver um extrito controle e variação da temperatura praticamente nula, com um controlador de 32-bits que possui hardware dedicado, para a comparação entre sistema de controle PID digital e controle baseado em LPA2v.
+Para responder a essa questão é implementado um sistema com um controlador de 32-bits que possui hardware dedicado, para a comparação entre sistema de controle PID digital e controle baseado em LPA2v.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hipótese e Relevância do Trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 A lógica paraconsistente vem ganhando relevância e adeptos principalmente à partir do final da década de 90 do século XX, quando houve o Primeiro Congresso Mundial sobre Paraconsistência em Gent na Bélgica em 1997, no ano 2000 o segundo congresso realizado em São Sebastião, São Paulo e o terceiro em Toulouse, França em julho de 2003, atraindo cada vez mais pesquisadores interessados de diversos centros de pesquisa do mundo.  \cite{DecioKrause}
 
 Atualmente as pesquisas estão focadas no estudo da aplicação da lógica paraconsistente, e ganhar espaço no universo técnico e científico, contribuindo com uma nova e eficiente forma de trabalho.
@@ -33,13 +40,19 @@ Atualmente as pesquisas estão focadas no estudo da aplicação da lógica parac
 Em função da sua simplicidade de implementação, há uma forte expectativa de que possa ser implantada em sistemas embarcados com baixo poder de processamento, como microcontroladores de 8 bits, de forma eficiente, em oposição ao clássico PID de difícil implementação e alto custo de processamento, ou seja, grande quantidade de instruções e maior tempo de resposta em função da complexidade das operações. Assim é de fundamental importância que se faça um estudo comparativo entre as duas técnicas, para que se possa concluir a hipótese de que ambas são equivalentes do ponto de vista da eficiência do controle na planta, mas que do ponto de vista de carga processamento, a lógica paraconsistente é sensivelmente melhor.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivo Geral}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Objeto, subdividido em:
 %Material: aquilo que pretende estudar, analisar, interpretar ou verificar de modo geral.
 O estudo comparativo entre as técnicas de controle PID-digital e LPA2v, de forma a poder avaliar os sistemas em termos de eficiência do controle, carga de processamento e tempo de resposta.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivos Específicos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Formal: enfoque especial, em face de diversas ciências que possuem o mesmo objetivo material.
 Enfoque especial na comparação e avaliação do comportamento do sistema de controle, nas dificuldades de implementação matemática e decodificação em linguagem C, medição dos tempos de resposta em relação aos estímulos de entrada, na quantidade de memória necessária, precisão e robustez de cada implementação.
 
@@ -50,11 +63,20 @@ Implementar o controle utilizando LPA2v, gerar as funções de controle necessá
 Um enfoque especial é dado à complexidade da implementação no controlador e sua carga de processamento, afim de concluir se é possível uma implementação de baixa capacidade de processamento realizar um controle com precisão comparável ao modo clássico, assim como uma forma híbrida, mesclando a relação capacidade de processamento com precisão do controle. 
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Justificativa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %Função: aperfeiçoamento, através de crescente acervo de conhecimento, da relação do homem com o seu mundo.
 Sendo o presente trabalho uma análise comparativa entre um sistema de controle clássico e uma lógica moderna para implementar o sistema de controle, sua função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo à potencial teoria emergente, contribuindo dentro de uma aspecto ainda pouco explorado, mesmo contando com algumas implementações, há escassez de comparações diretas entre as técnicas de controle aqui presentes.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Limitações da pesquisa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%% Não colocar o elemento TEMPO! 
 %%% Colocar até onde vai a pesquisa e o que ela não abordará.
 
@@ -62,10 +84,10 @@ Este trabalho apresenta dois modos de controle, sendo o primeiro um modelo clás
 
 O controlador utilizado possui suporte para implementação de PID, mas não é objetivo mostrar como se configura, ou mesmo abordar lógica de programação e seus fundamentos.
 
-A planta de testes se limita a um sistema de aquecimento de ar, com uma resistência e uma ventilador para dissipação de calor dentro de um ambiente fechado, dois elementos sensores e um drive para alimentar a resistência através de um comando PWM oriundo do controlador. Não são exploradas formas de acionamentos diferentes do PWM, e nem mesmo diversos elementos de aquecimento ou sensores.
 
 
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Estrutura do Trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

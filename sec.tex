@@ -12,10 +12,13 @@
 \usepackage{longtable}
 \usepackage{tikz}
 \usepackage{mathrsfs}
-  
 \everymath{\displaystyle}
-
 \usepackage{natbib}
+\usepackage{emptypage}
+%\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{nopageno}
 
 \input{macros}
 
@@ -23,21 +26,8 @@
 \autor{JOSÉ WILLIAM RODRIGUES PEREIRA}
 \nome{José William Rodrigues }
 \ultimonome{Pereira}
-%\titulo
-%{
-%  Estudo comparativo entre técnicas de controle: 
-%  PID Digital, Lógica Paraconsistente e PID-Paraconsistente
-%  (Híbrido), implementadas em microcontrolador com núcleo ARM e
-%  aplicaddas em protótipo de sistema térmico de aquecimento. 
-%}
-\titulo
-{
- Estudo comparativo entre técnicas de controle
-PID digital e Lógica Paraconsistente
-aplicadas em sistema térmico de aquecimento 
-embarcado em microcontrolador
-}
-\subtitulo{ }
+\titulo{ ESTUDO COMPARATIVO ENTRE TÉCNICAS DE CONTROLE:}
+\subtitulo{ PID e LÓGICA PARACONSISTENTE}
 \curso{Sistemas Eletrônicos para Controle }
 \instituicao{Faculdade de Tecnologia SENAI Anchieta }
 \sigla{FTSA }
@@ -46,17 +36,19 @@ embarcado em microcontrolador
 \tipodotrabalho{Monografia } 
 \orientador{Vander Celio Nunes }
 \torientador{Profº Me.}
+\coorientador{Rudson de Lima Silva}
+\tcoorientador{Profº Me. }
 \cidade{São Paulo}
 \ano{2016}
-\npaginas{nnn}
+\npaginas{\pageref{LastPage}}
 \CDU{xxx.yy}
-\areas{ 1.Técnicas de Controle 
-	    2.Lógica Paraconsistente
-	    3.Controle PID Digital}
+\areas{	1.Técnicas de Controle 
+	2.Lógica Paraconsistente
+	3.Controle PID Digital}
 \examinadorum{ Marcos Antônio Felizola}
-\texaminadorum{Prof Msc}
+\texaminadorum{Profº Me.}
 \examinadordois{ José Gil de Oliveira}
-\texaminadordois{Prof Msc}
+\texaminadordois{Profº Me.}
 \data{dd/mm/aaaa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Inicio do documento
@@ -81,12 +73,22 @@ embarcado em microcontrolador
 \chapter*{Lista de símbolos}
 \input{simbolos}
 
+
+
 \sumario
 
 %\singlespacing 	% espaçamento simples
 \onehalfspacing		% espaçamento de 1,5
 %doublespacing		% espaçamento duplo
 
+\pagestyle{myheadings}
+%\pagestyle{fancy}
+
+%\fancyhf{}
+%\lhead{\pageref{LastPage}}
+%\rhead{\thepage}
+
+\setcounter{page}{0}
 \chapter{Introdução}
 \input{cap1-intro}
 
@@ -106,7 +108,7 @@ embarcado em microcontrolador
 %%-------------------------------------- Bibliografia
 
 \bibliographystyle{apa}
-\bibliography{bibliografia}
+\bibliography{bibliografia.bib}
 
 
 %%-------------------------------------- Apendice

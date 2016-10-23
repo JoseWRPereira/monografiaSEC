@@ -8,7 +8,10 @@ A principal tarefa de um engenheiro, segundo \citet{dorf2011modern} "é o proces
 Os sistemas de controle atuam basicamente gerando respostas específicas para estímulos específicos de forma controlada e automática trazendo vantagens nas aplicações de diversas áreas como movimentação de grandes equipamentos com precisão, aplicação em locais remotos ou perigosos, compensação de perturbações, manipulação de dados convenientes etc.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Diagrama de Blocos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Os sistemas de controle são geralmente representados através de diagramas de blocos ou fluxo de sinais, como na Figura \ref{fig:processo} convenientes ao seu desenvolvimento e análise. É composta por uma caixa representando o sistema a ser controlado, setas no sentido da caixa representando as entradas do processo e setas no sentido para fora da caixa para indicar a saída do sistema.
 
@@ -34,13 +37,6 @@ Em um sistema real, podem haver muitas variáveis de entrada e de saída, mas a 
 \caption{ Diagrama em bloco de sistema de controle}
 \label{fig:processo}
 \end{figure}
-
-%\begin{figure}[!htb]
-%% [!htb] [!Here Top Botton {Picture}] LaTeX escolhe melhor posicao entre as tres opcoes. Tambem pode ser usada apenas uma opcao. {P:Picture} mantem todas as figuras e graficos em uma mesma pagina
-%\centering\includegraphics{./pic/C410processo.eps}
-%\caption{Diagrama em bloco de sistema de controle}
-%\label{fig:processo1}
-%\end{figure}
 
 
 O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificação ao máximo de um sistema de controle, contém apenas o bloco representando o sistema, uma entrada, para o valor de referência, e uma saída com o valor da variável controlada. A Figura \ref{fig:malhaAberta}, divide os bloco do sistema em dois: controlador e planta. Neste caso um sistema de controle em malha aberta, ou seja, não há uma reinserção do sinal de saída à entrada, chamada de realimentação ou retroalimentação. Assim a entrada possui o valor de resposta desejada, que alimenta o processo e a saída apresenta a resposta real, porém nada garante que a resposta real está coerente ao valor de entrada.
@@ -71,12 +67,6 @@ O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificaçã
 \caption{ Diagrama em blocos de sistema de controle em malha aberta}
 \label{fig:malhaAberta}
 \end{figure}
-
-%\begin{figure}[!htb]
-%\center\includegraphics{./pic/C412malhaAberta.eps}
-%\caption{Diagrama em bloco de sistema de controle em malha aberta}
-%\label{fig:malhaAberta}
-%\end{figure}
 
 O diagrama da Figura \ref{fig:malhaFechada} apresenta realimentação, ou seja, uma amostra da resposta real é lida por um elemento sensor e é reinserida à entrada da malha, aonde é realizada a comparação entre resposta real e desejada, a diferença entre ambos os valores é chamado de Erro do Sistema e é baseado nesse valor que o controlador tem condições de efetuar as devidas correções, geralmente, afim de manter o sistema estável no valor de resposta desejada.
 
@@ -167,8 +157,36 @@ Como notação para os elementos do diagrama de blocos, são adotadas letras par
 
 
 
-\section{Sistema Linear}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Controle Clássico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
+
+Os sistemas de controle modernos possuem o índice de desempenho em termos de variáveis de estado, e possuem técnicas para tratar sistemas multivariáveis, não lineares e variantes no tempo.
+
+A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas à partir das leis físicas que regem seus comportamento e desempenho.
+As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a série de Taylor. 
+
+Outra ferramenta extremamente importante é a transformada de Laplace que converte uma equação diferencial no domínio do tempo em uma equação algébrica no domínio da frequência, facilitando a manipulação matemática na utilização dos métodos de controle. 
+
+A relação das variáveis de saída com a de entrada do sistema, é denominada de função de transferência(FT) e apresenta as características dinâmicas do sistema.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modelagem matemática}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A maioria dos sitemas físicos pode ser modelado matematicamente através de sistemas diferenciais e é comum que os sistemas apresentem comportamento exponencial ...
+
+\# Em desenvolvimento \#
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistema Linear}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Quase que a totalidade dos processos naturais apresentam aspectos não lineares, porém a técnica de controle clássico trabalha apenas com sistemas lineares, assim exitem duas opções para trabalhar com sistemas não lineares: mudar o método de controle para uma ténica não convencional ou linearizar em torno de um ponto de operação. A linearização é o processo de encontrar um modelo linear que atenda bem a aproximação do modelo não linear em questão.
 
@@ -207,11 +225,7 @@ Dado um sistema \emph{S(t)} para uma entrada $u(t) = u_1(t)$ tem-se uma saída $
 \label{fig:sistemaSimples}
 \end{figure}
 
-
-
 Assim para uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(t)$ tem-se $y(t) = \alpha y_1(t) + \beta y_2(t), \forall \alpha ,  \beta \in \Re $ .
-
-
 
 \begin{figure}[!htb]
 \centering
@@ -234,7 +248,10 @@ Assim para uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(
 \end{figure}
 
 
-\subsection{Linearização}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Linearização}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Para o processo de linearização de um sinal, uma forma comumente utilizada é através da Série de Taylor, onde dado um plano cartesiano e uma função \emph{f} com um ponto qualquer com coordenadas \emph{x} e \emph{y} com pequenas variações $\overline{x}$ e $\overline{y}$, temos que:
 
@@ -248,8 +265,6 @@ y = \overline{y} +
 \end{equation}
 \end{center}
 
-
-
 A série de Taylor é truncada após o segundo membro da somatória, pois $(x - \overline{x}^n )$ é cada vez menor na medida em que o expoente aumenta, fazendo com que tal parcela da somatória tenda a zero, assim despreza-se tais termos e tem-se:
 
 \begin{center}
@@ -261,14 +276,12 @@ y = \overline{y} +
 \end{center}
 
 
-\section{Modelagem matemática}
-A maioria dos sitemas físicos pode ser modelado matematicamente através de sistemas diferenciais e é comum que os sistemas apresentem comportamento exponencial ...
 
-\# Em desenvolvimento \#
-
-
-\section{Transformada de Laplace}
-A transformada de Laplace é utilizada em controle como uma ferramenta matemática para facilitar a solução de equações diferenciais lineares, utilizando uma variável complexa \emph{s}, operações como derivação e integração podem ser substituidas por operações algébricas no plano complexo, domínio da frequência, e após a resolução realiza-se a transformada inversa para retornar a solução para o domínio do tempo.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Transformada de Laplace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+Atransformada de Laplace é utilizada em controle como uma ferramenta matemática para facilitar a solução de equações diferenciais lineares, utilizando uma variável complexa \emph{s}, operações como derivação e integração podem ser substituidas por operações algébricas no plano complexo, domínio da frequência, e após a resolução realiza-se a transformada inversa para retornar a solução para o domínio do tempo.
 
 A definição e sua dedução de forma rigorosa podem ser encontradas em \cite{Ogata} e não será discutida neste trabalho, mas vale aqui apresentar apenas a sua definição e uma parte da tabela de conversão.
 
@@ -311,7 +324,7 @@ $c$ : Número real constante, abscissa da convergência.
 
 Dificilmente a transformada inversa de Laplace é utilizada, podendo ser utilizado o método de frações parciais ou a tabela de conversão.
 
-A Tabela \ref{tab:Laplace} mostra alguns pares de transformadas de Laplace, e uma tabela mais completa pode ser envcontrada no Capítulo 2 de \citet{ogata}. 
+A Tabela \ref{tab:Laplace} mostra alguns pares de transformadas de Laplace, e uma tabela mais completa pode ser envcontrada no Capítulo 2 de \cite{Ogata}. 
 
 \begin{table}[h]
 \centering
@@ -335,14 +348,39 @@ $\frac{1}{b-a}(e^{-at}-e^{-bt})$ 	& $\frac{1}{(s+a)(s+b)}$ \\ \hline
 \end{table}
 
 
-\section{Sistemas de 1ª Ordem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistemas de 1ª Ordem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Sistemas de 2ª Ordem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistemas de 2ª Ordem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ação de Controle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+	\item Duas posições ou Liga-Desliga
+	\item Controlador Proporcional (P)
+	\item Controlador Integral (I)
+	\item Controlador Proporcional + Integral (PI)
+	\item Controlador Proporcional + Derivativo (PD)
+	\item Controlador Proporcional + Integral + Derivativo (PID)
+	
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Requisitos de desempenho do sistema}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Os sistemas de controle buscam atender os chamados requisitos de desempenho do sistema, que de um modo geral se efetuam através de modificações das características da relação entrada/saída para se obter os valores desejados dessa relação, ou ainda ajustar o comportamento da saída para uma dada entrada específica.
 
 Os principais e mais comuns requisitos de desempenho dos sistemas são associadas a velocidade de resposta, presença ou não de oscilações e a exatidão da resposta do sistema em relação ao valor desejado, chamada de erro de regime estacionário.
@@ -359,48 +397,16 @@ Para realizar o controle de um sistema é necessário que estejam bem definidos 
 
 Para a execução de um sistema de controle podem ser verificados requisitos do sistema de duas formas básicas, sendo a primeira através dos testes e levantamento empírico da sua curva de resposta ou através de seu modelo matemático, quando trabalha-se com elementos já bem estudados e com a equação que representa seu comportamento empírico bem estabelecida por diversos estudos anteriores.
 
-\newpage
-\section{Controle Clássico}
-
-Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
-
-Os sistemas de controle modernos possuem o índice de desempenho em termos de variáveis de estado, e possuem técnicas para tratar sistemas multivariáveis, não lineares e variantes no tempo.
-
-A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas à partir das leis físicas que regem seus comportamento e desempenho.
-As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a série de Taylor. 
-
-Outra ferramenta extremamente importante é a transformada de Laplace que converte uma equação diferencial no domínio do tempo em uma equação algébrica no domínio da frequência, facilitando a manipulação matemática na utilização dos métodos de controle. 
-
-A relação das variáveis de saída com a de entrada do sistema, é denominada de função de transferência(FT) e apresenta as características dinâmicas do sistema.
-
-
-
-
-\subsection{A construção do sistema de controle}
-A tarefa de construir um sistema de controle pode ser resumida em sete etapas de construção e atender a necessidade do projeto obtendo as configurações e especificações necessárias e são elas:
-
-\begin{enumerate}
-	\item Estabelecer os objetivos do controle
-	\item Identificar a variável a ser controlada
-	\item Escrever as especificações
-	\item Estabelecer a configuração do sistema
-	\item Obter um modelo do processo e suas partes
-	\item Descrever o controlador e parâmetros de ajuste
-	\item Otimizar parâmetros e analisar performance
-
-%A otimização de parêmtros e análise de performance pressupoe uma avaliacao quanto ao desempenho do modelo em comparação ao comportamento real do sistema, devendo inclusive retornar e rever o diagrama de blocos, modelos matemáticos, descrição do controlador e parâmetros de ajuste e novamente realizar uma nova análise.
-
-%\subsection{Método de sintonia - Ziegler-Nichols}
-
-\end{enumerate}
-
-
-O presente trabalho explicita a construção de um sistema de controle para um processo térmico de aquecimento no capítulo de desenvolvimento.
-
 
 
 \newpage
-\section{Controle Moderno - Lógica Paraconsistente}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Controle Moderno Não Convencional \\ Lógica Paraconsistente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 O controle moderno trata de sistemas multivariáveis, não lineares ou variantes no tempo de forma mais apropriada do que o controle clássico, reduzindo a complexidade das expressões para que haja a possibilidade de um processamento satisfatório.
 Dentro do universo do controle moderno, existe ainda o controle convencional que utiliza a análise de sistemas de controle no espaço de estados, que utiliza n-equações de primeira ordem combinadas em uma equação diferencial vetor-matricial, de forma a simplificar e possibilitar o trabalho com uma quantidade de variáveis alta sem que haja um grande impacto no processamento.  \citep{Ogata} 
 Outra forma de controle moderno é denominada controle não convencional, aonde estão situadas diversas técnicas como controle adaptativo, algoritmos adaptativo e genético, redes neurais, as lógicas Fuzzy e Paraconsistente, que é alvo da abordagem do presente trabalho, entre outras.
@@ -464,7 +470,10 @@ Sendo que toda a lógica paraconsistente, não se pode deduzir qualquer fórmula
 %Evandro Luis Gomes, 2013 p.439
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Reticulado de Hasse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A lógica paraconsistente sendo apropriada para tratar dados inconsistentes foi utilizada em 1987, por H. Blair e V.S.Subrahmanian para representar e codificar o funcionamento de bancos de dados inconsistentes. Pouco depois da Costa, Subrahmanian e Vago propuseram a lógica paraconsistente anotada e sua extensão a uma lógica de predicados paraconsistente anotada de primeira ordem. 
 
@@ -552,7 +561,9 @@ $(\mu, \lambda ) = (0.8,0.3) = \sim (0.3,0.8)$ : Não crê-se que há um grau de
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quadrado Unitário no Plano Cartesiano - QUPC}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Uma outra forma de representação da anotação é utilizando o Quadrado Unitário no Plano Cartesiano (QUPC) aonde são transpostos os pontos extremos às respectivas posições de acordo com o par ordenado,  $(\mu, \lambda ) \leftrightarrow (x,y) $, assim o eixo $x$ corresponde ao grau de evidência favorável e o eixo $y$ corresponde ao grau de evidência desfavorável, conforme mostrado na Figura \ref{fig:reticuladoQUPC}.
 
@@ -636,8 +647,6 @@ e
 \label{eq:grauInconsistenciaIndefinicao1}
 \end{equation}
 \end{center}
-
-
 
 
 O segmento de reta $\overline{ AC }$ , entre os pontos referentes às condições \emph{Paracompleto} e \emph{Contradição}, conforme mostrado na Figura \ref{fig:retaPerfeitamenteIndefinida}, é denominada de \emph{Reta Perfeitamente Indefinida} e dada uma anotação $(\mu, \lambda )$ situada nela, a subtração das evidências anotadas é sempre zero, $\mu = \lambda$, e de forma contrária, quando a anotação está posicionada de forma não coincidente à Reta Perfeitamente Indeterminada, significa que $\mu \neq \lambda$.
@@ -740,7 +749,11 @@ e 8 regiões intermediárias:
 
 O reticulado sobdividido em 12 regiões como mostrado, é aplicado em situações aonde a tomada de decisão utiliza estados discretos bem definidos para atuação, onde para cada posição da anotação e respectivamente um estado do reticulado, uma ação é tomada, assim sendo, a quantidade de subdivisões está fortemente dependente da aplicação.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A LPA2v aplicada em Controle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A LPA2v aplicada em sistemas de controle utiliza além dos conceitos já estabelecidos, duas outras definições para sua implementação e são elas o \emph{ Grau de Certeza Real ($G _{CR}$)} e o \emph{Grau de Evidência Real ($\mu _{ER}$)} além de trabalhar alguns conceitos básicos de geometria, e pelo fato de possuir uma resolução simples do ponto de vista matemático, motiva este trabalho pela sua implementação eficaz com relação ao controle clássico que exige uma matemática elaborada, dificultando sua implementação em dispositivos de baixo custo e que não possuem hardware específico de processamento de sinais. 
 
@@ -862,16 +875,8 @@ Graficamente pode ser representado como na Figura \ref{fig:gcgctExemplo}.
 \label{fig:gcgctExemplo}
 \end{figure}
 
-\newpage
-\section{Ação de Controle}
 
-\begin{itemize}
-	\item Duas posições ou Liga-Desliga
-	\item Controlador Proporcional (P)
-	\item Controlador Integral (I)
-	\item Controlador Proporcional + Integral (PI)
-	\item Controlador Proporcional + Derivativo (PD)
-	\item Controlador Proporcional + Integral + Derivativo (PID)
-	
-\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

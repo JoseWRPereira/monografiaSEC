@@ -73,4 +73,112 @@ CIRC:  	circle radius 5
 	move to CIRC.e
 }
 
+#########################################
+# $1 : raio do nó
+define NOH
+{
+Origem: Here
+	right
+	move to Here+(-$1,0.0)
+	circle rad $1 fill 1
+	move to Origem
+}
+
+
+#########################################
+# VerticeReticulado : Insere simbolo e coordenada no vertice do reticulado
+# $1: ">"=verdadeiro; "<"=falso; "^"=contraditorio; "v"=paracompleto
+define VerticeReticulado
+{
+boxwid = 4.0;
+boxht  = 4.0;
+Origem: Here
+	right
+	move to Here+(-0.6,0.0)
+	circle rad 0.6 fill 1
+	move to Origem
+
+	if $1 == "^" then
+	{ 						\
+		up; 					\
+		box invisible;				\
+		box invisible "(1,1)";			\
+		VRB: box invisible;			\
+		line from VRB.nw to VRB.ne; 		\
+	  	line from VRB.n to VRB.s 		\
+	}
+
+	if $1 == "v" then
+	{ 						\
+		down; 					\
+		box invisible;				\
+		box invisible "(0,0)";			\
+		VRB: box invisible;			\
+		line from VRB.sw to VRB.se; 		\
+	  	line from VRB.n to VRB.s 		\
+	}
+
+	if $1 == "<" then
+	{ 						\
+		left; 					\
+		box invisible "(0,1)" rjust;		\
+		box invisible;				\
+		VRB: box invisible; 			\
+		line from VRB.nw to 0.7<VRB.nw,VRB.ne>;	\
+	  	line from VRB.nw to VRB.sw; 		\
+	  	line from VRB.w to VRB.c		\
+	}
+	if $1 == ">" then
+	{ 						\
+		right; 					\
+		box invisible;				\
+		box invisible "   (1,0)";		\
+		box invisible;				\
+		VRB: box invisible;			\
+		line from VRB.nw to VRB.s; 		\
+	  	line from VRB.ne to VRB.s 		\
+	}
+}
+
+
+
+#########################################
+# Quadrado Unitario no Plano Cartesiano
+define qupc
+{
+
+qupc_lado = 40;
+qupc_qdlado = 0.8;
+
+QUPC_BASE:	box ht qupc_lado wid qupc_lado invisible 
+QUPC_ORG:	QUPC_BASE.sw
+	
+		line -> from QUPC_BASE.sw to QUPC_BASE.nw 
+		up;  	"     y" 
+		line -> from QUPC_BASE.sw to QUPC_BASE.se 
+		move to Here+(0.0,-2.0) "x"
+
+		right
+		move to (qupc_qdlado/2) <QUPC_BASE.sw, QUPC_BASE.nw>
+QUPC_QD:	box wid qupc_lado*qupc_qdlado ht qupc_lado*qupc_qdlado fill 0.2
+
+		move to QUPC_QD.sw 	NOH(0.5) 
+		move to QUPC_QD.nw 	NOH(0.5) 
+		move to QUPC_QD.ne 	NOH(0.5) 
+		move to QUPC_QD.se 	NOH(0.5) 
+
+		move to QUPC_QD.sw+(-3.0, 0.0) "A"
+		move to QUPC_QD.sw+(-3.0,-3.0) "(0,0)";
+
+		move to QUPC_QD.nw+(-4.0, 1.0) "B"
+		move to QUPC_QD.nw+(-4.0,-2.0) "(0,1)";
+
+		move to QUPC_QD.ne+( 4.0, 1.0) "C"
+		move to QUPC_QD.ne+( 4.0,-2.0) "(1,1)";
+
+		move to QUPC_QD.se+( 3.0, 2.0) "D"
+		move to QUPC_QD.se+( 0.0,-3.0) "(1,0)";
+
+}
+
 
