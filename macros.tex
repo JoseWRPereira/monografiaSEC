@@ -34,7 +34,8 @@
 \def\examinadordois#1{\gdef\examinadordois{#1}}
 \def\texaminadordois#1{\gdef\texaminadordois{#1}}
 \def\data#1{\gdef\data{#1}}
-
+\def\palavraschave#1{\gdef\palavraschave{#1}}
+\def\keywords#1{\gdef\keywords{#1}}
 
 %%%%------------------------------------ Configuração das Páginas
 \newcommand{\configuramargens} %%% Define margens
@@ -43,6 +44,19 @@
 			  left=3.00cm,    right=2.00cm, 
 			  top=3.00cm,     bottom=2.00cm] {geometry}
 }
+
+%%%------------------------------------ Fonte
+\renewcommand{\familydefault}{\sfdefault} % sans font
+%\renewcommand{\familydefault}{\rmdefault}  % roman font
+
+
+%%%------------------------------------ Formatação de Capitulo
+\titleformat{\chapter}
+  {\Large\bfseries}
+  {}
+  {0pt}
+  {\huge}
+
 %%%------------------------------------ Capa
 \newcommand{\capa}
 {
@@ -53,11 +67,11 @@
       \textsc{\unidadeacademica}	\\[0.0cm]
       \textsc{Curso de \curso}		\\[4.0cm]
       \textsc{\autor}			\\[4.0cm]
-      \textsc{\titulo}			\\[0.4cm]
+      \textsc{\titulo}			\\[0.0cm]
       \textsc{\subtitulo}               \\[0.4cm]
       \vfill
-      \textsc{\cidade}			\\[0.2cm]
-      \textsc{\ano}			\\[0.2cm]
+      \textsc{\cidade}			\\[0.0cm]
+      \textsc{\ano}			\\[0.0cm]
     \end{center}
   \end{titlepage}
 }
@@ -66,13 +80,13 @@
 {
   \begin{flushright}
     \thispagestyle{empty}
-    \begin{minipage}{0.6\textwidth}
+    \begin{minipage}{0.5\textwidth}
     {
       \tipodotrabalho apresentada à \instituicao 
-      como requisito para   obtenção do grau de \grau em \curso.
+      como requisito para   obtenção do grau de \grau em \curso
     } 				\\[0.4cm]
-    Orientador: \torientador \orientador \\
-    Co-orientador: \tcoorientador  \coorientador
+    Orientador:   \torientador    \orientador \\
+    Coorientador: \tcoorientador  \coorientador
     \end{minipage}
   \end{flushright}
 }
@@ -83,12 +97,12 @@
     \begin{center}
       \textsc{ }		\\[4.0cm]
       \textsc{\autor}		\\[4.0cm]
-      \textsc{\titulo}		\\[0.4cm]
-      \textsc{\subtitulo}       \\[2.0cm]
+      \textsc{\titulo}		\\[0.0cm]
+      \textsc{\subtitulo}       \\[4.0cm]
       \natureza
       \vfill
-      \textsc{\cidade}		\\[0.2cm]
-      \textsc{\ano}		\\[0.2cm]
+      \textsc{\cidade}		\\[0.0cm]
+      \textsc{\ano}		\\[0.0cm]
     \end{center}
   \end{titlepage}
 }
@@ -97,7 +111,6 @@
 {
   \begin{titlepage}
     \vfil\null
-    \lineskip .0em
     \vfill
     \fbox
     {
@@ -116,7 +129,6 @@
 {
   \begin{titlepage}
     \thispagestyle{empty}
-    \lineskip .0em
     \begin{center}
       \textsc{\autor}
       \vfill
@@ -126,13 +138,18 @@
     \end{center}
     \natureza
     \vfill
-    \rmfamily Aprovado em \data \\
+    \centering Aprovado pela banca examinadora em \data \\
     \vfill
     \begin{center}
       {\large\bfseries BANCA EXAMINADORA }\\
       \vfill
       \rule{9.0cm}{0.1mm} \\
       {\torientador \orientador  }\\
+      {Orientador } \\
+      \vfill
+      \rule{9.0cm}{0.1mm} \\
+      {\tcoorientador \coorientador} \\
+      {Coorientador} \\
       \vfill
       \rule{9.0cm}{0.1mm} \\
       {\texaminadorum \examinadorum }\\
@@ -151,31 +168,54 @@
   \vfill
   \begin{flushright}
     \begin{minipage}{0.6\textwidth}
-    \textit
+    \textrm
     {
+      \textit
+      {
 	#1
+      }
     }    
     \end{minipage}
   \end{flushright}
   \end{titlepage}
 }
+
+%%%------------------------------------ Agradecimentos
+\newcommand{\agradecimentos}[1]
+{
+  \begin{titlepage} 
+    \thispagestyle{empty}
+    \titlepage
+    \begin{center}%
+        \huge \textbf{Agradecimentos}
+    \end{center}%
+    \null
+    \hspace{1cm} #1
+    \endtitlepage
+  \end{titlepage}
+}
+
 %%%------------------------------------ Epígrafe
 \newcommand{\epigrafe}[1]
 {
   \begin{titlepage}
-    \thispagestyle{empty}
+    \thispagestyle{empty} 
     \hspace{1cm}
     \vfill
     \begin{flushright}
       \begin{minipage}{0.6\textwidth}
-      \textit
+      \textrm
       {
+        \textit
+        {
 	    #1
+        }
       }    
       \end{minipage}
     \end{flushright}
   \end{titlepage}
 }
+
 %%%------------------------------------ Resumo
 \newcommand{\resumo}[1]
 {
@@ -187,6 +227,8 @@
     \end{center}%
     \null
     #1
+
+    \textbf{\\PALAVRAS-CHAVE:} \palavraschave
     \endtitlepage
   \end{titlepage}
 }
@@ -200,21 +242,9 @@
         \huge \textbf{Abstract}
     \end{center}%
     \null
-    #1
-    \endtitlepage
-  \end{titlepage}
-}
-%%%------------------------------------ Agradecimentos
-\newcommand{\agradecimentos}[1]
-{
-  \begin{titlepage} 
-    \thispagestyle{empty}
-    \titlepage
-    \begin{center}%
-        \huge \textbf{Agradecimentos}
-    \end{center}%
-    \null
-    #1
+    \hspace{1cm} #1
+
+    \textbf{\\KEYWORDS:} \keywords
     \endtitlepage
   \end{titlepage}
 }
@@ -253,10 +283,13 @@
 \newcommand{\citacao}[1]
 {
   \begin{flushright}
-    \begin{minipage}[]{13cm}
-      \footnotesize {#1}
+    \begin{minipage}{12cm}
+      \footnotesize #1
     \end{minipage}
+    \vspace{12pt}
   \end{flushright}
 }
+
 %--------------------------------------
 %--------------------------------------
+

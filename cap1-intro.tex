@@ -1,14 +1,14 @@
 Comparar sistemas de controle mediante uma mesma planta é uma forma de avaliar as possibilidades e limitações de ambos os elementos de estudo, possibilitando uma melhor escolha no momento de planejar e executar um projeto, obtendo assim um ganho de tempo, que reflete diretamente no custo de implementação e manutenção além de conferir ao projeto maior possibilidade de atingir um melhor desempenho e uma maior confiabilidade. 
 
-Sistemas de controle são largamente utilizados pela indústria como um todo a muitos anos, tendo algumas técnicas amplamente difundidas e com alto grau de maturação, como é o caso do controle Proporcional-Integral-Derivativo (PID),  mesmo apresentando restrições e limitações quanto a aplicação em sistemas que possuem não-linearidades, atrasos de transporte e/ou parâmetros variantes no tempo.\cite{Ferreira2012}
+Sistemas de controle são largamente utilizados pela indústria como um todo a muitos anos, tendo algumas técnicas amplamente difundidas e com alto grau de maturação, como é o caso do controle Proporcional-Integral-Derivativo (PID),  mesmo apresentando restrições e limitações quanto a aplicação em sistemas que possuem não-linearidades, atrasos de transporte e/ou parâmetros variantes no tempo \cite{Ferreira2012}.
 
 %%%% Estudo Comparativo entre as Técnicas de Controle Fuzzy, PI e Adaptativo Aplicado ao Processo de Fabricação de Papel Reciclado Utilizando a Ferramenta Delta Tune
 %%% Cesar Ferreira pag16
 
 
-Tendo em vista que estudos de novas formas de controle não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para implementação de tomada de descisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, controle, entre outras.\cite{JoaoInacio}
+Tendo em vista que estudos de novas formas de controle não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para tomada de decisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, controle, entre outras\cite{JoaoInacio}.
  
-O presente trabalho tem como objetivo a caracterização de duas teorias utilizadas em sistemas controle, PID e Lógica Paraconsistente Anotada de anotação com dois valores (LPA2v), que é uma das formas de aplicação da Lógica Paraconsistente, sua implementação e posterior comparação utilizando uma plataforma que contemple recursos que possibilite uma análise de desempenho e complexidade de implementação.
+O presente trabalho tem como objetivo a caracterização de duas teorias e sua utilização em sistemas controle, PID e Lógica Paraconsistente Anotada de anotação com dois valores (LPA2v), que é uma das formas de aplicação da Lógica Paraconsistente, sua implementação e posterior comparação utilizando uma plataforma que contemple recursos que possibilite uma análise de desempenho e complexidade de implementação.
 %Objetivo ou Finalidade: preocupação em distinguir a característica comum ou as leis gerais que regem determinados eventos.
 
 
@@ -17,15 +17,15 @@ O presente trabalho tem como objetivo a caracterização de duas teorias utiliza
 \section{Formulação do Problema}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits integrados com hardware dedicado à processamento digital de sinais e cálculos avançados.
 
-A integração de hardware dedicado junto ao núcleo dos microcontroladores, possibilita a implementação de rotinas complexas de cálculo para controle do tipo PID, de forma a dirimir o custo de processamento, intrínseco ao controle clássico, ou seja, a qantidade de ciclos de máquina necessários para a realização dos cálculos e por consequência o tempo de resposta do sistema. 
 
-Em contrapartida, novas técnicas utilizando lógicas modernas, como a LPA2v, possuem baixo custo de processamento em relação aos cálculos matemáticos, por serem inerentemente simples, não necessitando de um hardware dedicado para sua implementação, e podendo ser realizada a execução em dispositivos de menor capacidade de processamento, reduzindo assim o custo do projeto, mas mantendo a qualidade do sinal processado.
+O cenário dos dispositivos microcontrolados é cada vez maior e abrange uma gama de aplicações muito ampla, desde pequenas aplicações com dispositivos de 8-bits até modernos controladores de 32-bits integrados com hardware dedicado a processamento digital de sinais e cálculos avançados.
 
-Existe a possibilidade de substituir um controlador PID digital por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade da resposta do sistema, menor complexidade na codificação de cálculos e carga de processamento reduzida? 
+Algumas lógicas ainda não tiveram  uma abordagem prática de sua implementação, ou ainda, tais abordagens são muito escassas, seja com dispositivos simples ou com os mais complexos.
 
-Para responder a essa questão é implementado um sistema com um controlador de 32-bits que possui hardware dedicado, para a comparação entre sistema de controle PID digital e controle baseado em LPA2v.
+Assim surgiu a questão que aqui se apresenta: Existe a possibilidade de substituir um controlador PID por um controlador baseado em lógica paraconsistente, e obter um resultado equivalente em termos de qualidade da resposta do sistema, ou seja, atendendo requisitos de desempenho de um dado sistema? 
+
+Para responder a essa questão é implementado um sistema com um controlador de 32-bits que possui hardware dedicado, para a comparação entre sistema de controle PID e controle baseado em LPA2v.
 
 
 
@@ -33,7 +33,7 @@ Para responder a essa questão é implementado um sistema com um controlador de 
 \section{Hipótese e Relevância do Trabalho}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A lógica paraconsistente vem ganhando relevância e adeptos principalmente à partir do final da década de 90 do século XX, quando houve o Primeiro Congresso Mundial sobre Paraconsistência em Gent na Bélgica em 1997, no ano 2000 o segundo congresso realizado em São Sebastião, São Paulo e o terceiro em Toulouse, França em julho de 2003, atraindo cada vez mais pesquisadores interessados de diversos centros de pesquisa do mundo.  \cite{DecioKrause}
+A lógica paraconsistente vem ganhando relevância e adeptos principalmente a partir do final da década de 90 do século XX, quando houve o Primeiro Congresso Mundial sobre Paraconsistência em Gent na Bélgica em 1997, no ano 2000 o segundo congresso realizado em São Sebastião, São Paulo e o terceiro em Toulouse, França em julho de 2003, atraindo cada vez mais pesquisadores interessados de diversos centros de pesquisa do mundo \cite{DecioKrause}. Em meados de setembro de 2016, aconteceu o pela primeira vez no Brasil a Conferência Internacional de Lógica \texttt{XVI Tendências da Lógica} \emph{Trends In Logic XVI - Studia Logica International Conference}.
 
 Atualmente as pesquisas estão focadas no estudo da aplicação da lógica paraconsistente, e ganhar espaço no universo técnico e científico, contribuindo com uma nova e eficiente forma de trabalho.
 
@@ -69,7 +69,7 @@ Um enfoque especial é dado à complexidade da implementação no controlador e 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Função: aperfeiçoamento, através de crescente acervo de conhecimento, da relação do homem com o seu mundo.
-Sendo o presente trabalho uma análise comparativa entre um sistema de controle clássico e uma lógica moderna para implementar o sistema de controle, sua função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo à potencial teoria emergente, contribuindo dentro de uma aspecto ainda pouco explorado, mesmo contando com algumas implementações, há escassez de comparações diretas entre as técnicas de controle aqui presentes.
+Sendo o presente trabalho uma análise comparativa entre um sistema de controle clássico e uma lógica moderna para implementar o sistema de controle, sua função primordial é contribuir para a ampliação do conhecimento em uma nova forma de lidar com o mundo, amparado por um saber fortemente enraizado que serve de suporte comparativo a potencial teoria emergente, contribuindo dentro de uma aspecto ainda pouco explorado, mesmo contando com algumas implementações, há escassez de comparações diretas entre as técnicas de controle aqui presentes.
 
 
 

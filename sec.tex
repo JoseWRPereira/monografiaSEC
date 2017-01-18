@@ -13,14 +13,22 @@
 \usepackage{tikz}
 \usepackage{mathrsfs}
 \everymath{\displaystyle}
-\usepackage{natbib}
+\usepackage[alf]{abntex2cite}
+%\usepackage{natbib}
+\usepackage{url}
 \usepackage{emptypage}
-%\usepackage{fancyhdr}
+\usepackage{fancyhdr}
 \usepackage{lastpage}
-
 \usepackage{nopageno}
+\usepackage{indentfirst}
+\usepackage{parskip}
+\usepackage{titlesec}
+
 
 \input{macros}
+
+
+
 
 %%%----------------------------------- Declarações
 \autor{JOSÉ WILLIAM RODRIGUES PEREIRA}
@@ -34,8 +42,8 @@
 \unidadeacademica{Pós-Graduação Lato Sensu }
 \grau{Especialista }
 \tipodotrabalho{Monografia } 
-\orientador{Vander Celio Nunes }
-\torientador{Profº Me.}
+\orientador{Vander Célio Nunes }
+\torientador{Profº Me. }
 \coorientador{Rudson de Lima Silva}
 \tcoorientador{Profº Me. }
 \cidade{São Paulo}
@@ -50,10 +58,18 @@
 \examinadordois{ José Gil de Oliveira}
 \texaminadordois{Profº Me.}
 \data{dd/mm/aaaa}
+\palavraschave{Controle Não Convencional; Lógica Paraconsistente; Controle Clássico; }
+\keywords{ Unconventional control; Paraconsistent logic; Classic Controller; }
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Inicio do documento
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \configuramargens
+
+
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{12pt}
 
 \begin{document}
 \capa
@@ -88,26 +104,27 @@
 %\lhead{\pageref{LastPage}}
 %\rhead{\thepage}
 
-\setcounter{page}{0}
-\chapter{Introdução}
+\setcounter{page}{14}
+\chapter[Introdução]{1. Introdução}
 \input{cap1-intro}
 
-\chapter{Controle de Sistemas}
+\chapter[Controle de Sistema]{2. Controle de Sistemas}
 \input{cap2-controle}
 
-\chapter{Sistema eletrônico}
+\chapter[Sistema eletrônico]{3. Sistema eletrônico}
 \input{cap3-sistEletronico}
 
-\chapter{Apresentação e discussão dos resultados}
+\chapter[Apresentação e discussão dos resultado]{4. Apresentação e discussão dos resultados}
 \input{cap4-desen}
 
-\chapter{Considerações Finais - Conclusão}
+\chapter[Considerações finais - Conclusão]{5. Considerações Finais - Conclusão}
 \input{cap5-conclusao}
 
 
 %%-------------------------------------- Bibliografia
-
-\bibliographystyle{apa}
+%\printbibliography
+%\bibliographystyle{plain}
+\bibliographystyle{abnt-alf}
 \bibliography{bibliografia.bib}
 
 

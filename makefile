@@ -5,7 +5,7 @@ PDFLATEX: LATEX2
 	pdflatex -synctex=1 -interaction=nonstopmode sec
 
 
-LATEX2: NOMENCLATURA BIB
+LATEX2: NOMENCLATURA 
 	pdflatex sec
 
 BIB: LATEX1

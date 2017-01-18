@@ -1,9 +1,9 @@
 
-A palavra \emph{Sistema} tem origem no grego \emph{synístanai} e de acordo com \citet{gramaticaNET} significa "fazer funcionar junto" e uma aplicação precursora do controle é apresentada por Ctesibius de Alexandria ( \citet{encyclopediaBritannica} ) onde um conjunto de reservatórios de água com furo na parte inferior geravam por gotejamento uma marcação do tempo, porém a água do reservatório precisa estar em um nível constante, pois o intervalo de gotejamento é afetado diretamente pela quantidade de água, assim foi criado por Ctesibius um sistema semelhante as boias dos reservatórios atuais para manter o nível de água no reservatório sempre constante.
+A palavra \emph{Sistema} tem origem no grego \emph{synístanai} e de acordo com \cite{gramaticaNET} significa "fazer funcionar junto" e uma aplicação precursora do controle é apresentada por Ctesibius de Alexandria ( \cite{encyclopediaBritannica} ) onde um conjunto de reservatórios de água com furo na parte inferior geravam por gotejamento uma marcação do tempo, porém a água do reservatório precisa estar em um nível constante, pois o intervalo de gotejamento é afetado diretamente pela quantidade de água, assim foi criado por Ctesibius um sistema semelhante as boias dos reservatórios atuais para manter o nível de água no reservatório sempre constante.
 
 A modificação do comportamento de um sistema, de forma controlada garantindo uma maior eficiência é o objetivo do controle de sistemas. 
 
-A principal tarefa de um engenheiro, segundo \citet{dorf2011modern} "é o processo de concepção ou invenção de formas, partes e detalhes de um sistema para alcançar um propósito específico", processo este que soma a grande capacidade de análise e a criatividade para atender as demandas da função, como é o caso de projeto em engenharia no segmento de Sistemas de controle, cujo objetivo é obter configuração, especificações e identificação de processos para atender uma necessidade real. Norman S. Nise traz uma concepção semelhante onde "Um sistema de controle consiste em subsistemas e processos(ou plantas) construídos com o objetivo de se obter uma saída desejada com desempenho desejado para uma entrada específica fornecida".
+A principal tarefa de um engenheiro, segundo \cite{dorf2011modern} "é o processo de concepção ou invenção de formas, partes e detalhes de um sistema para alcançar um propósito específico", processo este que soma a grande capacidade de análise e a criatividade para atender as demandas da função, como é o caso de projeto em engenharia no segmento de Sistemas de controle, cujo objetivo é obter configuração, especificações e identificação de processos para atender uma necessidade real. Norman S. Nise traz uma concepção semelhante onde "Um sistema de controle consiste em subsistemas e processos(ou plantas) construídos com o objetivo de se obter uma saída desejada com desempenho desejado para uma entrada específica fornecida".
 
 Os sistemas de controle atuam basicamente gerando respostas específicas para estímulos específicos de forma controlada e automática trazendo vantagens nas aplicações de diversas áreas como movimentação de grandes equipamentos com precisão, aplicação em locais remotos ou perigosos, compensação de perturbações, manipulação de dados convenientes etc.
 
@@ -15,7 +15,7 @@ Os sistemas de controle atuam basicamente gerando respostas específicas para es
 
 Os sistemas de controle são geralmente representados através de diagramas de blocos ou fluxo de sinais, como na Figura \ref{fig:processo} convenientes ao seu desenvolvimento e análise. É composta por uma caixa representando o sistema a ser controlado, setas no sentido da caixa representando as entradas do processo e setas no sentido para fora da caixa para indicar a saída do sistema.
 
-Em um sistema real, podem haver muitas variáveis de entrada e de saída, mas a abordagem clássica de controle isola apenas uma das variáveis de entrada e uma de saída, ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single Out} - Única Entrada e Única Saída).
+Em um sistema real podem haver muitas variáveis de entrada e de saída, mas a abordagem clássica de controle isola apenas uma das variáveis de entrada e uma de saída, ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single Out} - Única Entrada e Única Saída).
 
 \begin{figure}[!htb]
 \centering
@@ -34,12 +34,12 @@ Em um sistema real, podem haver muitas variáveis de entrada e de saída, mas a 
 \node [above] at (7.5,1){Variável};
 \node [below] at (7.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama em bloco de sistema de controle}
+\caption{ Diagrama de blocos de sistema de controle}
 \label{fig:processo}
 \end{figure}
 
 
-O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificação ao máximo de um sistema de controle, contém apenas o bloco representando o sistema, uma entrada, para o valor de referência, e uma saída com o valor da variável controlada. A Figura \ref{fig:malhaAberta}, divide os bloco do sistema em dois: controlador e planta. Neste caso um sistema de controle em malha aberta, ou seja, não há uma reinserção do sinal de saída à entrada, chamada de realimentação ou retroalimentação. Assim a entrada possui o valor de resposta desejada, que alimenta o processo e a saída apresenta a resposta real, porém nada garante que a resposta real está coerente ao valor de entrada.
+O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificação ao máximo de um sistema de controle, contém apenas o bloco representando o sistema, uma entrada, para o valor de referência, e uma saída com o valor da variável controlada. A Figura \ref{fig:malhaAberta}, divide os bloco do sistema em dois: controlador e planta. Neste caso, um sistema de controle em malha aberta, ou seja, não há uma reinserção do sinal de saída à entrada, chamada de realimentação ou retroalimentação. Assim, a entrada possui o valor de resposta desejada, que alimenta o processo e a saída apresenta a resposta real, porém nada garante que a resposta real está coerente ao valor de entrada.
 
 \begin{figure}[!htb]
 \centering
@@ -64,7 +64,7 @@ O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificaçã
 \node [above] at (13.5,1){Variável};
 \node [below] at (13.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama em blocos de sistema de controle em malha aberta}
+\caption{ Diagrama de blocos de sistema de controle em malha aberta}
 \label{fig:malhaAberta}
 \end{figure}
 
@@ -161,16 +161,16 @@ Como notação para os elementos do diagrama de blocos, são adotadas letras par
 \section{Controle Clássico}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
+Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a Transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
 
 Os sistemas de controle modernos possuem o índice de desempenho em termos de variáveis de estado, e possuem técnicas para tratar sistemas multivariáveis, não lineares e variantes no tempo.
 
-A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas à partir das leis físicas que regem seus comportamento e desempenho.
-As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a série de Taylor. 
+A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas a partir das leis físicas que regem seus comportamento e desempenho.
+As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a Série de Taylor. 
 
-Outra ferramenta extremamente importante é a transformada de Laplace que converte uma equação diferencial no domínio do tempo em uma equação algébrica no domínio da frequência, facilitando a manipulação matemática na utilização dos métodos de controle. 
+Outra ferramenta extremamente importante é a Transformada de Laplace que converte uma equação diferencial no domínio do tempo em uma equação algébrica no domínio da frequência, facilitando a manipulação matemática na utilização dos métodos de controle. 
 
-A relação das variáveis de saída com a de entrada do sistema, é denominada de função de transferência(FT) e apresenta as características dinâmicas do sistema.
+A relação das variáveis de saída com a de entrada do sistema, é denominada de Função de Transferência(FT) e apresenta as características dinâmicas do sistema.
 
 
 
@@ -225,7 +225,8 @@ Dado um sistema \emph{S(t)} para uma entrada $u(t) = u_1(t)$ tem-se uma saída $
 \label{fig:sistemaSimples}
 \end{figure}
 
-Assim para uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(t)$ tem-se $y(t) = \alpha y_1(t) + \beta y_2(t), \forall \alpha ,  \beta \in \Re $ .
+Assim para a região linear próxima ao ponto de operação, uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(t)$ produz $y(t) = \alpha y_1(t) + \beta y_2(t), \forall \alpha ,  \beta \in \Re $, que é o princípio da superposição ilustrado na Figura \ref{fig:principioSuperposicao}.
+
 
 \begin{figure}[!htb]
 \centering
@@ -265,7 +266,7 @@ y = \overline{y} +
 \end{equation}
 \end{center}
 
-A série de Taylor é truncada após o segundo membro da somatória, pois $(x - \overline{x}^n )$ é cada vez menor na medida em que o expoente aumenta, fazendo com que tal parcela da somatória tenda a zero, assim despreza-se tais termos e tem-se:
+A Série de Taylor é truncada após o segundo membro da somatória, pois $(x - \overline{x}^n )$ é cada vez menor na medida em que o expoente aumenta, fazendo com que tal parcela da somatória tenda a zero, assim despreza-se tais termos e tem-se:
 
 \begin{center}
 \begin{equation}
@@ -281,11 +282,11 @@ y = \overline{y} +
 \subsection{Transformada de Laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
-Atransformada de Laplace é utilizada em controle como uma ferramenta matemática para facilitar a solução de equações diferenciais lineares, utilizando uma variável complexa \emph{s}, operações como derivação e integração podem ser substituidas por operações algébricas no plano complexo, domínio da frequência, e após a resolução realiza-se a transformada inversa para retornar a solução para o domínio do tempo.
+A Transformada de Laplace é utilizada em controle como uma ferramenta matemática para facilitar a solução de equações diferenciais lineares, utilizando uma variável complexa \emph{s}, operações como derivação e integração podem ser substituidas por operações algébricas no plano complexo, domínio da frequência, e após a resolução realiza-se a Transformada Inversa de Laplace para retornar a solução para o domínio do tempo.
 
 A definição e sua dedução de forma rigorosa podem ser encontradas em \cite{Ogata} e não será discutida neste trabalho, mas vale aqui apresentar apenas a sua definição e uma parte da tabela de conversão.
 
-A transformada de Laplace é definida como:
+A Transformada de Laplace é definida como:
 
 \begin{equation}
 \mathscr{L}\{f(t)\} = F(s) = \int_{0}^{\infty} f(t) e^{-st} dt
@@ -295,17 +296,17 @@ A transformada de Laplace é definida como:
 Onde:
 
 \setlength{\parindent}{2cm}
-$\mathscr{L}$ : Operador da transformada de Laplace 
+$\mathscr{L}$ : Operador da Transformada de Laplace 
 
 $f(t)$ : função da variável $t$ tal que $f(t) = 0$ para $t < 0$ 
 
-$F(s)$ : transformada de Laplace de $f(t)$
+$F(s)$ : Transformada de Laplace de $f(t)$
 
 $s$ : variável complexa
 \\
 
 \setlength{\parindent}{0cm}
-A transformada inversa de Laplace é definida como:
+A Transformada Inversa de Laplace é definida como:
 
 \begin{equation}
 \mathscr{L}^{-1} \{F(s)\} =  \frac{1}{2 \pi j} \int_{c-j\infty}^{c+j\infty}F(s) e^{st} ds  \text{ , para } t > 0
@@ -315,20 +316,19 @@ A transformada inversa de Laplace é definida como:
 Onde:
 
 \setlength{\parindent}{2cm}
-$\mathscr{L}^{-1}$ : Operador da transformada inversa de Laplace
+$\mathscr{L}^{-1}$ : Operador da Transformada Inversa de Laplace
 
 $c$ : Número real constante, abscissa da convergência.
 
+\setlength{\parindent}{1cm}
 
-\setlength{\parindent}{0cm}
+Dificilmente a Transformada Inversa de Laplace é utilizada, podendo ser utilizado o método de frações parciais ou a tabela de conversão.
 
-Dificilmente a transformada inversa de Laplace é utilizada, podendo ser utilizado o método de frações parciais ou a tabela de conversão.
-
-A Tabela \ref{tab:Laplace} mostra alguns pares de transformadas de Laplace, e uma tabela mais completa pode ser envcontrada no Capítulo 2 de \cite{Ogata}. 
+A Tabela \ref{tab:Laplace} mostra alguns pares de Transformadas de Laplace, e uma tabela mais completa pode ser encontrada no Capítulo 2 de \cite{Ogata}. 
 
 \begin{table}[h]
 \centering
-\caption{Pares de transformadas de Laplace}
+\caption{Pares de Transformadas de Laplace}
 \label{tab:Laplace}
 \begin{tabular}{c|c}
 \hline
@@ -366,12 +366,12 @@ $\frac{1}{b-a}(e^{-at}-e^{-bt})$ 	& $\frac{1}{(s+a)(s+b)}$ \\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-	\item Duas posições ou Liga-Desliga
-	\item Controlador Proporcional (P)
-	\item Controlador Integral (I)
-	\item Controlador Proporcional + Integral (PI)
-	\item Controlador Proporcional + Derivativo (PD)
-	\item Controlador Proporcional + Integral + Derivativo (PID)
+	\item Duas posições ou Liga-Desliga;
+	\item Controlador Proporcional (P);
+	\item Controlador Integral (I);
+	\item Controlador Proporcional + Integral (PI);
+	\item Controlador Proporcional + Derivativo (PD);
+	\item Controlador Proporcional + Integral + Derivativo (PID).
 	
 \end{itemize}
 
@@ -383,9 +383,9 @@ $\frac{1}{b-a}(e^{-at}-e^{-bt})$ 	& $\frac{1}{(s+a)(s+b)}$ \\ \hline
 
 Os sistemas de controle buscam atender os chamados requisitos de desempenho do sistema, que de um modo geral se efetuam através de modificações das características da relação entrada/saída para se obter os valores desejados dessa relação, ou ainda ajustar o comportamento da saída para uma dada entrada específica.
 
-Os principais e mais comuns requisitos de desempenho dos sistemas são associadas a velocidade de resposta, presença ou não de oscilações e a exatidão da resposta do sistema em relação ao valor desejado, chamada de erro de regime estacionário.
+Os principais e mais comuns requisitos de desempenho dos sistemas são associados a velocidade de resposta, presença ou não de oscilações e a exatidão da resposta do sistema em relação ao valor desejado, chamada de erro de regime estacionário.
 
-O erro de regime estacionário, mostrada na Figura \ref{fig:funcaoResposta}, é uma medida que vai tender a zero em sistemas ideais, mas que na realidade não alcança o valor zero, assim assume-se um valor aceitável, 5\% do valor da resposta desejada para sistemas não críticos e 2\% para sistemas de maior grau de criticidade, para assumir que o sistema entrou em estabilidade, e a resposta real é aceita como tendo atingido o valor de Resposta desejada. 
+O erro de regime estacionário, mostrada na Figura \ref{fig:funcaoResposta}, é uma medida que vai tender a zero em sistemas ideais, mas que na realidade não alcança o valor zero, assim assume-se um valor aceitável, 5\% do valor da resposta desejada para sistemas não críticos e 2\% para sistemas de maior grau de criticidade, para assumir que o sistema entrou em estabilidade, e a resposta real é aceita como tendo atingido o valor de resposta desejada. 
 
 \begin{figure}[!htb]
 \center\includegraphics[scale=1]{./pic/C400grafico.eps}
@@ -393,7 +393,7 @@ O erro de regime estacionário, mostrada na Figura \ref{fig:funcaoResposta}, é 
 \label{fig:funcaoResposta}
 \end{figure}
 
-Para realizar o controle de um sistema é necessário que estejam bem definidos os seus requisitos, que são os objetivos a serem atendidos. Quando um sistema por si só já atende os requisitos, não há a necessidade de controle. De forma oposta, é projetado o sistema de controle, que pode ser em malha aberta ou fechada, clássico ou moderno dependendo das características físicas do sistema. 
+Para realizar o controle de um sistema é necessário que estejam bem definidos os seus requisitos, que são os objetivos a serem atendidos. Quando um sistema por si só já atende aos requisitos, não há a necessidade de controle. De forma oposta, é projetado o sistema de controle, que pode ser em malha aberta ou fechada, clássico ou moderno dependendo das características físicas do sistema. 
 
 Para a execução de um sistema de controle podem ser verificados requisitos do sistema de duas formas básicas, sendo a primeira através dos testes e levantamento empírico da sua curva de resposta ou através de seu modelo matemático, quando trabalha-se com elementos já bem estudados e com a equação que representa seu comportamento empírico bem estabelecida por diversos estudos anteriores.
 
@@ -408,10 +408,10 @@ Para a execução de um sistema de controle podem ser verificados requisitos do 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 O controle moderno trata de sistemas multivariáveis, não lineares ou variantes no tempo de forma mais apropriada do que o controle clássico, reduzindo a complexidade das expressões para que haja a possibilidade de um processamento satisfatório.
-Dentro do universo do controle moderno, existe ainda o controle convencional que utiliza a análise de sistemas de controle no espaço de estados, que utiliza n-equações de primeira ordem combinadas em uma equação diferencial vetor-matricial, de forma a simplificar e possibilitar o trabalho com uma quantidade de variáveis alta sem que haja um grande impacto no processamento.  \citep{Ogata} 
+Dentro do universo do controle moderno, existe ainda o controle convencional que utiliza a análise de sistemas de controle no espaço de estados, que utiliza n-equações de primeira ordem combinadas em uma equação diferencial vetor-matricial, de forma a simplificar e possibilitar o trabalho com uma quantidade de variáveis alta sem que haja um grande impacto no processamento.  \cite{Ogata} 
 Outra forma de controle moderno é denominada controle não convencional, aonde estão situadas diversas técnicas como controle adaptativo, algoritmos adaptativo e genético, redes neurais, as lógicas Fuzzy e Paraconsistente, que é alvo da abordagem do presente trabalho, entre outras.
 
-A lógica, como ramo filosófico que trata das relações de coerência racional e discursiva, proposições e conclusões, e tem como origem a Grécia Antiga com o seu primeiro arranjo formal em \emph{Tópicos} de Aristóteles por volta de 340 a.C. Apesar de suas bases serem conhecidas e discutidas por diversos pensadores anteriores, não havia a formalização de uma teoria bem fundada, apenas o tratamento de ideias como consistência e consequências da contraditoriedade por exemplo. 
+A lógica, como ramo filosófico que trata das relações de coerência racional e discursiva, proposições e conclusões, tem como origem a Grécia Antiga com o seu primeiro arranjo formal em \emph{Tópicos} de Aristóteles por volta de 340 a.C. Apesar de suas bases serem conhecidas e discutidas por diversos pensadores anteriores, não havia a formalização de uma teoria bem fundada, apenas o tratamento de ideias como consistência e consequências da contraditoriedade por exemplo. 
 
 Os princípios da lógica enunciadas por Aristóteles são basilares para a teoria clássica e moldaram o pensamento e a noção de consistência, ou não contraditoriedade, estreitamente conectadas ao conceito de completude e podem ser descritos formalmente assim:
 
@@ -435,7 +435,7 @@ Os princípios da lógica enunciadas por Aristóteles são basilares para a teor
     \begin{math}
 	\neg (A \wedge \neg A)
 	\textrm{ ou }
-	\forall x\neg(Ax \wedge \neg Ax);
+	\forall x\neg(Ax \wedge \neg Ax).
     \end{math}
 
 \end{enumerate}
@@ -451,14 +451,15 @@ Assim sendo, para uma dada teoria, se houver um símbolo de negação, como por 
 
 
 Teoria é definida por (Evandro Luís Gomes, 2013 p.4) como sendo:
-\begin{quote}
-"...um conjunto de fórmulas(expressões bem formuladas) de uma linguagem, fechadas por uma determinada relação de consequência, que caracteriza a lógica subjacente à teoria, da qual ela herda todas as suas características estruturais como, por exemplo, consistência(não contraditoriedade) e completude." 
-\end{quote}
+\citacao
+{
+...um conjunto de fórmulas(expressões bem formuladas) de uma linguagem, fechadas por uma determinada relação de consequência, que caracteriza a lógica subjacente à teoria, da qual ela herda todas as suas características estruturais como, por exemplo, consistência(não contraditoriedade) e completude.
+}
 
 Na lógica clássica, uma teoria é completa, se e somente se, for consistente para toda a fórmula fechada \emph{A} onde \emph{A} e \emph{$\neg A$} é teorema da teoria e a teoria é trivial ou supercompleta se todas as fórmulas expressáveis forem demonstráveis, tanto \emph{A} quanto \emph{$ \neg A$}.
 
 
-Sendo que toda a lógica paraconsistente, não se pode deduzir qualquer fórmula à partir de uma fórmula \emph{A} e sua negação \emph{$\neg A$}, mostrando assim que as noções de inconsistência(contraditoriedade) e trivialidade são de fato independentes.
+Sendo que toda a lógica paraconsistente, não se pode deduzir qualquer fórmula à partir de uma fórmula \emph{A} e sua negação \emph{$\neg A$}, mostrando assim que as noções de inconsistência (contraditoriedade) e trivialidade são de fato independentes.
 
 
 
@@ -475,7 +476,7 @@ Sendo que toda a lógica paraconsistente, não se pode deduzir qualquer fórmula
 \subsection{Reticulado de Hasse}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A lógica paraconsistente sendo apropriada para tratar dados inconsistentes foi utilizada em 1987, por H. Blair e V.S.Subrahmanian para representar e codificar o funcionamento de bancos de dados inconsistentes. Pouco depois da Costa, Subrahmanian e Vago propuseram a lógica paraconsistente anotada e sua extensão a uma lógica de predicados paraconsistente anotada de primeira ordem. 
+A lógica paraconsistente sendo apropriada para tratar dados inconsistentes foi utilizada em 1987, por H. Blair e V. S. Subrahmanian para representar e codificar o funcionamento de bancos de dados inconsistentes. Pouco depois Costa, Subrahmanian e Vago propuseram a lógica paraconsistente anotada e sua extensão a uma lógica de predicados paraconsistente anotada de primeira ordem. 
 
 Nas lógicas paraconsistentes anotadas, uma proposição $P$ utiliza um reticulado formado por pares ordenados tal que: 
 
@@ -511,7 +512,7 @@ Como exemplificação, para uma proposição $P \equiv$ \emph{"A temperatura do 
 $\mu$ = grau de evidência favorável (especialista 1), ou seja, com quanto de certeza, em um intervalo fechado $[0,1]$, sendo 0 para grau nulo de certeza e 1 grau máximo de certeza para a dada proposição $P$;
 
 \item
-$\lambda$ = grau de evidência desfavorável (especialista 2), ou seja, com quanto de certeza, em um intervalo fechado $[0,1]$, sendo 0 o grau nulo de certeza à evidência desfavorável e 1 o grau máximo de certeza à evidência desfavorável para a dada proposição $P$;
+$\lambda$ = grau de evidência desfavorável (especialista 2), ou seja, com quanto de certeza, em um intervalo fechado $[0,1]$, sendo 0 o grau nulo de certeza à evidência desfavorável e 1 o grau máximo de certeza à evidência desfavorável para a dada proposição $P$.
 
 \end{itemize}
 
@@ -520,13 +521,13 @@ Assim, podemos interpretar da seguinte forma os valores da anotação para as po
 
 \begin{itemize}
 \item 
-$(\mu, \lambda ) = (1,0)$ : Há um grau de evidência favorável total e um grau de evidencia desfavorável nulo, ou seja, a afirmação da proposição é máxima e sua negação é nula, assim,  $P$ é \emph{Verdadeira} e \emph{A temperatura do aquecedor atingiu o valor desejado}.
+$(\mu, \lambda ) = (1,0)$ : Há um grau de evidência favorável total e um grau de evidencia desfavorável nulo, ou seja, a afirmação da proposição é máxima e sua negação é nula, assim,  $P$ é \emph{Verdadeira} e \emph{A temperatura do aquecedor atingiu o valor desejado};
 
 \item 
-$(\mu, \lambda ) = (0,1)$ : Há um grau de evidência favorável nulo e um grau de evidencia desfavorável máximo, ou seja, a afirmação da proposição é nula e sua negação é máxima, assim,  $P$ é \emph{Falsa} e \emph{A temperatura do aquecedor não atingiu o valor desejado}.
+$(\mu, \lambda ) = (0,1)$ : Há um grau de evidência favorável nulo e um grau de evidencia desfavorável máximo, ou seja, a afirmação da proposição é nula e sua negação é máxima, assim,  $P$ é \emph{Falsa} e \emph{A temperatura do aquecedor não atingiu o valor desejado};
 
 \item 
-$(\mu, \lambda ) = (1,1)$ : Há um grau de evidência favorável máximo e também um grau de evidencia desfavorável máximo, ou seja, a afirmação da proposição é máxima e sua negação também é máxima, assim,  $P$ é \emph{Inconsistente} e \emph{A temperatura do aquecedor atingiu e não atigiu o valor desejado}, contradição.
+$(\mu, \lambda ) = (1,1)$ : Há um grau de evidência favorável máximo e também um grau de evidencia desfavorável máximo, ou seja, a afirmação da proposição é máxima e sua negação também é máxima, assim,  $P$ é \emph{Inconsistente} e \emph{A temperatura do aquecedor atingiu e não atigiu o valor desejado}, contradição;
 
 \item 
 $(\mu, \lambda ) = (0,0)$ : Há um grau de evidência favorável nulo e também um grau de evidencia desfavorável nulo, ou seja, a afirmação da proposição é nula e sua negação também é nula, assim,  $P$ é \emph{Indeterminada} e \emph{A temperatura do aquecedor nem atingiu o valor desejado e nem não atingiu o valor desejado}, situação paracompleta.
@@ -565,7 +566,7 @@ $(\mu, \lambda ) = (0.8,0.3) = \sim (0.3,0.8)$ : Não crê-se que há um grau de
 \subsection{Quadrado Unitário no Plano Cartesiano - QUPC}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma outra forma de representação da anotação é utilizando o Quadrado Unitário no Plano Cartesiano (QUPC) aonde são transpostos os pontos extremos às respectivas posições de acordo com o par ordenado,  $(\mu, \lambda ) \leftrightarrow (x,y) $, assim o eixo $x$ corresponde ao grau de evidência favorável e o eixo $y$ corresponde ao grau de evidência desfavorável, conforme mostrado na Figura \ref{fig:reticuladoQUPC}.
+Uma outra forma de representação da anotação é utilizando o Quadrado Unitário no Plano Cartesiano (QUPC) no qual são transpostos os pontos extremos às respectivas posições de acordo com o par ordenado,  $(\mu, \lambda ) \leftrightarrow (x,y) $, assim o eixo $x$ corresponde ao grau de evidência favorável e o eixo $y$ corresponde ao grau de evidência desfavorável, conforme mostrado na Figura \ref{fig:reticuladoQUPC}.
 
 
 
@@ -578,10 +579,10 @@ Uma outra forma de representação da anotação é utilizando o Quadrado Unitá
 Os pontos extremos assim representam:
 
 \begin{itemize}
-\item $A: (0,0) = \bot \Rightarrow $ Paracompleto
-\item $B: (0,1) = F \Rightarrow $ Falso
-\item $C: (1,1) = \top \Rightarrow $ Contradição
-\item $D: (1,0) = V \Rightarrow $ Verdade
+\item $A: (0,0) = \bot \Rightarrow $ Paracompleto;
+\item $B: (0,1) = F \Rightarrow $ Falso;
+\item $C: (1,1) = \top \Rightarrow $ Contradição;
+\item $D: (1,0) = V \Rightarrow $ Verdade.
 \end{itemize}
 
 O segmento de reta $\overline{BD}$, entre os pontos referentes às condições $Verdade$ e $Falso$, conforme mostrado na Figura \ref{fig:retaPerfeitamenteDefinida}, é denominada de \emph{Reta Perfeitamente Definida} e dada uma anotação $(\mu, \lambda )$ situada nela, a soma das evidências anotadas é sempre o valor unitário do quadro. 
@@ -705,10 +706,10 @@ Graficamente são representadas como mostra a Figura \ref{fig:retasgcgct}:
 A representação ainda é dividia em algumas partes, dependendo da aplicação, estabelecendo quais são os limites que definem cada estado, Verdadeiro, Falso, Paracompleto, Contradição e outros mais que forem pertinentes à aplicação, estão representados pelas linhas tracejadas na Figura \ref{fig:valorControle} e são definidos como:
 
 \begin{itemize}
-\item \emph{V $_{scc}$ : Valor limite superior de Controle de Certeza}
-\item \emph{V $_{icc}$ : Valor limite inferior de Controle de Certeza}
-\item \emph{V $_{sci}$ : Valor limite superior de Controle de Incerteza}
-\item \emph{V $_{sci}$ : Valor limite inferior de Controle de Incerteza}
+\item \emph{V $_{scc}$ : Valor limite superior de Controle de Certeza};
+\item \emph{V $_{icc}$ : Valor limite inferior de Controle de Certeza};
+\item \emph{V $_{sci}$ : Valor limite superior de Controle de Incerteza};
+\item \emph{V $_{sci}$ : Valor limite inferior de Controle de Incerteza}.
 
 \end{itemize}
 
@@ -729,25 +730,25 @@ Uma divisão em 12 partes é mostrada na Figura \ref{fig:reticuladoLPA2v} com se
 
 
 \begin{itemize}
-\item V : Verdadeiro
-\item F : Falso
-\item $\top$ : Contradição
-\item $\bot$ : Paracompleto
+\item V : Verdadeiro;
+\item F : Falso;
+\item $\top$ : Contradição;
+\item $\bot$ : Paracompleto.
 \end{itemize}
 e 8 regiões intermediárias: 
 \begin{itemize}
-\item Qv $\rightarrow  \top$ : Quase Verdade tendendo à Contradição
-\item Qv $\rightarrow  \bot$ : Quase Verdade tendendo à  Paracompleto
-\item Qf $\rightarrow  \top$ : Quase Falso tendendo à Contradição
-\item Qf $\rightarrow  \bot$ : Quase Falso tendendo à Paracompleto
-\item $\top \rightarrow $ f : Contradição tendendo à Falso
-\item $\top \rightarrow $ v : Contradição tendendo à Verdadeiro
-\item $\bot \rightarrow $ f : Paracompleto tendendo à Falso
-\item $\bot \rightarrow $ v : Paracompleto tendendo à Verdadeiro
+\item Qv $\rightarrow  \top$ : Quase Verdade tendendo à Contradição;
+\item Qv $\rightarrow  \bot$ : Quase Verdade tendendo à  Paracompleto;
+\item Qf $\rightarrow  \top$ : Quase Falso tendendo à Contradição;
+\item Qf $\rightarrow  \bot$ : Quase Falso tendendo à Paracompleto;
+\item $\top \rightarrow $ f : Contradição tendendo à Falso;
+\item $\top \rightarrow $ v : Contradição tendendo à Verdadeiro;
+\item $\bot \rightarrow $ f : Paracompleto tendendo à Falso;
+\item $\bot \rightarrow $ v : Paracompleto tendendo à Verdadeiro.
 
 \end{itemize}
 
-O reticulado sobdividido em 12 regiões como mostrado, é aplicado em situações aonde a tomada de decisão utiliza estados discretos bem definidos para atuação, onde para cada posição da anotação e respectivamente um estado do reticulado, uma ação é tomada, assim sendo, a quantidade de subdivisões está fortemente dependente da aplicação.
+O reticulado subdividido em 12 regiões como mostrado, é aplicado em situações nas quais a tomada de decisão utiliza estados discretos bem definidos para atuação, onde para cada posição da anotação e respectivamente um estado do reticulado, uma ação é tomada, assim sendo, a quantidade de subdivisões está fortemente dependente da aplicação.
 
 
 
@@ -758,14 +759,14 @@ O reticulado sobdividido em 12 regiões como mostrado, é aplicado em situaçõe
 A LPA2v aplicada em sistemas de controle utiliza além dos conceitos já estabelecidos, duas outras definições para sua implementação e são elas o \emph{ Grau de Certeza Real ($G _{CR}$)} e o \emph{Grau de Evidência Real ($\mu _{ER}$)} além de trabalhar alguns conceitos básicos de geometria, e pelo fato de possuir uma resolução simples do ponto de vista matemático, motiva este trabalho pela sua implementação eficaz com relação ao controle clássico que exige uma matemática elaborada, dificultando sua implementação em dispositivos de baixo custo e que não possuem hardware específico de processamento de sinais. 
 
 
-Para a implementação do sistema de controle paraconsistente, primeiramente é necessário que seja definida a proposição que será a base para as análises e tomadas de decisão.
+Para a implementação do sistema de controle paraconsistente, primeiramente é necessário que seja definida a proposição que será a base para as análises e tomadas de decisões.
 
 \begin{center}
 $ P \equiv $ 
 \emph{"A temperatura do aquecedor atingiu o valor desejado."}
 \end{center}
 
-Para trabalhar com essa proposição são necessárias pelo menos duas variáveis, sendo uma delas com o valor de temperatura desejada e outra com o valor atual de temperatura. Essas duas variáveis são representadas através de duas anotações, mas que antes precisam ser normalizadas. 
+Para trabalhar com essa proposição são necessárias pelo menos duas variáveis, sendo uma delas com o valor de temperatura desejada e outra com o valor atual de temperatura. Essas duas variáveis são representadas por meio de duas anotações, mas que antes precisam ser normalizadas. 
 
 \textbf{Variável 1:} 
 Valor desejado ou Set point = 37 $^{\circ}$C. 
@@ -775,7 +776,7 @@ Valor desejado ou Set point = 37 $^{\circ}$C.
 \label{eq:setpoint}
 \end{equation}
 
-Onde:
+Sendo:
 
 $\mu _{d}$ : grau de evidência favorável ao valor desejado. 
 
@@ -789,7 +790,7 @@ crê-se com grau de evidência favorável máxima e grau de evidência desfavor�
 \textbf{Variável 2:} 
 Valor de temperatura atual lido pelo sensor: 20 $^{\circ}$C no início do processo.
 
-Supondo, hipoteticamente para facilitar o entendimento, um sensor com range de operação entre 0 e 100 $^{\circ}$C que será é lido, linearmente no intervalo de 0 a 10V e normalizado para o intervalo fechado [0,1]. Assim são calculados os graus de evidência:
+Supondo, hipoteticamente para facilitar o entendimento, um sensor com range de operação entre 0 e 100 $^{\circ}$C que será lido, linearmente no intervalo de 0 a 10V e normalizado para o intervalo fechado [0,1]. Assim são calculados os graus de evidência:
 
 \begin{equation}
 \mu _{a} = 
@@ -799,11 +800,11 @@ Supondo, hipoteticamente para facilitar o entendimento, um sensor com range de o
 
 Sendo:
 
-$\mu _{a}$ : Grau de evidência favorável para a leitura da temperatura atual
+$\mu _{a}$ : Grau de evidência favorável para a leitura da temperatura atual;
 
-\emph{Ta :} Temperatura atual lida pelo sensor
+\emph{Ta :} Temperatura atual lida pelo sensor;
 
-\emph{Tmin :} Temperatura mínima de leitura pelo sensor de temperatura. Nesse caso 0 $^{\circ}$C.
+\emph{Tmin :} Temperatura mínima de leitura pelo sensor de temperatura. Nesse caso, 0 $^{\circ}$C;
 
 \emph{Td :} Temperatura desejada que o aquecedor alcance, estabelecida em 37 $^{\circ}$C.
 
