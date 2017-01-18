@@ -9,29 +9,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%------------------------------------ Dados
-\def\autor#1{\gdef\aautor{#1}}
-\def\nome#1{\gdef\nnome{#1}}
-\def\ultimonome#1{\gdef\uultimonome{#1}}
-\def\titulo#1{\gdef\ttitulo{#1}}
-\def\subtitulo#1{\gdef\ssubtitulo{#1}}
-\def\curso#1{\gdef\ccurso{#1}}
-\def\instituicao#1{\gdef\iinstituicao{#1}}
-\def\sigla#1{\gdef\ssigla{#1}}
-\def\unidadeacademica#1{\gdef\uunidadeacademica{#1}}
-\def\grau#1{\gdef\ggrau{#1}}
-\def\tipodotrabalho#1{\gdef\ttipodotrabalho{#1}}
-\def\orientador#1{\gdef\oorientador{#1}}
-\def\torientador#1{\gdef\ttorientador{#1}}
-\def\cidade#1{\gdef\ccidade{#1}}
-\def\ano#1{\gdef\aano{#1}}
-\def\npaginas#1{\gdef\nnpaginas{#1}}
-\def\CDU#1{\gdef\CCDU{#1}}
-\def\areas#1{\gdef\aareas{#1}}
-\def\examinadorum#1{\gdef\eexaminadorum{#1}}
-\def\texaminadorum#1{\gdef\ttexaminadorum{#1}}
-\def\examinadordois#1{\gdef\eexaminadordois{#1}}
-\def\texaminadordois#1{\gdef\ttexaminadordois{#1}}
-\def\data#1{\gdef\ddata{#1}}
+\def\autor#1{\gdef\autor{#1}}
+\def\nome#1{\gdef\nome{#1}}
+\def\ultimonome#1{\gdef\ultimonome{#1}}
+\def\titulo#1{\gdef\titulo{#1}}
+\def\subtitulo#1{\gdef\subtitulo{#1}}
+\def\curso#1{\gdef\curso{#1}}
+\def\instituicao#1{\gdef\instituicao{#1}}
+\def\sigla#1{\gdef\sigla{#1}}
+\def\unidadeacademica#1{\gdef\unidadeacademica{#1}}
+\def\grau#1{\gdef\grau{#1}}
+\def\tipodotrabalho#1{\gdef\tipodotrabalho{#1}}
+\def\orientador#1{\gdef\orientador{#1}}
+\def\torientador#1{\gdef\torientador{#1}}
+\def\coorientador#1{\gdef\coorientador{#1}}
+\def\tcoorientador#1{\gdef\tcoorientador{#1}}
+\def\cidade#1{\gdef\cidade{#1}}
+\def\ano#1{\gdef\ano{#1}}
+\def\npaginas#1{\gdef\npaginas{#1}}
+\def\CDU#1{\gdef\CDU{#1}}
+\def\areas#1{\gdef\areas{#1}}
+\def\examinadorum#1{\gdef\examinadorum{#1}}
+\def\texaminadorum#1{\gdef\texaminadorum{#1}}
+\def\examinadordois#1{\gdef\examinadordois{#1}}
+\def\texaminadordois#1{\gdef\texaminadordois{#1}}
+\def\data#1{\gdef\data{#1}}
 
 
 %%%%------------------------------------ Configuração das Páginas
@@ -47,14 +49,15 @@
   \begin{titlepage}
     \thispagestyle{empty}
     \begin{center}
-      \textsc{\iinstituicao} 		\\[0.0cm]
-      \textsc{\uunidadeacademica}	\\[0.0cm]
-      \textsc{Curso de \ccurso}		\\[4.0cm]
-      \textsc{\aautor}			\\[4.0cm]
-      \textsc{\ttitulo}			\\[0.4cm]
+      \textsc{\instituicao} 		\\[0.0cm]
+      \textsc{\unidadeacademica}	\\[0.0cm]
+      \textsc{Curso de \curso}		\\[4.0cm]
+      \textsc{\autor}			\\[4.0cm]
+      \textsc{\titulo}			\\[0.4cm]
+      \textsc{\subtitulo}               \\[0.4cm]
       \vfill
-      \textsc{\ccidade}			\\[0.2cm]
-      \textsc{\aano}			\\[0.2cm]
+      \textsc{\cidade}			\\[0.2cm]
+      \textsc{\ano}			\\[0.2cm]
     \end{center}
   \end{titlepage}
 }
@@ -65,10 +68,11 @@
     \thispagestyle{empty}
     \begin{minipage}{0.6\textwidth}
     {
-      \ttipodotrabalho apresentada à \iinstituicao 
-      como requisito para   obtenção do grau de \ggrau em \ccurso.
+      \tipodotrabalho apresentada à \instituicao 
+      como requisito para   obtenção do grau de \grau em \curso.
     } 				\\[0.4cm]
-    Orientador: \ttorientador \oorientador
+    Orientador: \torientador \orientador \\
+    Co-orientador: \tcoorientador  \coorientador
     \end{minipage}
   \end{flushright}
 }
@@ -77,13 +81,14 @@
 {
   \begin{titlepage}
     \begin{center}
-      \textsc{ }		    \\[4.0cm]
-      \textsc{\aautor}		\\[4.0cm]
-      \textsc{\ttitulo}		\\[2.0cm]
+      \textsc{ }		\\[4.0cm]
+      \textsc{\autor}		\\[4.0cm]
+      \textsc{\titulo}		\\[0.4cm]
+      \textsc{\subtitulo}       \\[2.0cm]
       \natureza
       \vfill
-      \textsc{\ccidade}		\\[0.2cm]
-      \textsc{\aano}		\\[0.2cm]
+      \textsc{\cidade}		\\[0.2cm]
+      \textsc{\ano}		\\[0.2cm]
     \end{center}
   \end{titlepage}
 }
@@ -97,11 +102,11 @@
     \fbox
     {
       \begin{tabular}{p{13.0cm}}
-        \uultimonome, \nnome                      \\
-        \ttitulo\ / \nnome\ \uultimonome\ -  \aano \\
-        \nnpaginas .p                \\
-        \aareas . I.Título. \\
-        \hfill CDU \CCDU
+        \ultimonome, \nome                      \\
+        \titulo \subtitulo\ / \nome\ \ultimonome\ -  \ano \\
+        \npaginas .p                \\
+        \areas . I.Título. \\
+        \hfill CDU \CDU
       \end{tabular} 
     }  
  \end{titlepage}
@@ -113,27 +118,27 @@
     \thispagestyle{empty}
     \lineskip .0em
     \begin{center}
-      \textsc{\aautor}
+      \textsc{\autor}
       \vfill
-      \textsc{ \ttitulo } \\
-      \textsc{ \ssubtitulo }
+      \textsc{ \titulo } \\
+      \textsc{ \subtitulo }
       \vfill
     \end{center}
     \natureza
     \vfill
-    \rmfamily Aprovado em \ddata \\
+    \rmfamily Aprovado em \data \\
     \vfill
     \begin{center}
       {\large\bfseries BANCA EXAMINADORA }\\
       \vfill
       \rule{9.0cm}{0.1mm} \\
-      {\ttorientador \oorientador  }\\
+      {\torientador \orientador  }\\
       \vfill
       \rule{9.0cm}{0.1mm} \\
-      {\ttexaminadorum \eexaminadorum }\\
+      {\texaminadorum \examinadorum }\\
       \vfill
       \rule{9.0cm}{0.1mm} \\
-      {\ttexaminadordois \eexaminadordois}
+      {\texaminadordois \examinadordois}
     \end{center}
   \end{titlepage}
 }
@@ -216,8 +221,8 @@
 %-------------------------------------- Sumário
 \newcommand{\sumario}
 {
-  \tableofcontents
-  \thispagestyle{empty}% página sem numeraçao
+    \tableofcontents
+    \thispagestyle{empty}
 }
 %-------------------------------------- Lista de figuras
 \newcommand{\listadefiguras}
