@@ -349,15 +349,6 @@ $\frac{1}{b-a}(e^{-at}-e^{-bt})$ 	& $\frac{1}{(s+a)(s+b)}$ \\ \hline
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistemas de 1ª Ordem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistemas de 2ª Ordem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -397,39 +388,196 @@ O controle em malha aberta é o sistema mais simples de ser implementado, não p
 \label{fig:acaoMalhaAberta}
 \end{figure}
 
-Os sistemas físicos geralmente possuem um comportamento que pode ser descrito pela equação ??? , como é o caso da planta aqui estudada. 
+Os sistemas físicos geralmente possuem um comportamento que pode ser descrito pela equação \ref{eq:ftSistOrdem1} , como é o caso da planta aqui estudada. 
 
 
-%%% ###
+
 
 \begin{equation}
-\mathscr{L}^{-1} \{F(s)\} =  \frac{1}{2 \pi j} \int_{c-j\infty}^{c+j\infty}F(s) e^{st} ds  \text{ , para } t > 0
-\label{eq:transfInvLaplace}
+	 \frac{d c(t)}{dt} + c(t) = r(t) \rightarrow  \mathscr{L} \to \frac{C(s)}{R(s)} = \frac{K}{s + a} 
+\label{eq:ftSistOrdem1}
 \end{equation}
+
+%\begin{equation}
+%\therefore \frac{C(s)}{R(s)} = \frac{k}{s+a}
+%\label{eq:ftSistOrdem1}
+%\end{equation}
 
 Onde:
 
 \setlength{\parindent}{2cm}
-$\mathscr{L}^{-1}$ : Operador da Transformada Inversa de Laplace
 
-$c$ : Número real constante, abscissa da convergência.
+$t$ : tempo,$ r(t) = 0$ , para t $<$ 0;
 
+$\mathscr{L}$ : Operador de Laplace;
+
+$c(t)$ : Variável controlada no domínio do tempo;
+
+$C(s)$ : Variável controlada no domínio da frequência;
+
+$r(t)$ : Valor de referência (\emph{setpoint}) no domínio do tempo;
+
+$R(s)$ : Valor de referência (\emph{setpoint}) no domínio da frequência.
+
+$K$ : Constantede proporcionalidade;
+
+$s$ : Variável complexa de Laplace;
+
+$a$ : Polo da função.
 \setlength{\parindent}{1cm}
 
+Sendo assim, para um estímulo de entrada do tipo \textbf{degrau}, com amplitude \textbf{A}, temos $ R(s) = \frac{A}{s}$ e aplicando a Transformada Inversa de Laplace:
+
+\begin{equation}
+C(s) = \frac{K}{s+a} \frac{A}{s} \rightarrow \mathscr{L}^{-1} \to c(t) = \frac{K A}{a} (1 - e^{-at})
+\label{eq:degrauA}
+\end{equation}
+
+A Figura \ref{fig:degrauA} mostra um sinal do tipo degrau com amplitude \textbf{A} aplicado ao sistema de teste, que responde conforme um conforme um sistema de primeira ordem como mostrado na Figura \ref{fig:cRegime}. A partir de um determinado instante de tempo, entra em regime constante ($c_{reg}$), alcançando o valor de referência dado pelo degrau de amplitude A. Assim quando $ t \rightarrow \infty $  então $ c_{reg} \rightarrow A $:
+
+
+\begin{figure}
+\centering
+\subfloat[Sinal de entrada tipo degrau com amplitude A]{\label{fig:degrauA}
+\begin{tikzpicture}[scale=0.8]
+\draw [lightgray, dashed](0,0) grid (8.8,5.8);
+\draw [->] (0,0) -- (9,0);
+\draw [fill] (0,6.2) -- (-0.1, 5.8) -- (0.1,5.8) -- (0,6.2);
+\draw [->] (0,0) -- (0,6);
+\draw [fill] (9.2,0) -- (8.8,0.1) -- (8.8,-0.1)--(9.2,0.0);
+\node at (9.0,-0.5) {$t$};
+\node at (0.2,6.5) {$r(t)$};
+\draw [red, ultra thick] (0.0,5.0) -- (9.0,5.0);
+\draw [red, ultra thick] (0.0,0.0) -- (0.0,5.0);
+\node at (-0.5,5.0)[red]{$A$};
+\end{tikzpicture} }
+\subfloat[Resposta transitória e regime de acomodação]{\label{fig:cRegime}
+\begin{tikzpicture}[scale=0.8]
+\draw [lightgray, dashed](0,0) grid (8.8,5.8);
+\draw [->] (0,0) -- (9,0);
+\draw [fill] (0,6.2) -- (-0.1, 5.8) -- (0.1,5.8) -- (0,6.2);
+\draw [->] (0,0) -- (0,6);
+\draw [fill] (9.2,0) -- (8.8,0.1) -- (8.8,-0.1)--(9.2,0.0);
+\node at (9.0,-0.5) {$t$};
+\node at (0.2,6.5) {$c(t)$};
+\node at (-0.5,5.0)[blue]{$C_{reg}$};
+\draw [blue, ultra thick] (0,0) to [out=85, in=180] (6,5);
+\draw [blue, ultra thick] (6,5) -- (9,5);
+\end{tikzpicture}}
+\caption{Sistema de Primeira Ordem}
+\label{fig:sistPrimeiraOrdem}
+\end{figure}
+
+%\begin{equation}
+%c_{reg} = \lim_{t \rightarrow \infty} \frac{KA}{a}(1-e^{-at}) = \frac{KA}{a}
+%\label{eq:cregime}
+%\end{equation}
+
+Aplicando o Teorema do Valor Final pode-se ver que o \emph{$c_{reg}$} estabiliza em um valor constante como mostrado pela Equação \ref{eq:teoremaValorFinal}:
+
+\begin{equation}
+C_{reg} = \lim_{s \rightarrow 0} sC(s) = \lim_{s \rightarrow 0} s\ \frac{K}{s+a}\frac{A}{s} = \frac{KA}{a}
+\label{eq:teoremaValorFinal}
+\end{equation}
+
+Matematicamente, quanto maior o valor de \emph{t} na Equação \ref{eq:degrauA}, o resultado de sua exponenencial tende a zero, levando a um resultado que depende apenas das constantes, como mostrado na Equação \ref{eq:teoremaValorFinal}. 
+
+Tomando $t= \frac{1}{a} = a^{-1} = \tau$ para gerar um valor conhecido em $e^{-at}$, da Equação \ref{eq:degrauA} temos:
+
+
+\begin{equation}
+c(a^-1) = \frac{KA}{a}(1-e^{-(a.a^{-1})}) = \frac{KA}{a}(1-e^{-1}) = \frac{KA}{a}.0,63 = 0,63 . C_{reg}
+\end{equation}
+
+A Figura \ref{fig:constTempo} mostra a constante de tempo $\tau$, que é atingida quando o sistema alcança 63\% do seu valor de regime. Como sabemos que $\tau = \frac{1}{a}$, então o polo do sistema, que leva o denominador da Equação \ref{eq:degrauA} a zero, é:
+
+\begin{equation}
+a = \frac{1}{\tau}
+\end{equation}
 
 
 
-A Figura \ref{fig:acaoMalhaAberta} mostra um sinal do tipo degrau aplicado como referência no valor de \emph{25 rps}, assim como uma linha pontilhada para identificar um erro de 2\%. Também são mostradas curvas de comportamento, calculada como a Função de transferência da Planta g(t) e o real medido empiricamente.
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1.0]
+\draw [lightgray, dashed](0,0) grid (8.8,5.8);
+
+\draw [->] (0,0) -- (9,0);
+\draw [fill] (0,6.2) -- (-0.1, 5.8) -- (0.1,5.8) -- (0,6.2);
+\draw [->] (0,0) -- (0,6);
+\draw [fill] (9.2,0) -- (8.8,0.1) -- (8.8,-0.1)--(9.2,0.0);
+
+\node at (9.0,-0.5) {$t$};
+\node at (0.2,6.5) {$c(t)$};
+
+\node at (-0.5,5.0)[blue]{$C_{reg}$};
+\node at (-1,5.0*0.63)[purple]{$0,63.c_{reg}$};
+\draw [purple, ultra thick, dashed] (0.0,5.0*0.63) -- (1.45,5.0*0.63)
+						   -- (1.45,0.0);
+\draw [blue, ultra thick] (0,0) to [out=85, in=180] (6,5);
+\draw [blue, ultra thick] (6,5) -- (9,5);
+
+\draw [<->] (0.0,-0.4) -- (1.45,-0.4); 
+\node at (1.45/2,-0.7){$\tau$};
+
+\end{tikzpicture}
+\caption{Constante de tempo}
+\label{fig:constTempo}
+\end{figure}
+
+Portanto:
+
+\begin{equation}
+K = \frac{ac_{reg}}{A}
+\label{eq:calcK}
+\end{equation}
+
+%\begin{tikzpicture}
+%\begin{axis}
+%\addplot[title=Gráfico de uma função, 
+%	xlabel = {$x$}, ylabel={$y$},
+% 	red!70!blue, very thick, samples=200,
+%	domain=-3:3]{x/(x^4-3*x^2+4)};
+%\end{axis}
+%\end{tikzpicture}
+
+
+
+%%% ###
+
+
+
+A Figura \ref{fig:acaoMalhaAberta} mostra um sinal do tipo degrau aplicado como referência no valor de \emph{25 rps}, a curva de comportamento real medida empiricamente e a curva aproximada calculada pelo método determinístico como segue:
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1]{./imagens/acaoMalhaAberta.eps}
+\center\includegraphics[scale=1]{./imagens/acaoMalhaAbertaTau.eps}
 \caption{Ação de Controle em Malha Aberta}
 \label{fig:acaoMalhaAberta}
 \end{figure}
 
-A função do Controlador \emph{f(t)} retorna simplesmente o valor de referência, assim para \emph{r(t) = 25}, \emph{f(t) = 1} gerando \emph{u(t) = 1.r(t)}.
+A Figura \ref{fig:acaoMalhaAberta} possui uma linha indicativa que mostra o ponto de intercepção da curva ao valor de 63\% do valor de referência, e empiricamente foi gerado um gráfico com divisões no eixo do Tempo no valor de $\tau = 2,8s $.
 
-Então a finalidade da função de transferência \emph{f(t)} é converter o sinal de referência do tipo \textbf{rps} para seu respectivo parâmetro da modulação por largura de pulso (\textbf{\% PWM}) que aciona o motor.
+Calculando o polo da função:
+\begin{equation}
+  a = \frac{1}{\tau} = \frac{1}{2,28} = 0,357
+\end{equation}
+
+Como $c_{reg} = 25$ e $A$ também é $25$ então na Equação \ref{eq:calcK} $K = a$ e assim temos que:
+
+\begin{equation}
+c(t) = \frac{KA}{a}(1-e^{-at}) = \frac{0,357.25}{0,357}(1-e^{-0,357.t}) = 25(1-e^{-0.357.t})
+\end{equation}
+
+
+Aplicando a Transformada de Laplace:
+
+\begin{equation}
+  C(s) = \frac{K}{s+a}\frac{A}{s} = \frac{0,357}{s+0,357}\frac{25}{s}
+\end{equation}
+
+
+
+A finalidade da função de transferência \emph{f(t)} é converter o sinal de referência do tipo \textbf{rps} para seu respectivo parâmetro da modulação por largura de pulso (\textbf{\% PWM}) que aciona o motor.
 
 
 
