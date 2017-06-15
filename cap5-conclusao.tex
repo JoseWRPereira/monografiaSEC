@@ -1,5 +1,67 @@
-Conclui-se que ....
+Este trabalho caracterizou de forma simples e expositiva a 
+implementação dos diversos tipos de controlador, 
+desde o liga-desliga até o PID completo, 
+com cada respectiva codificação e 
+resultado aquisitado diretamente na planta. 
 
-\citacao{
- typesetting systems: \LaTeX{}
-}
+Um modelo matemático foi desenvolvido, 
+a análise de erro para validar seu uso como referência e assim
+gerar um critério de orientação para os requisitos de desempenho do sistema, 
+e para a comparação entre os sistemas,
+clássico e não convencional, proposta pelo autor.
+
+A LPA2v foi caracterizada desde sua abordagem básica, 
+sua construção foi apresentada a forma mais usual, 
+citando algumas aplicações já realizadas, e por fim, 
+foi mostrado como a LPA2v foi utilzada para o controle dinâmico
+ de um motor DC através de acionamento por PWM.
+
+O fato de utilizar um hardware suficientemente capaz de 
+processar dados em ponto flutuante 
+permitiu a implementação direta da LPA2v, 
+sem haver a necessidade da mudança de escala, 
+bem como sua capacidade de processamento permitiu uma ótima resolução, 
+com intervalos de aquisição de dados com intervalos de 10ms, 
+independente da leitura do sensor de velocidade que ocorre utilizando 
+interrupção.
+
+Apesar do ótimo resultado alcançado, 
+pois atendeu plenamente os requisitos propostos, 
+e a implementação do controlador utilizando a LPA2v
+se mostrar simples na codificação, 
+ainda há uma grande gama de possibilidades a serem estudas e 
+nuances da lógica a serem explorados em trabalhos futuros.
+
+
+Este trabalho foi desenvolvido em sua totalidade 
+utilizando a filosofia do software livre, 
+e assim podem ser listadas as seguintes aplicações:
+
+\begin{itemize}
+\item Sistema Operacional: Debian GNU/Linux 8 (Jessie);
+\item Shell: GNOME Shell 3.14.4;
+\item Editor (texto e código): VIM - Vi IMproved 7.4;
+\item Compilador: (GCC for ARM) arm-none-eabi-gcc (v.4.8.4-1+11-1);
+\item Configuração de compilação: GNU Make 4.0;
+\item Processador de Texto: \LaTeX  - pdfTex 3.14159265-2.6-1.40.15;
+\item Gerador de Figuras: \LaTeX - Pacotes Ti$k$Z e PGF
+\item Gerador de Figuras: GNU pic (groff)  version 1.22.2
+\item Gerador de Gráficos: gnuplot 4.6 patchlevel 6
+\item Terminal de Comunicação: minicom version 2.7 (compilado Jan 1 2014);
+\item Gravador: LM4Flash version 0.1.3 - Flash for Stellaris Launchpad ICDI boards;
+\end{itemize} 
+
+O projeto em sua integralidade pode ser encontrado no GitHub:
+
+Monografia: \url{https://github.com/JoseWRPereira/monografiaSEC.git}
+
+Firmware: \url{https://github.com/JoseWRPereira/dcmotorcontrol.git}
+
+
+
+
+
+
+%\citacao{
+% typesetting systems: \LaTeX{}
+%}}

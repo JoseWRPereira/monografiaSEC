@@ -1,41 +1,101 @@
+O sistema físico escolhido para a realização deste trabalho
+consiste basicamente em uma aplicação genérica de controle de motor de 
+corrente contínua através de modulação por largura de pulso, 
+e a utilização de um controlador de 32-bits, núcleo ARM, 
+de forma a explorar o controlador utilizado como suporte ao 
+curso que gerou esta pesquisa. A importância do sistema eletrônico se faz 
+pelo caráter demostrativo que se tem na proposta do projeto, 
+para garantir uma veracidade às proposições feitas com a 
+nova ferramenta abordada, a LPA2v, 
+e validar de forma física e mensurável os dados e resultados.
 
 
 
 \section{Atuador}
 
-O motor elétrico é um dos dispositivos conversores de energia mais utilizados nos diversos meios tecnológicos, estando presentes largamente na indústria, em equipamentos eletrodomésticos, eletrônicos, automóveis, smarthphones, e uma variedade enorme de aplicações. 
+O motor elétrico é um dos dispositivos 
+conversores de energia mais utilizados nos 
+diversos meios tecnológicos, 
+estando presentes largamente na indústria, 
+em equipamentos eletrodomésticos, 
+eletrônicos, automóveis, smarthphones, 
+e uma variedade enorme de aplicações. 
 
-Os motores elétricos podem ser divididos em dois grandes grupos, em função do tipo de alimentação que utilizam, e são eles motores de corrente alternada, cuja velocidade pode ser controlada pela mudança da frequência e motores de corrente contínua, que basta alterar o nível de tensão para haver uma variação da velocidade, e no caso de motores de pequeno porte, são mais utilizados pela facilidade do seu controle. 
+Os motores elétricos podem ser divididos em dois grandes grupos, 
+em função do tipo de alimentação que utilizam, e são eles 
+motores de corrente alternada, 
+cuja velocidade pode ser controlada pela mudança da frequência e 
+motores de corrente contínua, 
+que basta alterar o nível de tensão para haver uma variação da velocidade, 
+e no caso de motores de pequeno porte, 
+são mais utilizados pela facilidade do seu controle. 
 
-O motor de corrente contínua (motor CC) é composto por uma parte fixa e outra móvel, denominadas respectivamente de Estator e Rotor. Seu princípio de funcionamento basicamente acontece pela relação de interação entre as forças eletromagnéticas. Uma bobina de fio é atravessada por um campo magnético gerado por ímãs fixos. Ao aplicar uma corrente elétrica na bobina, esta gera um campo elétrico que interage com o campo magnético gerando uma força de rotação, ou Torque, que faz o eixo girar. Quando a bobina, que forma o eixo de rotação se desloca até um determinado limite, seus terminais comutam e trocam de polaridade, mantendo os polos de interação sempre gerando a força de torção no eixo. O elemento que faz a troca de polaridade na bobina é denominado comutador.
+O motor de corrente contínua (motor CC) \nomenclature{CC}{Corrente Contínua}%
+é composto por uma parte fixa e outra móvel, 
+denominadas respectivamente de Estator e Rotor. 
+Seu princípio de funcionamento basicamente acontece pela 
+relação de interação entre as forças eletromagnéticas. 
+Uma bobina de fio é atravessada por um campo magnético 
+gerado por ímãs fixos. 
+Ao aplicar uma corrente elétrica na bobina, 
+esta gera um campo elétrico que interage com o campo magnético, 
+gerando uma força de rotação, ou Torque, que faz o eixo girar. 
+Quando a bobina, 
+que forma o eixo de rotação se desloca até um determinado limite, 
+seus terminais comutam e trocam de polaridade, 
+mantendo os polos de interação sempre gerando a força de torção no eixo. 
+O elemento que faz a troca de polaridade na bobina é denominado comutador.
 
-A velocidade de rotação do eixo depende da intensidade do campo elétrico gerado pela bobina e que interage com o campo magnetico gerada pelos ímãs fixos, assim, quanto maior for o campo gerado maior será a velocidade, e a intensidade do campo elétrico depende da intensidade de corrente que circula pela bobina, e esta depende da tensão aplicada aos teminais. Logo, alterando a tensão aplicada, altera-se a corrente, por consequência o campo elétrico e também a velocidade de rotação do motor.
+A velocidade de rotação do eixo depende 
+da intensidade do campo elétrico gerado pela bobina 
+e que interage com o campo magnetico gerada pelos ímãs fixos, 
+assim, quanto maior for o campo gerado 
+maior será a velocidade, 
+e a intensidade do campo elétrico depende da 
+intensidade de corrente que circula pela bobina, 
+e esta depende da tensão aplicada aos teminais. 
+Logo, alterando a tensão aplicada, altera-se a corrente, 
+por consequência o campo elétrico e também a velocidade de rotação do motor.
 
-A Figura  \ref{fig:motorDC} mostra o motor CC utilizado no estudo mostrado neste trabalho, sendo um motor de baixa potência e baixo torque, mas de alta velocidade. 
+A Figura  \ref{fig:motorDC} mostra o motor CC utilizado no estudo mostrado neste trabalho, 
+sendo um motor de baixa potência e baixo torque, mas de alta velocidade. 
 
 
 \begin{figure}[!htb]
+\caption{Motor CC}
 \center\includegraphics[scale=0.1, angle=0, clip=true, trim=1500 500 400 200]{./imagens/motorDC.jpg}
-\caption{Motor DC}
 \label{fig:motorDC}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
-Para alimentação do motor, assim como do restante do sistema foi utilizada uma fonte chaveada de saída 12Vcc.
+Para alimentação do motor, 
+assim como do restante do sistema foi utilizada uma fonte chaveada de saída 12Vcc.
 
 
-O motor foi fixado a uma base de plástico com um furo contendo a medida de seu diâmetro, de forma a não haver folga e garantir uma estabilidade do motor sobre a superfície de repouso do sistema.
+O motor foi fixado a uma base de plástico com um furo contendo a medida de seu diâmetro, 
+de forma a não haver folga e garantir uma estabilidade do motor 
+sobre a superfície de repouso do sistema.
 
-Para gerar alguma carga, foi utilizado um CD acoplado ao eixo do motor, de forma centralizada e foi utilizada uma etiqueta de plástico presa na borda do CD para formar um ponto de leitura pelo sensor óptico, como se vê na Figura \ref{fig:discoSensor}.
+Para gerar alguma carga, 
+foi utilizado um CD acoplado ao eixo do motor, de forma centralizada 
+e foi utilizada uma etiqueta de plástico presa na borda do CD \nomenclature{CD}{\emph{Compact Disc}}%
+para formar um ponto de leitura pelo sensor óptico, 
+como se vê na Figura \ref{fig:discoSensor}.
 
 \section{Sensor}
 
-Para a leitura de velocidade foi utilizado um conjunto de sensor óptico para reconhecer cada giro do disco, e poder mensurar a velocidade de rotação do motor.
+Para a leitura de velocidade foi utilizado 
+um conjunto de sensor óptico para reconhecer cada giro do disco, 
+e poder mensurar a velocidade de rotação do motor.
 
-A Figura \ref{fig:discoSensorGeral} mostra uma visão geral do sistema montado, utilizando o motor e o sensor posicionados de forma a serem feitas as experiências e testes pertinentes ao estudo.
+A Figura \ref{fig:discoSensorGeral} mostra uma visão geral do sistema montado, 
+utilizando o motor e o sensor posicionados de 
+forma a serem feitas as experiências e testes pertinentes ao estudo.
 
 \begin{figure}[!htb]
 \center
-
+\caption{Visão geral do sistema }
 \subfloat[]{
 	\label{fig:discoSensor}
 	\includegraphics[scale=0.07, angle=0, clip=true, trim=300 200 1200 200]{./imagens/discoSensor.jpg}
@@ -45,7 +105,7 @@ A Figura \ref{fig:discoSensorGeral} mostra uma visão geral do sistema montado, 
 	\includegraphics[scale=0.07, angle=0, clip=true, trim=300 200 400 200]{./imagens/discoSensorGeral.jpg} 
 	}
 
-\caption{Visão geral do sistema }
+{ \small Fonte: Próprio autor}
 \end{figure}
 
 
@@ -54,15 +114,26 @@ A Figura \ref{fig:discoSensorGeral} mostra uma visão geral do sistema montado, 
 
 \section{Drive}
 
-Para controlar a velocidade do motor cc, é necessário alterar a tensão aplicada nele, e a técnica mais comum é a Modulação por Largura de Pulso (do inglês: \emph{Pulse Width Modulation - PWM}, que consiste em chavear a alimentação a uma frequência fixa mas modulando, ou seja, alterando a largura dos pulsos, de forma que a tensão média aplicada possa ser controlada e o motor tenha uma alimentação que varia de zero até o valor da fonte para os respectivos valores de PWM.
+Para controlar a velocidade do motor cc, 
+é necessário alterar a tensão aplicada nele, 
+e a técnica mais comum é a 
+Modulação por Largura de Pulso (do inglês: \emph{Pulse Width Modulation - PWM}, \nomenclature{PWM}{Pulse Width Modulation}%
+que consiste em chavear a alimentação a uma frequência fixa mas modulando, 
+ou seja, alterando a largura dos pulsos, 
+de forma que a tensão média aplicada possa ser controlada e 
+o motor tenha uma alimentação que varia de zero até o valor da fonte 
+para os respectivos valores de PWM.
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=0.1, angle=0, clip=true, trim=0 0 0 0]{./imagens/drive.jpg}
 \caption{Drive}
+\center\includegraphics[scale=0.1, angle=0, clip=true, trim=0 0 0 0]{./imagens/drive.jpg}
 \label{fig:drive}
+{ \small Fonte: Próprio autor}
 \end{figure}
 
-Como elemento de acionamento do motor foi utilizado um transistor tipo MOS e um optoacoplador para isolar o acionamento do motor do controlador.
+Como elemento de acionamento do motor foi utilizado um transistor tipo MOS 
+\nomenclature{MOS}{Metal Oxide Semiconductor}%
+e um optoacoplador para isolar o acionamento do motor do controlador.
 
 \section{Controlador}
 
@@ -88,29 +159,56 @@ Para o estudo proposto foi utilizado uma placa de desenvolvimento da Texas Instr
 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=0.1, angle=180, clip=true, trim=0 750 60 500]{./imagens/uC-ARM.jpg}
 \caption{Microcontrolador}
+\center\includegraphics[scale=0.1, angle=180, clip=true, trim=0 750 60 500]{./imagens/uC-ARM.jpg}
 \label{fig:uCarm}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 
 \section{Programação}
 
-Dispositivos microcontrolados são largamente utilizados na indústria por sua flexibilidade quanto ao comportamento, pois pode ser programado e executar a tarefa que lhe for corretamente atribuida, assim pode ser utilizado em áreas diversas e a alteração do comportamento do circuito depende basicamente de alteração da programação, não havendo necessidade de alteração de placa ou hardware. 
+Dispositivos microcontrolados são largamente utilizados na indústria 
+por sua flexibilidade quanto ao comportamento, 
+pois pode ser programado e executar a tarefa que 
+lhe for corretamente atribuida, 
+assim pode ser utilizado em áreas diversas e 
+a alteração do comportamento do circuito depende basicamente de 
+alteração da programação, 
+não havendo necessidade de alteração de placa ou hardware. 
 
-Para microcontroladores, o setor industrial utiliza majoritariamente a Linguagem C por ser versátil, propicia um código de execução rápido, é uma das mais antigas e une a facilidade de linguagens ditas de alto nível, com a capacidade de manipulação em baixo nível de linguagens como Assembly. 
+Para microcontroladores, 
+o setor industrial utiliza majoritariamente a Linguagem C por ser versátil, 
+propicia um código de execução rápido, 
+é uma das mais antigas e une a facilidade de linguagens ditas de alto nível, 
+com a capacidade de manipulação em baixo nível de linguagens como Assembly. 
 
-Programas escritos para microcontroladores são chamados de \emph{firmwares} diferente de programas para computador ou smartphones. 
+Programas escritos para microcontroladores são chamados de 
+\emph{firmwares} diferente de programas para computador ou smartphones. 
 
-Um projeto em Linguangem C possui diversos arquivos, sendo uma boa prática a separação das funções em arquivos diferentes mas agrupadas por finalidade. 
+Um projeto em Linguangem C possui diversos arquivos, 
+sendo uma boa prática a separação das funções em 
+arquivos diferentes mas agrupadas por finalidade. 
 
-Para que o projeto vire um firmware, é necessário um processo chamado de compilação, onde são compilados todos arquivos \emph{.c}, um de cada vez, ou seja, tradução do código de linguragem C para linguagem assembly, utilizando ainda endereços de memória relativos (extensão \emph{.o}). Logo na sequência é realizado o processo que une, \emph{linker}, todos os arquivos com endereços relativos, gerando um arquivo único com endereçamento absoluto à memória de gravação no microcontrolador. 
+Para que o projeto vire um firmware, 
+é necessário um processo chamado de compilação, 
+onde são compilados todos arquivos \emph{.c}, 
+um de cada vez, ou seja, 
+tradução do código de linguragem C para linguagem assembly, 
+utilizando ainda endereços de memória relativos (extensão \emph{.o}). 
+Logo na sequência é realizado o processo que une, \emph{linker}, 
+todos os arquivos com endereços relativos, 
+gerando um arquivo único com endereçamento absoluto à 
+memória de gravação no microcontrolador. 
 
-A Figura \ref{fig:estruturaProjeto} mostra como foram separados os arquivos do projeto e seus respectivos diretórios. 
+A Figura \ref{fig:estruturaProjeto} mostra como foram separados os 
+arquivos do projeto e seus respectivos diretórios. 
 
 
 \begin{figure}[!htb]
 \centering
+\caption{ Estrutura do Projeto}
 \begin{tikzpicture}[scale=1]
 %\draw [lightgray](0,0) grid (16,10);
 
@@ -147,8 +245,9 @@ A Figura \ref{fig:estruturaProjeto} mostra como foram separados os arquivos do p
 \node at (13,2) {*.o};
 
 \end{tikzpicture}
-\caption{ Estrutura do Projeto}
 \label{fig:estruturaProjeto}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 
@@ -167,12 +266,21 @@ Vale um destaque para alguns elementos da estrutura do projeto:
 
 
 
-O projeto foi estruturado basicamente como mostrado na Figura \ref{fig:estruturaFirmware}, sendo alguns periféricos habilitados e configurados para a aplicação como o caso do módulo PWM, Interrupções, Temporizador(Timer), Comunicação Serial (USART) e pinos de propósito geral (GPIO). Também foi necessária a implementação de uma Fila para armazenamento e cálculo de média.
+O projeto foi estruturado basicamente como mostrado na Figura 
+\ref{fig:estruturaFirmware}, 
+sendo alguns periféricos habilitados e configurados para a 
+aplicação como o caso do módulo PWM, 
+Interrupções, Temporizador(Timer), 
+Comunicação Serial (USART) e \nomenclature{USART}{\emph{Universal Synchronous Receiver Transmitter}}%
+pinos de propósito geral (GPIO). \nomenclature{GPIO}{\emph{General Purpose Input/Output}}%
+Também foi necessária a implementação de uma Fila 
+para armazenamento e cálculo de média.
 
 
 
 \begin{figure}[!htb]
 \centering
+\caption{ Estrutura do Projeto}
 \begin{tikzpicture}[scale=1]
 %\draw [lightgray](0,0) grid (16,10);
 
@@ -221,8 +329,9 @@ O projeto foi estruturado basicamente como mostrado na Figura \ref{fig:estrutura
 \node at (15.6,9.5){Drive};
 
 \end{tikzpicture}
-\caption{ Estrutura do Projeto}
 \label{fig:estruturaFirmware}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 

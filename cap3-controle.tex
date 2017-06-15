@@ -1,11 +1,40 @@
 
-A palavra \emph{Sistema} tem origem no grego \emph{synístanai} e de acordo com cite{gramaticaNET} significa "fazer funcionar junto" e uma aplicação precursora do controle é apresentada por Ctesibius de Alexandria ( cite{encyclopediaBritannica} ) onde um conjunto de reservatórios de água com furo na parte inferior geravam por gotejamento uma marcação do tempo, porém a água do reservatório precisa estar em um nível constante, pois o intervalo de gotejamento é afetado diretamente pela quantidade de água, assim foi criado por Ctesibius um sistema semelhante as boias dos reservatórios atuais para manter o nível de água no reservatório sempre constante.
+A palavra \emph{Sistema} tem origem no grego \emph{synístanai} e de 
+acordo com \cite{gramaticaNET} significa "fazer funcionar junto" e uma 
+aplicação precursora do controle é apresentada por Ctesibius de Alexandria 
+ \cite{encyclopediaBritannica}  
+onde um conjunto de reservatórios de água com furo na parte inferior 
+geravam por gotejamento uma marcação do tempo, 
+porém a água do reservatório precisa estar em um nível constante, 
+pois o intervalo de gotejamento é afetado diretamente pela quantidade de água, 
+assim foi criado por Ctesibius um sistema semelhante 
+as boias dos reservatórios atuais para manter o nível de água no 
+reservatório sempre constante.
 
-A modificação do comportamento de um sistema, de forma controlada garantindo uma maior eficiência é o objetivo do controle de sistemas. 
+A modificação do comportamento de um sistema, 
+de forma controlada garantindo uma maior eficiência é o 
+objetivo do controle de sistemas. 
 
-A principal tarefa de um engenheiro, segundo \cite{dorf2011modern} "é o processo de concepção ou invenção de formas, partes e detalhes de um sistema para alcançar um propósito específico", processo este que soma a grande capacidade de análise e a criatividade para atender as demandas da função, como é o caso de projeto em engenharia no segmento de Sistemas de controle, cujo objetivo é obter configuração, especificações e identificação de processos para atender uma necessidade real. Norman S. Nise traz uma concepção semelhante onde "Um sistema de controle consiste em subsistemas e processos(ou plantas) construídos com o objetivo de se obter uma saída desejada com desempenho desejado para uma entrada específica fornecida".
+A principal tarefa de um engenheiro, 
+segundo \cite{dorf2011modern} 
+"é o processo de concepção ou invenção de formas, 
+partes e detalhes de um sistema para alcançar um propósito específico", 
+processo este que soma a grande capacidade de análise e a 
+criatividade para atender as demandas da função, 
+como é o caso de projeto em engenharia no segmento de Sistemas de controle, 
+cujo objetivo é obter configuração, e
+specificações e identificação de processos para atender uma necessidade real. 
+Norman S. Nise traz uma concepção semelhante onde 
+"Um sistema de controle consiste em subsistemas e processos(ou plantas) 
+construídos com o objetivo de se obter uma saída desejada com 
+desempenho desejado para uma entrada específica fornecida".
 
-Os sistemas de controle atuam basicamente gerando respostas específicas para estímulos específicos de forma controlada e automática trazendo vantagens nas aplicações de diversas áreas como movimentação de grandes equipamentos com precisão, aplicação em locais remotos ou perigosos, compensação de perturbações, manipulação de dados convenientes etc.
+Os sistemas de controle atuam basicamente gerando respostas específicas 
+para estímulos específicos de forma controlada e automática trazendo 
+vantagens nas aplicações de diversas áreas como movimentação de 
+grandes equipamentos com precisão, 
+aplicação em locais remotos ou perigosos, 
+compensação de perturbações, manipulação de dados convenientes etc.
 
 
 
@@ -13,12 +42,25 @@ Os sistemas de controle atuam basicamente gerando respostas específicas para es
 \section{Diagrama de Blocos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Os sistemas de controle são geralmente representados através de diagramas de blocos ou fluxo de sinais, como na Figura \ref{fig:processo} convenientes ao seu desenvolvimento e análise. É composta por uma caixa representando o sistema a ser controlado, setas no sentido da caixa representando as entradas do processo e setas no sentido para fora da caixa para indicar a saída do sistema.
+Os sistemas de controle são geralmente representados através de 
+diagramas de blocos ou fluxo de sinais, 
+como na Figura \ref{fig:processo} convenientes ao seu 
+desenvolvimento e análise. 
+É composta por uma caixa representando o sistema a ser controlado, 
+setas no sentido da caixa representando as entradas do processo e 
+setas no sentido para fora da caixa para indicar a saída do sistema.
 
-Em um sistema real podem haver muitas variáveis de entrada e de saída, mas a abordagem clássica de controle isola apenas uma das variáveis de entrada e uma de saída, ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single Out} - Única Entrada e Única Saída).
+Em um sistema real podem haver muitas variáveis de entrada e de saída, 
+mas a abordagem clássica de controle isola apenas uma das 
+variáveis de entrada e uma de saída, 
+ficando o sistema conhecido pela sigla em inglês 
+SISO (\emph{Single In Single Out} - Única Entrada e Única Saída).
+\nomenclature{SISO}{\emph{Single In Single Out}}%
+
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama de blocos de sistema de controle}
 \begin{tikzpicture}[scale=1]
 %\draw [lightgray](0,0) grid (9,2);
 \draw (0,1) -- (3,1);
@@ -34,8 +76,9 @@ Em um sistema real podem haver muitas variáveis de entrada e de saída, mas a a
 \node [above] at (7.5,1){Variável};
 \node [below] at (7.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama de blocos de sistema de controle}
 \label{fig:processo}
+
+{\small Fonte: \cite{Ogata} }
 \end{figure}
 
 
@@ -43,6 +86,7 @@ O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificaçã
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama de blocos de sistema de controle em malha aberta}
 \begin{tikzpicture}[scale=1]
 %\draw [lightgray](0,0) grid (15,2);
 \draw (0,1) -- (3,1);
@@ -64,14 +108,24 @@ O diagrama de blocos mostrado na Figura \ref{fig:processo} é uma simplificaçã
 \node [above] at (13.5,1){Variável};
 \node [below] at (13.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama de blocos de sistema de controle em malha aberta}
 \label{fig:malhaAberta}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
-O diagrama da Figura \ref{fig:malhaFechada} apresenta realimentação, ou seja, uma amostra da resposta real é lida por um elemento sensor e é reinserida à entrada da malha, aonde é realizada a comparação entre resposta real e desejada, a diferença entre ambos os valores é chamado de Erro do Sistema e é baseado nesse valor que o controlador tem condições de efetuar as devidas correções, geralmente, afim de manter o sistema estável no valor de resposta desejada.
+O diagrama da Figura \ref{fig:malhaFechada} 
+apresenta realimentação, ou seja, 
+uma amostra da resposta real é lida por um elemento sensor e é 
+reinserida à entrada da malha, 
+aonde é realizada a comparação entre resposta real e desejada, 
+a diferença entre ambos os valores é chamado de Erro do Sistema e é 
+baseado nesse valor que o controlador tem condições de efetuar as 
+devidas correções, geralmente, 
+afim de manter o sistema estável no valor de resposta desejada.
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama em blocos de sistema de controle em malha fechada}
 \begin{tikzpicture}[scale=0.8]
 %\draw [lightgray](-3,0) grid (17, 2);
 %\draw [lightgray](-3,0) grid (17,-3);
@@ -108,16 +162,20 @@ O diagrama da Figura \ref{fig:malhaFechada} apresenta realimentação, ou seja, 
 \node at ( 9.0,-2){Sensor};
 
 \end{tikzpicture}
-\caption{ Diagrama em blocos de sistema de controle em malha fechada}
 \label{fig:malhaFechada}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 
-Como notação para os elementos do diagrama de blocos, são adotadas letras para representar matematicamente as relações entre as grandezas conforme Figura  \ref{fig:malhaFechadaLetras}
+Como notação para os elementos do diagrama de blocos, 
+são adotadas letras para representar matematicamente as relações entre 
+as grandezas conforme Figura \ref{fig:malhaFechadaLetras}
 
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama em blocos de sistema de controle em malha fechada utilizando notação matemática}
 \begin{tikzpicture}[scale=0.8]
 %\draw [lightgray](-3,0) grid (17, 2);
 %\draw [lightgray](-3,0) grid (17,-3);
@@ -151,26 +209,57 @@ Como notação para os elementos do diagrama de blocos, são adotadas letras par
 \node at ( 9.0,-2){h(t)};
 
 \end{tikzpicture}
-\caption{ Diagrama em blocos de sistema de controle em malha fechada utilizando notação matemática}
 \label{fig:malhaFechadaLetras}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 
+\nomenclature{r(t)}{Valor de Referência em função do tempo}%
+\nomenclature{e(t)}{Erro em função do tempo}%
+\nomenclature{f(t)}{Modelo do Controlador em função do tempo}%
+\nomenclature{u(t)}{Variável manipulada}%
+\nomenclature{g(t)}{Modelo da Planta do sistema}%
+\nomenclature{c(t)}{Variável Controlada}%
+\nomenclature{h(t)}{Modelo do elemento sensor}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Controle Clássico}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Os sistemas de controle clássicos possuem a predileção por tratar sistemas monovariáveis, lineares e invariantes no tempo, mas esta não é a condição mais provável para um sistema físico. Ao longo do tempo foram desenvolvidas ferramentas, como a Transformada de Laplace, para contornar algumas dificuldades inerentes ao equacionamento dos modelos matemáticos e também métodos como o dos lugares das raízes ou resposta de frequência.
+Os sistemas de controle clássicos possuem a predileção por tratar 
+sistemas monovariáveis, lineares e invariantes no tempo, 
+mas esta não é a condição mais provável para um sistema físico. 
+Ao longo do tempo foram desenvolvidas ferramentas, 
+como a Transformada de Laplace, 
+para contornar algumas dificuldades inerentes ao equacionamento dos 
+modelos matemáticos e também métodos como o dos lugares das raízes ou 
+resposta de frequência.
 
-Os sistemas de controle modernos possuem o índice de desempenho em termos de variáveis de estado, e possuem técnicas para tratar sistemas multivariáveis, não lineares e variantes no tempo.
+Os sistemas de controle modernos possuem o índice de 
+desempenho em termos de variáveis de estado, 
+e possuem técnicas para tratar sistemas multivariáveis, 
+não lineares e variantes no tempo.
 
-A forma prática de trabalhar com sistemas de controle clássicos é através de modelos matemáticos para descrever a dinâmica dos sistemas a partir das leis físicas que regem seus comportamento e desempenho.
-As variáveis dos sistemas articulam-se dinamicamente e são expressas matematicamente utilizando, geralmente, equações diferencias, e podem ser relações lineares ou não lineares. Para sistemas não lineares é habitual que seja feita a linearização do sistema, ou de uma região que se queira controlar, utilizando como ferramenta a Série de Taylor. 
+A forma prática de trabalhar com sistemas de controle clássicos é 
+através de modelos matemáticos para descrever a dinâmica dos sistemas 
+a partir das leis físicas que regem seus comportamento e desempenho.
+As variáveis dos sistemas articulam-se dinamicamente e são 
+expressas matematicamente utilizando, geralmente, 
+equações diferencias, e podem ser relações lineares ou não lineares. 
+Para sistemas não lineares é habitual que seja feita a 
+linearização do sistema, ou de uma região que se queira controlar, 
+utilizando como ferramenta a Série de Taylor. 
 
-Outra ferramenta extremamente importante é a Transformada de Laplace que converte uma equação diferencial no domínio do tempo em uma equação algébrica no domínio da frequência, facilitando a manipulação matemática na utilização dos métodos de controle. 
+Outra ferramenta extremamente importante é a Transformada de Laplace que 
+converte uma equação diferencial no domínio do tempo em uma 
+equação algébrica no domínio da frequência, 
+facilitando a manipulação matemática na utilização dos métodos de controle. 
 
-A relação das variáveis de saída com a de entrada do sistema, é denominada de Função de Transferência(FT) e apresenta as características dinâmicas do sistema.
+A relação das variáveis de saída com a de entrada do sistema, 
+é denominada de Função de Transferência(FT) 
+\nomenclature{FT}{Função de Transferência}%
+e apresenta as características dinâmicas do sistema.
 
 
 
@@ -178,14 +267,28 @@ A relação das variáveis de saída com a de entrada do sistema, é denominada 
 \subsection{Modelagem matemática}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A maioria dos sitemas físicos pode ser modelado matematicamente através de equações diferenciais parciais e é comum que os sistemas apresentem comportamento exponencial, e também apresentam não linearidades, que dependendo da aplicação, podem ser aproximadas em regiões específicas de operação e as equações sofrem transformadas para simplificar a manipulação e resolução dos problemas encontrados nos diversos sistemas assim como o apresentado neste estudo.
+A maioria dos sitemas físicos pode ser modelado matematicamente através de 
+equações diferenciais parciais e é comum que os sistemas apresentem 
+comportamento exponencial, e também apresentam não linearidades, 
+que dependendo da aplicação, podem ser aproximadas em 
+regiões específicas de operação e as equações sofrem 
+transformadas para simplificar a manipulação e resolução dos 
+problemas encontrados nos diversos sistemas assim como o 
+apresentado neste estudo.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sistema Linear}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Quase que a totalidade dos processos naturais apresentam aspectos não lineares, porém a técnica de controle clássico trabalha apenas com sistemas lineares, assim exitem duas opções para trabalhar com sistemas não lineares: mudar o método de controle para uma ténica não convencional ou linearizar em torno de um ponto de operação. A linearização é o processo de encontrar um modelo linear que atenda bem a aproximação do modelo não linear em questão \cite{Ogata}.
+Quase que a totalidade dos processos naturais apresentam 
+aspectos não lineares, porém a técnica de controle clássico trabalha 
+apenas com sistemas lineares, assim exitem duas opções para trabalhar 
+com sistemas não lineares: 
+mudar o método de controle para uma ténica não convencional ou 
+linearizar em torno de um ponto de operação. 
+A linearização é o processo de encontrar um modelo linear que 
+atenda bem a aproximação do modelo não linear em questão \cite{Ogata}.
 
 %Lyapunov ??? provou que em uma região próxima ao ponto de operação um sistema não linear pode ser estável.
 
@@ -193,6 +296,7 @@ Dado um sistema \emph{S(t)} para uma entrada $u(t) = u_1(t)$ tem-se uma saída $
 
 \begin{figure}[!htb]
 \centering
+\caption{ Sistema simples}
 \begin{tikzpicture}[scale=0.8]
 %\draw [lightgray](0,0) grid (20, 2);
 
@@ -218,8 +322,9 @@ Dado um sistema \emph{S(t)} para uma entrada $u(t) = u_1(t)$ tem-se uma saída $
 \node [above] at (18.5,1){$y_2(t)$};
 
 \end{tikzpicture}
-\caption{ Sistema simples}
 \label{fig:sistemaSimples}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 Assim para a região linear próxima ao ponto de operação, uma combinação linear na entrada $u(t) = \alpha u_1(t) + \beta u_2(t)$ produz $y(t) = \alpha y_1(t) + \beta y_2(t), \forall \alpha ,  \beta \in \Re $, que é o princípio da superposição ilustrado na Figura \ref{fig:principioSuperposicao}.
@@ -227,6 +332,7 @@ Assim para a região linear próxima ao ponto de operação, uma combinação li
 
 \begin{figure}[!htb]
 \centering
+\caption{ Princípio da Superposição}
 \begin{tikzpicture}[scale=0.8]
 %\draw [lightgray](0,0) grid (11, 2);
 
@@ -241,8 +347,9 @@ Assim para a região linear próxima ao ponto de operação, uma combinação li
 \node [above] at (9,1){$\alpha y_1(t) + \beta y_2(t)$};
 
 \end{tikzpicture}
-\caption{ Princípio da Superposição}
 \label{fig:principioSuperposicao}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 
@@ -361,6 +468,7 @@ O controle em malha aberta é o sistema mais simples de ser implementado, não p
 
 \begin{figure}[!htb]
 \centering
+\caption{ Sistema de controle em malha aberta}
 \begin{tikzpicture}[scale=1.0]
 %\draw [lightgray](0,0) grid (15,2);
 \draw (0,1) -- (3,1);
@@ -381,8 +489,9 @@ O controle em malha aberta é o sistema mais simples de ser implementado, não p
 \node [above] at ( 7.5,1){u(t)};
 \node [above] at (13.5,1){c(t)};
 \end{tikzpicture}
-\caption{ Sistema de controle em malha aberta}
 \label{fig:AcaoMalhaAberta}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 O sistema físico aqui estudado possui comportamento exponencial que pode ser descrito pela equação \ref{eq:ftSistOrdem1}. 
@@ -435,6 +544,7 @@ A Figura \ref{fig:degrauA} mostra um sinal do tipo degrau com amplitude \textbf{
 
 \begin{figure}
 \centering
+\caption{Sistema de Primeira Ordem}
 \subfloat[Sinal de entrada tipo degrau com amplitude A]{\label{fig:degrauA}
 \begin{tikzpicture}[scale=0.8]
 \draw [lightgray, dashed](0,0) grid (8.8,5.8);
@@ -461,8 +571,9 @@ A Figura \ref{fig:degrauA} mostra um sinal do tipo degrau com amplitude \textbf{
 \draw [blue, ultra thick] (0,0) to [out=85, in=180] (6,5);
 \draw [blue, ultra thick] (6,5) -- (9,5);
 \end{tikzpicture}}
-\caption{Sistema de Primeira Ordem}
 \label{fig:sistPrimeiraOrdem}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 %\begin{equation}
@@ -496,6 +607,7 @@ a = \frac{1}{\tau}
 
 \begin{figure}
 \centering
+\caption{Constante de tempo}
 \begin{tikzpicture}[scale=1.0]
 \draw [lightgray, dashed](0,0) grid (8.8,5.8);
 
@@ -518,8 +630,9 @@ a = \frac{1}{\tau}
 \node at (1.45/2,-0.7){$\tau$};
 
 \end{tikzpicture}
-\caption{Constante de tempo}
 \label{fig:constTempo}
+
+{\small Fonte: \cite{Ogata}}
 \end{figure}
 
 Portanto:
@@ -547,9 +660,12 @@ K = \frac{ac_{reg}}{A}
 A Figura \ref{fig:AcaoMalhaAberta} mostra um sinal do tipo degrau aplicado como referência no valor de \emph{25 rps}, a curva de comportamento real medida empiricamente e a curva aproximada calculada pelo método determinístico como segue:
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.4]{./imagens/acaoMalhaAbertaTau.eps}
+\centering
 \caption{Ação de Controle em Malha Aberta}
+\center\includegraphics[scale=1.4]{./imagens/acaoMalhaAbertaTau.eps}
 \label{fig:acaoMalhaAberTau}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 A Figura \ref{fig:acaoMalhaAberTau} possui uma linha indicativa, $0,63.r(t)$, que mostra o ponto de intercepção da curva ao valor de 63\% do valor de referência, $g(t)$ indicando a função de transferência calculada, $c(t)$ para o valor real medido e empiricamente foi gerado um gráfico com divisões no eixo do Tempo no valor de $\tau = 2,5 s $.
@@ -581,7 +697,126 @@ como $R(s) = \frac{25}{s}$, então:
   \frac{C(s)}{R(s)} = \frac{K}{s+a} = \frac{0,4}{s+0,4}
 \end{equation}
 
-A finalidade da função de transferência \emph{f(t)}, da Figura \ref{fig:AcaoMalhaAberta}, é converter o sinal de referência do tipo \textbf{rps} para seu respectivo parâmetro da modulação por largura de pulso (\textbf{\% PWM}) que aciona o motor.
+%A finalidade da função de transferência \emph{f(t)}, da Figura \ref{fig:AcaoMalhaAberta}, é converter o sinal de referência do tipo \textbf{rps} para seu respectivo parâmetro da modulação por largura de pulso (\textbf{\% PWM}) que aciona o motor.
+
+
+Para a equação no formato canônico tanto o numerador quanto o denominador são divididos pelo próprio valor de $K$. Assim temos que:
+
+\begin{equation}
+  \frac{C(s)}{R(s)} = \frac{1}{\tau s+1} = \frac{1}{2,5 s+1}
+\end{equation}
+
+
+Baseado no gráfico mostrado na Figura \ref{fig:acaoMalhaAberTau}, o valor de tempo em que o motor assume a velocidade de referência é aproximadamente $5\tau$, 12,5 s, e como objetivo para uma primeira versão da implementação do controle utilizando LPA2v é proposto que o sistema reduza o tempo de alcance da velocidade alvo em um tempo de no máximo $1\tau$, ou seja, $2,5 s$.
+
+
+\subsection{ Qualidade do modelo }
+
+A qualidade do modelo é relativa ao erro aceitável para o sistema estudado. Para o modelo obtido neste estudo foi aplicada o cálculo de Erro Relativo Percentual, e foram feitas análises em trechos diferentes em função da não linearidade inicial apresentada pelo comportamento do motor da planta em estudo.
+
+A equação para o cálculo de Erro Relativo Percentual foi:
+
+\begin{equation}
+ \% erro = \frac{| \text{\emph{valor real}} -\text{\emph{valor calculado}} |}{\text{\emph{valor real}}} x 100
+\end{equation}
+
+Realizando a somatória para o cálculo de erro médio com todas as amostras aquisitadas: 
+
+\begin{equation}
+ \% erro = \frac{100}{N} . \sum_{n = 0,00}^{n=22,40} {\frac{| \text{\emph{r[n]}} -\text{\emph{c[n]}} |}{\text{\emph{r[n]}}} } 
+\end{equation}
+
+
+Onde:
+
+\setlength{\parindent}{2cm}
+r : valor real; 
+
+c : valor calculado;
+
+n : número da amostra aquisitada;
+
+N : número total de amostras.
+
+Obs.: As aquisições iniciaram com tempo inicial de 0,00 s até o tempo final de 22,40 segundos, com intervalo de 10 milisegundos entre aquisições, totalizando 2240 amostras.
+
+\setlength{\parindent}{1cm}
+
+A Tabela \ref{tab:ErroModelo} mostra o erro médio relativo calculado para diferentes intervalos de tempo. O primeiro valor contempla o intervalo completo de tempo amostrado, de 0,00 até 22,40 s com um erro de 10,77\%. Porém devido a não linearidade inicial, ocorre uma distorção bem grande que pode ser visto nos dois outros intervalos, de 0,00 a 0,50 segundos com erro de 364,13\%, completamente não aceitável, mas que após os 50 milisegundos iniciais, o erro médio é de 2.71\%. 
+
+
+\begin{table}[h]
+\centering
+\caption{Erro Relativo Percentual}
+\label{tab:ErroModelo}
+
+\begin{tabular}{c|c}
+\hline
+Intervalo de amostras  &  erro médio relativo \\ \hline
+\hline
+0,00 a 22,40 s  &   10,77 \% \\ \hline
+0,00 a  0,50 s 	&  364,13 \% \\ \hline
+0,50 a 22,40 s  &    2,71 \% \\ \hline
+
+\end{tabular}
+
+{\small Fonte: Próprio autor}
+\end{table}
+
+
+De forma mais detalhada, 
+foram calculados os erros médios relativos para cada intervalo de 
+tempo de um $\tau$, 
+e pode-se notar, 
+pela Tabela \ref{tab:ErroModeloTau}, 
+que o erro de estado estacionário, para o intervalo acima de 5 $\tau$, é menor do que 1\%. 
+
+
+\begin{table}[h]
+\centering
+\caption{Erro Relativo Percentual para intervalos determinados por $\tau$ }
+\label{tab:ErroModeloTau}
+
+\begin{tabular}{c|c}
+\hline
+Intervalo de amostras  &  erro médio relativo \\ \hline
+\hline
+0 a 1 $\tau$ & 83,40 \% \\ \hline
+1 a 2 $\tau$ &  3,16 \% \\ \hline
+2 a 3 $\tau$ &  3,38 \% \\ \hline
+3 a 4 $\tau$ &  2,00 \% \\ \hline
+4 a 5 $\tau$ &  2,29 \% \\ \hline
+$>$ 5 $\tau$ &  0,82 \% \\ \hline
+\end{tabular}
+
+{\small Fonte: Próprio autor}
+\end{table}
+
+O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já comentada anteriormente, que ocorre nos primeiros 50 ms. 
+
+Desconsiderando a região transitória não linear 
+que ocorre nos instantes iniciais do movimento do eixo do motor, 
+o erro é menor do que 3\%, conforme mostrado na Tabela \ref{tab:ErroModelo},
+ou ainda na análise com todos os intervalos com dimensão de 1$\tau$, 
+os valores de erro após o primeiro intervalo 
+estão dentro do limite de 5\% de erro,  
+conforme mostrado na Tabela \ref{tab:ErroModeloTau}, 
+ressaltando que para o regime estacionário o erro é menor do que 1\%.
+Assim, considera-se que o modelo utilizado é bom e representa razoavelmente bem o sistema físico real.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -590,9 +825,12 @@ A finalidade da função de transferência \emph{f(t)}, da Figura \ref{fig:AcaoM
 É o tipo de ação de controle mais simples de ser implementado, porém o de menor precisão, pois opera com potência máxima até que o sensor atinja um determinado valor limite, mudando a ação para potência mínima, geralmente zero.
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1]{./imagens/acaoControle-ligaDesliga.eps}
+\centering
 \caption{Ação de Controle Liga-Desliga}
+\center\includegraphics[scale=1]{./imagens/acaoControle-ligaDesliga.eps}
 \label{fig:acaoControleLigaDesliga}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 A Figura \ref{fig:acaoControleLigaDesliga} mostra o gráfico obtido no sistema de teste, onde a velocidade de rotação do motor oscila entre os valores de 25 e 30 rps, sendo o valor desejado em 25 rps. 
@@ -602,6 +840,7 @@ Todas estas oscilações podem representar perda de energia, pois o motor está 
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Liga-Desliga}
 \begin{minipage}{0.8\linewidth}
 \begin{lstlisting}
 long controlador_LigaDesliga{ long setpoint, long sensor }
@@ -613,8 +852,9 @@ long controlador_LigaDesliga{ long setpoint, long sensor }
 }
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Liga-Desliga}
 \label{fig:codigoAcaoLigaDesliga}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 O código fonte que gerou o resultado obtido na Figura \ref{fig:acaoControleLigaDesliga} é  mostrado na Figura \ref{fig:codigoAcaoLigaDesliga}, sendo apresentada apenas a função que realiza função de controle, que neste caso tem como parâmetros de entrada os valores de \textit{\texttt{setpoint}} e do \textit{\texttt{sensor}} e o seu valor de retorno é o parâmetro de entrada da função de acionamento da modulação por largura de pulso (\textit{PWM - Pulse Width Modulation}), que neste caso utiliza apenas os valores extremos.
@@ -635,6 +875,7 @@ O diagrama de blocos da Figura \ref{fig:malhaFechadaP} mostra o bloco \emph{kp} 
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama em blocos de sistema de controle em malha fechada utilizando notação matemática}
 \begin{tikzpicture}[scale=0.6]
 %\draw [lightgray](-3,0) grid (17, 2);
 %\draw [lightgray](-3,0) grid (17,-3);
@@ -668,16 +909,20 @@ O diagrama de blocos da Figura \ref{fig:malhaFechadaP} mostra o bloco \emph{kp} 
 \node at ( 9.0,-2){h(t)};
 
 \end{tikzpicture}
-\caption{ Diagrama em blocos de sistema de controle em malha fechada utilizando notação matemática}
 \label{fig:malhaFechadaP}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 Variando o valor de $kp$ pode-se ver pela Figura \ref{fig:acaoP} que quanto maior o seu valor, mais rápida é a resposta do sistema, ou seja, menor é o tempo necessário para alcançar o valor de referência, porém, depois de um determinado valor, o sistema apresenta um sobressinal, que pode ou não ser tolerável, dependendo das exigências da aplicação.
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.4]{./imagens/acaoP.eps}
+\centering
 \caption{Ação de Controle Proporcional}
+\center\includegraphics[scale=1.4]{./imagens/acaoP.eps}
 \label{fig:acaoP}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 O controlador que foi implementada a função proporcional está apresentado na Figura \ref{fig:codigoControladorP}, onde pode-se verificar a utilização de variáveis do tipo ponto flutuante (\emph{float}) para obtenção de maior precisão nos cálculos e consequantemente, no controle. O nome das variáveis faz alusão a sua representação no diagrama de blocos da Figura \ref{fig:malhaFechadaP}.
@@ -695,6 +940,7 @@ A função implementada, declarada na linha 7 possui três parâmetros de entrad
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Proporcional}
 \begin{minipage}{0.8\linewidth}
 \lstset{firstnumber=1}
 \begin{lstlisting}
@@ -726,8 +972,9 @@ long controlador{ long setpoint, long max, long sensor }
 }
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Proporcional}
 \label{fig:codigoControladorP}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 
@@ -769,9 +1016,12 @@ u(t) = ki \int_{0}^{\infty} e(t) dt
 A resposta apresentada pelo sistema está plotada na Figura \ref{fig:acaoI} e mostra que ao aumentar o valor do coeficiente \emph{ki} o sistema começou a oscilar e demorou mais para estabilizar dentro de um valor limite próximo ao valor de referência. 
 
 \begin{figure}[!h]
-\center\includegraphics[scale=1.3]{./imagens/acaoI.eps}
+\centering
 \caption{Ação de Controle Integral}
+\center\includegraphics[scale=1.3]{./imagens/acaoI.eps}
 \label{fig:acaoI}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 A Figura \ref{fig:codigoControladorI} mostra o código da função que implementou o controlador com ação integral, responsáveis por gerar propriamente a ação de integração do erro.
@@ -779,6 +1029,7 @@ A Figura \ref{fig:codigoControladorI} mostra o código da função que implement
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Integral}
 \begin{minipage}{0.8\linewidth}
 \lstset{firstnumber=13}
 \begin{lstlisting}
@@ -788,8 +1039,9 @@ A Figura \ref{fig:codigoControladorI} mostra o código da função que implement
     uT = iT;
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Integral}
 \label{fig:codigoControladorI}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 A ação de integração é uma somatória de pequenas amostras do erro, que somadas ao longo do tempo levam o sistema a um erro zero, porém demoram mais tempo para alcançar a estabilidade e facilmente geram sobressinal.
@@ -814,15 +1066,18 @@ u(t) = kp.e(t) + ki \int_{0}^{\infty} e(t) dt
 O intuito neste controlador é reduzir o tempo de resposta do sistema pelo controle proporcional e ao mesmo tempo gerar um erro nulo quando a estabilidade é atingida.
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.2]{./imagens/acaoPI.eps}
 \caption{Ação de Controle Proporcional Integral}
+\center\includegraphics[scale=1.2]{./imagens/acaoPI.eps}
 \label{fig:acaoPI}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 Como pode-se ver no gráfico da Figura \ref{fig:acaoPI} foi utilizado um valor de $ki = 0.1$ para obter uma subida em um tempo tido como bom, ou seja, subida mais rápida e sem gerar sobressinal, de acordo com os valores mostrados na Figura \ref{fig:acaoP}.
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Proporcional Integral}
 \begin{minipage}{0.8\linewidth}
 \lstset{firstnumber=13}
 \begin{lstlisting}
@@ -832,8 +1087,9 @@ Como pode-se ver no gráfico da Figura \ref{fig:acaoPI} foi utilizado um valor d
     uT = iT + p*eT;
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Proporcional Integral}
 \label{fig:codigoControladorPI}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 O código da Figura \ref{fig:codigoControladorPI} mostra a implementação das funções de controle proporcional e integral, sendo que a linha 15 mostra a somatória característica do controle integral.
@@ -859,15 +1115,19 @@ A figura \ref{fig:acaoPD} mostra que a resposta do sistema é a mais rápida dos
 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.1]{./imagens/acaoPD.eps}
+\centering
 \caption{Ação de Controle Proporcional Derivativo}
+\center\includegraphics[scale=1.1]{./imagens/acaoPD.eps}
 \label{fig:acaoPD}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
  A linha 13 da Figura \ref{fig:codigoControladorPD} mostra como foi codificada a ação de controle Derivativa modificada.
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Proporcional Derivativo}
 \begin{minipage}{0.8\linewidth}
 \lstset{firstnumber=13}
 \begin{lstlisting}
@@ -877,8 +1137,9 @@ A figura \ref{fig:acaoPD} mostra que a resposta do sistema é a mais rápida dos
     uT = dT + p*eT;
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Proporcional Derivativo}
 \label{fig:codigoControladorPD}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 A ação de controle derivativa (PD) é modificada pois é utilizada a diferença do erro na iteração anterior com o erro com os dados atuais, diferente do que ocorre com o controlador PD teórico, onde a derivada implica na diferença entre o valor atual e uma pequena variação positiva do tempo, ou seja, uma amostra futura, que é impossível de ser obtida na pratica. 
@@ -903,9 +1164,12 @@ u(t) = kp.e(t) + ki \int_{0}^{\infty} e(t) dt + kd. \frac{d e(t)}{dt}
 O controlador PID pode ser implementado de diversas formas, pode ter o parâmetro proporcional influenciando diretamente as demais ações, ou não, como neste caso onde as ações de controle são utilizadas de forma independentes, e o erro é utilizado para cada uma das partes da soma do sinal da variável manipulada ($u(t)$).
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.4]{./imagens/acaoPID.eps}
+\centering
 \caption{Ação de Controle Proporcional Integral Derivativo}
+\center\includegraphics[scale=1.4]{./imagens/acaoPID.eps}
 \label{fig:acaoPID}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 Os dois sinais utilizando o controle PID utilizou parâmetros já testados nos controladores anteriores para obter um resultado desejado, onde o sistema responde de forma bem rápida ao estímulo de entrada, tendo um tempo de subida entre 3 e 4 segundos para atingir a estabilidade com erro de estado estacionário menor do que 2\%, sem gerar sobressinal.
@@ -917,6 +1181,7 @@ A Figura \ref{fig:codigoControladorPID} mostra a codificação completa dos par�
 
 \begin{figure}[!htb]
 \centering
+\caption{Código da Ação de Controle Proporcional Integral Derivativo}
 \begin{minipage}{0.8\linewidth}
 \lstset{firstnumber=13}
 \begin{lstlisting}
@@ -926,8 +1191,9 @@ A Figura \ref{fig:codigoControladorPID} mostra a codificação completa dos par�
     uT = p*eT + iT + dT;
 \end{lstlisting}
 \end{minipage}
-\caption{Código da Ação de Controle Proporcional Integral Derivativo}
 \label{fig:codigoControladorPID}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 
@@ -945,9 +1211,12 @@ Os principais e mais comuns requisitos de desempenho dos sistemas são associado
 O erro de regime estacionário, mostrada na Figura \ref{fig:funcaoResposta}, é uma medida que vai tender a zero em sistemas ideais, mas que na realidade não alcança o valor zero, assim assume-se um valor aceitável, 5\% do valor da resposta desejada para sistemas não críticos e 2\% para sistemas de maior grau de criticidade, para assumir que o sistema entrou em estabilidade, e a resposta real é aceita como tendo atingido o valor de resposta desejada. 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1]{./pic/C400grafico.eps}
+\centering
 \caption{Gráfico da função Resposta}
+\center\includegraphics[scale=1]{./pic/C400grafico.eps}
 \label{fig:funcaoResposta}
+
+{\small Fonte: Próprio autor}
 \end{figure}
 
 Para realizar o controle de um sistema é necessário que estejam bem definidos os seus requisitos, que são os objetivos a serem atendidos. Quando um sistema por si só já atende aos requisitos, não há a necessidade de controle. De forma oposta, é projetado o sistema de controle, que pode ser em malha aberta ou fechada, clássico ou moderno dependendo das características físicas do sistema. 
@@ -1054,9 +1323,12 @@ de acordo com graus de cresça das constantes anotacionais do reticulado de Hass
 os quais descrevem os extremos do reticulado como sendo inconsistente, verdadeiro, falso e paracompleto, respectivamente. 
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C421reticuladoHasse.eps}
+\centering
 \caption{Reticulado finito de Hasse}
+\center\includegraphics{./pic/C421reticuladoHasse.eps}
 \label{fig:reticuladoHasse}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 Para toda proposição $P$ há um par de valores, chamada de anotação, $(\mu , \lambda )$, onde $\mu$ é o grau de evidência favorável e $\lambda $ é o grau de evidência desfavorável, representada como  $P_{( \mu , \lambda )}$ .
@@ -1128,9 +1400,12 @@ Uma outra forma de representação da anotação é utilizando o Quadrado Unitá
 
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C422qupc.eps}
+\centering
 \caption{Representação do reticulado no quadrado unitário no plano cartesiano}
+\center\includegraphics{./pic/C422qupc.eps}
 \label{fig:reticuladoQUPC}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 Os pontos extremos assim representam:
@@ -1145,9 +1420,12 @@ Os pontos extremos assim representam:
 O segmento de reta $\overline{BD}$, entre os pontos referentes às condições $Verdade$ e $Falso$, conforme mostrado na Figura \ref{fig:retaPerfeitamenteDefinida}, é denominada de \emph{Reta Perfeitamente Definida} e dada uma anotação $(\mu, \lambda )$ situada nela, a soma das evidências anotadas é sempre o valor unitário do quadro. 
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C424retaPerfeitamenteDefinida.eps}
+\centering
 \caption{Representação da Reta Perfeitamente Definida}
+\center\includegraphics{./pic/C424retaPerfeitamenteDefinida.eps}
 \label{fig:retaPerfeitamenteDefinida}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 A relação dos graus de evidência da anotação quando coincidente à Reta Perfeitamente Definida é: 
@@ -1210,9 +1488,12 @@ e
 O segmento de reta $\overline{ AC }$ , entre os pontos referentes às condições \emph{Paracompleto} e \emph{Contradição}, conforme mostrado na Figura \ref{fig:retaPerfeitamenteIndefinida}, é denominada de \emph{Reta Perfeitamente Indefinida} e dada uma anotação $(\mu, \lambda )$ situada nela, a subtração das evidências anotadas é sempre zero, $\mu = \lambda$, e de forma contrária, quando a anotação está posicionada de forma não coincidente à Reta Perfeitamente Indeterminada, significa que $\mu \neq \lambda$.
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C426retaPerfeitamenteIndefinida.eps}
+\centering
 \caption{Representação da Reta Perfeitamente Indefinida}
+\center\includegraphics{./pic/C426retaPerfeitamenteIndefinida.eps}
 \label{fig:retaPerfeitamenteIndefinida}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 A relação dos graus de evidência para uma anotação cuja posição coincide com a Reta Perfeitamente Indefinida é: 
@@ -1255,9 +1536,12 @@ e
 Graficamente são representadas como mostra a Figura \ref{fig:retasgcgct}:
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C428retasgcgct.eps}
+\centering
 \caption{Representação dos Graus de Certeza e Contradição em um plano cartesiano}
+\center\includegraphics{./pic/C428retasgcgct.eps}
 \label{fig:retasgcgct}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 A representação ainda é dividia em algumas partes, dependendo da aplicação, estabelecendo quais são os limites que definem cada estado, Verdadeiro, Falso, Paracompleto, Contradição e outros mais que forem pertinentes à aplicação, estão representados pelas linhas tracejadas na Figura \ref{fig:valorControle} e são definidos como:
@@ -1271,18 +1555,24 @@ A representação ainda é dividia em algumas partes, dependendo da aplicação,
 \end{itemize}
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C429valorControle.eps}
+\centering
 \caption{Representação dos valores de controle}
+\center\includegraphics{./pic/C429valorControle.eps}
 \label{fig:valorControle}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 Uma divisão em 12 partes é mostrada na Figura \ref{fig:reticuladoLPA2v} com seus respectivos estados intermediários definidos conforme \cite{JoaoInacio}, sendo 4 regiões extremas:
 
 
 \begin{figure}[!htb]
-\center\includegraphics{./pic/C430gcgct.eps}
+\centering
 \caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
+\center\includegraphics{./pic/C430gcgct.eps}
 \label{fig:reticuladoLPA2v}
+
+{\small Fonte: \cite{JoaoInacio}}
 \end{figure}
 
 
@@ -1310,128 +1600,480 @@ O reticulado subdividido em 12 regiões como mostrado, é aplicado em situaçõe
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{A LPA2v aplicada em Controle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%A LPA2v aplicada em sistemas de controle utiliza além dos conceitos já estabelecidos, duas outras definições para sua implementação e são elas o \emph{ Grau de Certeza Real ($G _{CR}$)} e o \emph{Grau de Evidência Real ($\mu _{ER}$)} além de trabalhar alguns conceitos básicos de geometria, e pelo fato de possuir uma resolução simples do ponto de vista matemático, motiva este trabalho pela sua implementação eficaz com relação ao controle clássico que exige uma matemática elaborada, dificultando sua implementação em dispositivos de baixo custo e que não possuem hardware específico de processamento de sinais. 
+
+
+%Para a implementação do sistema de controle paraconsistente, primeiramente é necessário que seja definida a proposição que será a base para as análises e tomadas de decisões.
+
+%\begin{center}
+%$ P \equiv $ 
+%\emph{"A velocidade de rotação do motor atingiu o valor desejado."}
+%\end{center}
+
+%Para trabalhar com essa proposição são necessárias pelo menos duas variáveis, sendo uma delas com o valor de temperatura desejada e outra com o valor atual de temperatura. Essas duas variáveis são representadas por meio de duas anotações, mas que antes precisam ser normalizadas. 
+
+%\textbf{Variável 1:} 
+%Valor desejado ou Set point = 37 $^{\circ}$C. 
+
+%\begin{equation}
+%( \mu _{d}, \lambda _{d} ) = (1,0)
+%\label{eq:setpoint}
+%\end{equation}
+
+%Sendo:
+
+%$\mu _{d}$ : grau de evidência favorável ao valor desejado. 
+
+%$\lambda _{d}$ : grau de evidência desfavorável ao valor desejado.
+
+%Quando o aquecedor atingir a temperatura de 37 $^{\circ}$C, 
+%crê-se com grau de evidência favorável máxima e grau de evidência desfavorável mínima que a proposição \emph{P} é verdadeira, como mostrado na Equação \ref{eq:setpoint}.
+
+
+
+%\textbf{Variável 2:} 
+%Valor de temperatura atual lido pelo sensor: 20 $^{\circ}$C no início do processo.
+
+%Supondo, hipoteticamente para facilitar o entendimento, um sensor com range de operação entre 0 e 100 $^{\circ}$C que será lido, linearmente no intervalo de 0 a 10V e normalizado para o intervalo fechado [0,1]. Assim são calculados os graus de evidência:
+
+%\begin{equation}
+%\mu _{a} = 
+%\frac{Ta - Tmin}{Td - Tmin}
+%\label{eq:miatual}
+%\end{equation}
+
+%Sendo:
+
+%$\mu _{a}$ : Grau de evidência favorável para a leitura da temperatura atual;
+
+%\emph{Ta :} Temperatura atual lida pelo sensor;
+
+%\emph{Tmin :} Temperatura mínima de leitura pelo sensor de temperatura. Nesse caso, 0 $^{\circ}$C;
+
+%\emph{Td :} Temperatura desejada que o aquecedor alcance, estabelecida em 37 $^{\circ}$C.
+
+%A normalização pode ser realizada diretamente, desde que todas as variáves da Equação \ref{eq:miatual} estejam na mesma grandeza e na mesma escala, assim os graus de evidência não apresentam dimensão.
+
+%Substituindo as variáveis em \ref{eq:miatual}:
+
+%\begin{equation}
+%\mu _{a} = 
+%\frac{20 - 0}{37 - 0} = 0,54
+%\label{eq:miatualnumeros}
+%\end{equation}
+
+%Para o valor de $\mu _{a}$ da Equação \ref{eq:miatualnumeros} podemos afirmar que \emph{crê-se com grau de evidência favorável que foi atingido 54\% do percurso para a proposição ser verdadeira.} Como se pode ver, a temperatura inicial proposta foi de 20$^{\circ}$C que é pouco mais da metade da temperatura desejada de 37$^{\circ}$C, caso seja alterada a temperatura desejada para 50$^{\circ}$C, o valor de $\mu _{d}$ seria de 0,4, ou seja, a variável atual seria 40 \% do valor desejado. 
+
+%Calculando o grau de evidência desfavorável:
+
+%\begin{equation}
+%\lambda _{a}= 1 - \mu _{a}
+%\label{eq:lambdaatual}
+%\end{equation}
+
+%Substituindo as variáveis:
+
+%\begin{equation}
+%\lambda _{a}= 1 - 0,54 = 0,46
+%\label{eq:lambdaatualnumeros}
+%\end{equation}
+
+%O que resulta em uma anotação para a leitura de temperatura atual de: 
+
+%\begin{equation}
+%( \mu _{a}, \lambda _{a} ) = (0,54 , 0,46)
+%\label{eq:valoratual}
+%\end{equation}
+
+%Calcula-se então o Grau de Contradição (Equação \ref{eq:grauIncerteza} ) e o Grau de Certeza (Equação \ref{eq:grauCerteza}) cruzando os dados das anotações da seguinte forma:
+
+%\begin{equation}
+%G _{ct} = \mu _{d} + \lambda _{a} - 1
+%\label{eq:grauContradicaoCruzado}
+%\end{equation}
+
+%\begin{equation}
+%G _{c} = \mu _{d} - \lambda _{a}
+%\label{eq:grauCertezaCruzado}
+%\end{equation}
+
+
+%Substituindo (\ref{eq:miatualnumeros}) e (\ref{eq:lambdaatualnumeros}) em (\ref{eq:grauContradicaoCruzado}):
+
+%\begin{equation}
+%G _{ct} = 1 + 0,46 - 1 = 0,46
+%\label{eq:grauContradicaoResulta}
+%\end{equation}
+
+%Substituindo (\ref{eq:miatualnumeros}) e (\ref{eq:lambdaatualnumeros}) em (\ref{eq:grauCertezaCruzado}):
+
+%\begin{equation}
+%G _{c} = 1 - 0,46 = 0,54
+%\label{eq:grauCertezaResulta}
+%\end{equation}
+
+%Graficamente pode ser representado como na Figura \ref{fig:gcgctExemplo}.
+
+%\begin{figure}[!htb]
+%\center\includegraphics{./pic/C440gcgctExemplo.eps}
+%\caption{Representação de Gc = 0.54 e Gct = 0.46}
+%\label{fig:gcgctExemplo}
+%\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+O reticulado pode ser dividido de outras formas, dependendo dos limites dos Graus de Certeza e Contradição que o sistema permite. A Figura \ref{fig:reticuladoLPA2v2} mostra uma das possibilidades com a representação de 8 regiões do reticulado. 
+
+
+\begin{figure}[!h]
+\centering
+\caption{Representação do reticulado da LPA2v subdividido em 8 regiões}
+\begin{tikzpicture}[scale=1.0]
+\tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
+
+%\draw [lightgray, dashed](0,0) grid (10,10);
+
+\node at (10,4.5) {$G_{c}$};
+\node at (5.5,10) {$G_{ct}$};
+
+\node at (4.5,9.2) {$+1$};
+\node at (9.0,5.5) {$+1$};
+\node at (5.5,1.0) {$-1$};
+\node at (1.0,4.5) {$-1$};
+
+\node [fill=black, circle] (V) at (9,5) {:};
+\node [fill=black, circle] (F) at (1,5) {:};
+\node [fill=black, circle] (T) at (5,9) {:};
+\node [fill=black, circle] (L) at (5,1) {:};
+
+\node [fill=black, circle] (N) at (5,7) { };
+\node [fill=black, circle] (S) at (5,3) { };
+\node [fill=black, circle] (E) at (7,5) { };
+\node [fill=black, circle] (W) at (3,5) { };
+
+\node [fill=black, circle] (NE) at (8,6) { };
+\node [fill=black, circle] (SE) at (8,4) { };
+\node [fill=black, circle] (NW) at (2,6) { };
+\node [fill=black, circle] (SW) at (2,4) { };
+
+\draw [->, thick] (V)   -- (10,5);
+\draw [    thick] (0,5) -- (F);
+\draw [->, thick] (T)   -- (5,10);
+\draw [    thick] (5,0) -- (L);
+
+\draw [thick] (V) -- (T);
+\draw [thick] (T) -- (F);
+\draw [thick] (F) -- (L);
+\draw [thick] (L) -- (V);
+
+\draw [thick] (NE) -- (SW);
+\draw [thick] (SE) -- (NW);
+
+\draw[thick] (SW) rectangle (NE);
+\fill[nearly transparent] (SW) rectangle (NE);
+
+\node at (8.5,5.0) {V};
+\node at (1.5,5.0) {F};
+\node at (5.0,8.0) {$\top$};
+\node at (5.0,2.0) {$\bot$};
+
+\node at (7.0,5.0) {Qv};
+\node at (3.0,5.0) {Qf};
+\node at (5.0,5.5) {Q$\top$};
+\node at (5.0,4.5) {Q$\bot$};
+
+\end{tikzpicture}
+\label{fig:reticuladoLPA2v2}
+
+{\small Fonte: Próprio autor}
+\end{figure}
+
+Sendo 4 regiões extremas,
+\begin{itemize}
+\item V : Verdadeiro;
+\item F : Falso;
+\item $\top$ : Contradição;
+\item $\bot$ : Paracompleto.
+\end{itemize}
+e 4 regiões intermediárias: 
+\begin{itemize}
+\item Qv: Quase Verdade;
+\item Qf: Quase Falso;
+\item Q$\top$: Quase Contradição;
+\item Q$\bot$: Quase Paracompleto.
+
+\end{itemize}
+
+
+%###
+
+\subsection{Grau de Certeza Real - $G_{CR}$}
+
+É possível e desejável que se posso utilizar um valor resultante que exclua os efeitos das incertezas ou contradições, 
+como é citado por 
+\citeauthor{JairJoaoGermano}(\citeyear{JairJoaoGermano}): 
+\begin{citacao}
+{
+"Um sistema de decisão capaz de analisar dados originários de Conhecimento Incerto terá maior robustez quando, 
+ao final da análise,
+apresentar um resultado que represente o valor de certeza puro, 
+isto é, não contaminado pelos efeitos das incertezas."
+}
+\end{citacao}
+
+O valor que elimina o efeito da incerteza é denominado \emph{Grau de Certeza Real - G$_{CR}$} 
+e é calculado pela distância (D) do Ponto de análise, $(G_c,G_{ct})$, 
+em relação ao ponto de máximo Grau de Certeza $V$, 
+no vértice direito do reticulado, 
+conforme mostrado na Figura \ref{fig:reticuladoGer}.
+
+
+\begin{figure}[!h]
+\centering
+\caption{Representação do Grau de Certeza Real no reticulado }
+\begin{tikzpicture}[scale=1.0]
+\tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
+
+%\draw [lightgray, dashed](0,0) grid (10,10);
+
+\node at (10,4.5) {$G_{c}$};
+\node at (5.5,10) {$G_{ct}$};
+
+\node at (4.5,9.2) {$+1$};
+\node at (9.0,5.5) {$+1$};
+\node at (5.5,1.0) {$-1$};
+\node at (1.0,4.5) {$-1$};
+
+\node at (9.0,4.5) {V};
+\node at (1.0,5.5) {F};
+\node at (5.5,9.0) {$\top$};
+\node at (4.5,1.0) {$\bot$};
+
+\node [fill=black, circle] (V) at (9,5) {:};
+\node [fill=black, circle] (F) at (1,5) {:};
+\node [fill=black, circle] (T) at (5,9) {:};
+\node [fill=black, circle] (L) at (5,1) {:};
+
+\draw [thick] (V) -- (T);
+\draw [thick] (T) -- (F);
+\draw [thick] (F) -- (L);
+\draw [thick] (L) -- (V);
+
+\draw [->, thick] (V)   -- (10,5);
+\draw [    thick] (0,5) -- (F);
+\draw [->, thick] (T)   -- (5,10);
+\draw [    thick] (5,0) -- (L);
+
+\draw [lightgray,dashed] (V) -- (F);
+\draw [lightgray,dashed] (T) -- (L);
+
+\node [fill=black, circle] (P) at (6.0,7.0) {:};
+\node [fill=gray,  circle] (p) at (5.4,5.0) [gray] {:};
+\node [fill=black, circle] (r) at (6.0,5.0) [gray]{.};
+
+\draw [blue,ultra thick] (P) -- (V);
+\draw [green ] (r) -- (V);
+\draw [yellow] (P) -- (r);
+%\draw [green,ultra thick] (9.0,4.9) -- (5.4,4.9);
+
+\draw [red, ultra thick,<-]  (p) to [out=85, in=236] (P);
+
+\node at (7.0,6.0) [blue]{D};
+\node at (5.7,7.4) {($G_c$,$G_{ct}$)};
+\node at (5.5,4.6) {$G_{CR}$};
+
+\end{tikzpicture}
+\label{fig:reticuladoGer}
+
+{\small Fonte: \cite{JoaoInacio}}
+\end{figure}
+
+
+O Grau de Certeza Real ($G_{CR}$) 
+é calculado utilizando o Teorema de Pitágoras para achar a distância D 
+conforme Equação \ref{eq:grauCertezaReal}. 
+
+\begin{center}
+\begin{equation}
+D = \sqrt{(1-|G_c|)^2+G_{ct}^2}
+\label{eq:grauCertezaReal}
+\end{equation}
+\end{center}
+
+Para valores de $G_c \geq 0$: 
+
+\begin{center}
+\begin{equation}
+G_{CR} = (1-D)
+\end{equation}
+\end{center}
+
+Para valores de $G_c < 0$:
+
+\begin{center}
+\begin{equation}
+G_{CR} = (D-1)
+\end{equation}
+\end{center}
+
+
+Tanto o Grau de Evidência Real quanto os estados ou regiões do reticulado 
+podem ser utilizados para realizar o controle dos mais diversos tipos de sistemas, 
+dependendo apenas do tipo de controle e de sistema que deve ser implementado. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A LPA2v aplicada em Controle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A LPA2v aplicada em sistemas de controle utiliza além dos conceitos já estabelecidos, duas outras definições para sua implementação e são elas o \emph{ Grau de Certeza Real ($G _{CR}$)} e o \emph{Grau de Evidência Real ($\mu _{ER}$)} além de trabalhar alguns conceitos básicos de geometria, e pelo fato de possuir uma resolução simples do ponto de vista matemático, motiva este trabalho pela sua implementação eficaz com relação ao controle clássico que exige uma matemática elaborada, dificultando sua implementação em dispositivos de baixo custo e que não possuem hardware específico de processamento de sinais. 
-
-
-Para a implementação do sistema de controle paraconsistente, primeiramente é necessário que seja definida a proposição que será a base para as análises e tomadas de decisões.
-
-\begin{center}
-$ P \equiv $ 
-\emph{"A velocidade de rotação do motor atingiu o valor desejado."}
-\end{center}
-
-Para trabalhar com essa proposição são necessárias pelo menos duas variáveis, sendo uma delas com o valor de temperatura desejada e outra com o valor atual de temperatura. Essas duas variáveis são representadas por meio de duas anotações, mas que antes precisam ser normalizadas. 
-
-\textbf{Variável 1:} 
-Valor desejado ou Set point = 37 $^{\circ}$C. 
-
-\begin{equation}
-( \mu _{d}, \lambda _{d} ) = (1,0)
-\label{eq:setpoint}
-\end{equation}
-
-Sendo:
-
-$\mu _{d}$ : grau de evidência favorável ao valor desejado. 
-
-$\lambda _{d}$ : grau de evidência desfavorável ao valor desejado.
-
-Quando o aquecedor atingir a temperatura de 37 $^{\circ}$C, 
-crê-se com grau de evidência favorável máxima e grau de evidência desfavorável mínima que a proposição \emph{P} é verdadeira, como mostrado na Equação \ref{eq:setpoint}.
 
 
 
-\textbf{Variável 2:} 
-Valor de temperatura atual lido pelo sensor: 20 $^{\circ}$C no início do processo.
-
-Supondo, hipoteticamente para facilitar o entendimento, um sensor com range de operação entre 0 e 100 $^{\circ}$C que será lido, linearmente no intervalo de 0 a 10V e normalizado para o intervalo fechado [0,1]. Assim são calculados os graus de evidência:
-
-\begin{equation}
-\mu _{a} = 
-\frac{Ta - Tmin}{Td - Tmin}
-\label{eq:miatual}
-\end{equation}
-
-Sendo:
-
-$\mu _{a}$ : Grau de evidência favorável para a leitura da temperatura atual;
-
-\emph{Ta :} Temperatura atual lida pelo sensor;
-
-\emph{Tmin :} Temperatura mínima de leitura pelo sensor de temperatura. Nesse caso, 0 $^{\circ}$C;
-
-\emph{Td :} Temperatura desejada que o aquecedor alcance, estabelecida em 37 $^{\circ}$C.
-
-A normalização pode ser realizada diretamente, desde que todas as variáves da Equação \ref{eq:miatual} estejam na mesma grandeza e na mesma escala, assim os graus de evidência não apresentam dimensão.
-
-Substituindo as variáveis em \ref{eq:miatual}:
-
-\begin{equation}
-\mu _{a} = 
-\frac{20 - 0}{37 - 0} = 0,54
-\label{eq:miatualnumeros}
-\end{equation}
-
-Para o valor de $\mu _{a}$ da Equação \ref{eq:miatualnumeros} podemos afirmar que \emph{crê-se com grau de evidência favorável que foi atingido 54\% do percurso para a proposição ser verdadeira.} Como se pode ver, a temperatura inicial proposta foi de 20$^{\circ}$C que é pouco mais da metade da temperatura desejada de 37$^{\circ}$C, caso seja alterada a temperatura desejada para 50$^{\circ}$C, o valor de $\mu _{d}$ seria de 0,4, ou seja, a variável atual seria 40 \% do valor desejado. 
-
-Calculando o grau de evidência desfavorável:
-
-\begin{equation}
-\lambda _{a}= 1 - \mu _{a}
-\label{eq:lambdaatual}
-\end{equation}
-
-Substituindo as variáveis:
-
-\begin{equation}
-\lambda _{a}= 1 - 0,54 = 0,46
-\label{eq:lambdaatualnumeros}
-\end{equation}
-
-O que resulta em uma anotação para a leitura de temperatura atual de: 
-
-\begin{equation}
-( \mu _{a}, \lambda _{a} ) = (0,54 , 0,46)
-\label{eq:valoratual}
-\end{equation}
-
-Calcula-se então o Grau de Contradição (Equação \ref{eq:grauIncerteza} ) e o Grau de Certeza (Equação \ref{eq:grauCerteza}) cruzando os dados das anotações da seguinte forma:
-
-\begin{equation}
-G _{ct} = \mu _{d} + \lambda _{a} - 1
-\label{eq:grauContradicaoCruzado}
-\end{equation}
-
-\begin{equation}
-G _{c} = \mu _{d} - \lambda _{a}
-\label{eq:grauCertezaCruzado}
-\end{equation}
 
 
-Substituindo (\ref{eq:miatualnumeros}) e (\ref{eq:lambdaatualnumeros}) em (\ref{eq:grauContradicaoCruzado}):
 
-\begin{equation}
-G _{ct} = 1 + 0,46 - 1 = 0,46
-\label{eq:grauContradicaoResulta}
-\end{equation}
 
-Substituindo (\ref{eq:miatualnumeros}) e (\ref{eq:lambdaatualnumeros}) em (\ref{eq:grauCertezaCruzado}):
 
-\begin{equation}
-G _{c} = 1 - 0,46 = 0,54
-\label{eq:grauCertezaResulta}
-\end{equation}
 
-Graficamente pode ser representado como na Figura \ref{fig:gcgctExemplo}.
 
-\begin{figure}[!htb]
-\center\includegraphics{./pic/C440gcgctExemplo.eps}
-\caption{Representação de Gc = 0.54 e Gct = 0.46}
-\label{fig:gcgctExemplo}
-\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Os Sistemas Inteligentes estão cada vez mais presentes 
+em diversas aplicações modernas, 
+e segundo \citeauthor{JISF2011}(\citeyear{JISF2011}), 
+há um predomínio de Lógicas Não-Clássicas no suporte à tomada de decisão desses sistemas. 
+O sucesso na aplicação de técnicas como a LPA2v, 
+que é uma extensão da Lógica Paraconsistente Anotada, 
+se dá em grande medida pelo uso de 
+algorítmos baseados em estudos dos reticulados representativos e 
+efetiva tradução matemática 
+gerando um modelo eficiente aplicado em situações reais.
+
+Assumindo que a lógica filosófica trata da descrição formal da linguagem natural 
+e define a sua estrutura de declaração, então, 
+sendo encontrada a linguagem adequada 
+é possível traduzir o raciocínio formal em LPA, 
+modelando raciocínios com a possibilidade de 
+tratar contradições ou incoerências, 
+e trabalhar com situações reais, 
+da mesma forma que o Modelo Clássico, 
+que aplica regras computacionais, 
+a LPA2v possui um conjunto de axiomas e regras de inferência 
+que possibilitam um raciocínio válido em situações reais.
+
+\subsubsection{Robótica}
+
+Os algorítmos baseados no estudo do Reticulado Representativo gera 
+Estados Lógicos Paraconsistentes através da 
+descrição do algorítmo Para-Analisador da LPA2v, 
+possibilitando que o sistema receba informação 
+através dos graus de evidência ($\mu, \lambda$), 
+processe os graus de certeza e contradição ($G_c$ e $G_{ct}$) e 
+chegue a uma conclusão, de alta contradição e busque por mais dados ou 
+um alto grau de certeza, que de um modo geral, implica em tomar uma ação. 
+
+Os Graus de Certeza e Contradição podem gerar um Grau de Certeza Real, 
+que pode servir de entrada para outra célula ou 
+Nó de Análise Paraconsistente (NAP), 
+possibilitando uma rede de análises para a tomada de decisão,
+como apresentado pelo Professor Dr. João Inácio da Silva Filho 
+com a construção do Robô Emmy, 
+desenvolvendo e aplicando tais técnicas aplicadas ao sistema de movimentação.
+
+\subsubsection{Engenharia de Produção}
+
+A LPA2v pode ser aplicada em diversas áreas 
+sendo um outro exemplo a sua aplicação na 
+área de Eng. de Produção, 
+como é mostrado no artigo de 
+\citeauthor{FabioIsraelJair}(\citeyear{FabioIsraelJair}), 
+que mostram um estudo para avaliação do projeto de uma fábrica, 
+como são selecionadas as variáveis relevantes, ou fatores, como são chamados,
+níveis de exigência para tomada de decisão, 
+atribuição de pesos aos fatores de decisão, 
+para obtenção dos graus de crença e descrença. 
+Construção de uma base de dados, sua pesquisa e obtenção dos resultados.
+Análise dos resultados e fidedignidade utilizando um 
+Método de Análise pelo Baricentro.
+
+\subsubsection{Logística}
+
+No segmento logístico pode-se citar a dissertação do 
+Profº Me. Vander Célio Nunes (\cite{Vander}), 
+que aplicou a LPA2v ao processo de paletização 
+através da medição de peças e do tratamento de incertezas 
+relacionadas a possibilidade de seu depósito ou encaixe na pilha de palets, 
+levando à otimização de cargas armazenadas em um determinado espaço. 
+O seu trabalho, utilizando uma célula de manufatura 
+com um braço robótico industrial, 
+permite a extrapolação da sua aplicação para portos e armazens de containers.
+
+
+\subsubsection{Sistema de Controle Híbrido}
+
+No segmento de controle, a LPA2v é utilizada em conjunto com um 
+sistema Proporcional-Integral - PI de modo que 
+as ações convencionais são executadas pelo bloco PI, 
+mas são estruturadas utilizando a LPA2v no 
+tratamento dos sinais externos. 
+A implementação é feita por 
+\citeauthor{Marcelo}(\citeyear{Marcelo}) 
+em uma planta de controle de nível e um
+controlador lógico programável. 
+O sistema Híbrido é posto em operação e 
+comparado com técnicas consagradas como o 
+controle puramente PI, ajustado com o
+método de Ziegler-Nichols e com o 
+método interno do controlador. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
