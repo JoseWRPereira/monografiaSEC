@@ -15,6 +15,7 @@
 \usepackage{mathrsfs}
 \everymath{\displaystyle}
 \usepackage[alf]{abntex2cite}
+%\usepackage[alf,abnt-full-initials=yes]{abntex2cite}
 %\usepackage{natbib}
 \usepackage{url}
 \usepackage{emptypage}
@@ -51,17 +52,18 @@
 \cidade{São Paulo}
 \ano{2017}
 \npaginas{\pageref{LastPage}}
-\CDU{xxx.yy}
-\areas{	1.Técnicas de Controle 
-	2.Lógica Paraconsistente
-	3.Controle PID Digital}
+\CDU{003.3}
+\areas{	1.Controle Clássico. 
+	2.Controle Não-Convencional. 
+	3.Lógica Paraconsistente.
+	4.Paracontrol.}
 \examinadorum{ Marcos Antônio Felizola}
 \texaminadorum{Profº Me.}
 \examinadordois{ José Gil de Oliveira}
 \texaminadordois{Profº Me.}
-\data{dd/mm/aaaa}
-\palavraschave{Controle Não Convencional; Lógica Paraconsistente; Paracontrol; Controle Clássico;  }
-\keywords{ Unconventional control; Paraconsistent logic; Paracontrol; Classic Controller; }
+\data{03/10/2017}
+\palavraschave{Controle Clássico; Controle Não-Convencional; Lógica Paraconsistente; Paracontrol; }
+\keywords{ Classic Controller; Unconventional control; Paraconsistent logic; Paracontrol; }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,24 +106,32 @@
 \pagestyle{myheadings}
 %\pagestyle{fancy}
 
+
+
+
 %\fancyhf{}
 %\lhead{\pageref{LastPage}}
 %\rhead{\thepage}
 
-\setcounter{page}{14}
-\chapter[Introdução]{1. Introdução}
+\setcounter{page}{17}
+\chapter[Introdução]{\Large 1. Introdução}
+\vspace{-1cm}
 \input{cap1-intro}
 
-\chapter[Sistema eletrônico]{2. Sistema eletrônico}
+\chapter[Sistema eletrônico]{\Large 2. Sistema eletrônico}
+\vspace{-1cm}
 \input{cap2-sistEletronico}
 
-\chapter[Controle de Sistema]{3. Controle de Sistemas}
+\chapter[Controle de Sistema]{\Large 3. Controle de Sistemas}
+\vspace{-1cm}
 \input{cap3-controle}
 
-\chapter[Apresentação e discussão dos resultado]{4. Apresentação e discussão dos resultados}
+\chapter[Apresentação e discussão dos resultado]{\Large 4. Apresentação e discussão dos resultados}
+\vspace{-1cm}
 \input{cap4-desen}
 
-\chapter[Considerações finais - Conclusão]{5. Considerações Finais - Conclusão}
+\chapter[Considerações finais - Conclusão]{\Large 5. Considerações Finais - Conclusão}
+\vspace{-1cm}
 \input{cap5-conclusao}
 
 
@@ -131,7 +141,8 @@
 %\bibliographystyle{abnt-alf}
 %\bibliography{bibliografia.bib}
 
-\bibliographystyle{abnt-num}
+
+\bibliographystyle{abnt-alf}
 \bibliography{bibliografia}
 
 
